@@ -1,0 +1,39 @@
+.sidebar{
+    width:var(--aside-width);
+    height:420px;
+    border-radius:40px;
+    background:var(--surface);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+    align-items:center;
+    box-shadow:var(--shadow-blue);
+}
+
+button{
+    width:55px;
+    height:55px;
+    border:none;
+    border-radius:50%;
+    background:transparent;
+    color:var(--text-secondary);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:var(--transition);
+}
+
+button:hover{
+    background:rgba(59,130,246,.12);
+    color:white;
+}
+
+button.active{
+    background:var(--primary);
+    color:white;
+    box-shadow:0 0 20px rgba(59,130,246,.6);
+}
+
+.material-icons{
+    font-size:26px;
+}

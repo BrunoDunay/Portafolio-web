@@ -1,1 +1,94 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+/*VARIABLES*/
+
+:root {
+
+  /* Fonts */
+  --font-family: 'Manrope', sans-serif;
+
+  /* Backgrounds */
+  --background: #0B1220;
+  --surface: #111827;
+  --surface-light: #1B2435;
+
+  /* Primary */
+  --primary: #3B82F6;
+  --primary-hover: #2563EB;
+  --primary-light: #60A5FA;
+
+  /* Accent */
+  --accent: #38BDF8;
+
+  /* Text */
+  --text-primary: #FFFFFF;
+  --text-secondary: #9CA3AF;
+  --text-muted: #6B7280;
+
+  /* Border */
+  --border-color: rgba(255,255,255,.08);
+
+  /* Shadows */
+  --shadow-blue: 0 0 30px rgba(59, 131, 246, 0.651);
+  --shadow-card: 0 15px 35px rgba(0,0,0,.35);
+
+  /* Radius */
+  --radius-xl: 32px;
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+
+  /* Layout */
+  --aside-width: 90px;
+  --layout-padding: 20px 80px;
+  --content-padding: 0px 60px;
+  --max-width: 1400px;
+
+  /* Animation */
+  --transition: .3s ease;
+}
+
+/*RESET*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+
+    width:100%;
+    height:100%;
+
+}
+
+body{
+
+    font-family:var(--font-family);
+    background:var(--background);
+    color:var(--text-primary);
+    overflow:hidden;
+
+}
+
+button{
+
+    font-family:inherit;
+    cursor:pointer;
+
+}
+
+a{
+
+    color:inherit;
+    text-decoration:none;
+
+}
+
+img{
+
+    display:block;
+    max-width:100%;
+
+}

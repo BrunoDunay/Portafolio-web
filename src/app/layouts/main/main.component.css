@@ -1,0 +1,16 @@
+.layout{
+    width:100vw;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    padding:var(--layout-padding);
+    gap:30px;
+}
+
+.content{
+    flex:1;
+    height:100%;
+    padding:var(--content-padding);
+    overflow:hidden;
+    position:relative;
+}
