@@ -100,9 +100,22 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
     cover: "assets/projects/funko/cover.webp",
     logo: "/projects/logos/FUNKOTEKA.png",
     gallery: [
-      "assets/projects/funko/1.webp",
-      "assets/projects/funko/2.webp",
-      "assets/projects/funko/3.webp"
+      "projects/mockups/ecomerce/ss1.png",
+      "projects/mockups/ecomerce/ss2.png",
+      "projects/mockups/ecomerce/ss3.png",
+      "projects/mockups/ecomerce/ss4.png",
+      "projects/mockups/ecomerce/ss5.png",
+      "projects/mockups/ecomerce/ss6.png",
+      "projects/mockups/ecomerce/ss7.png",
+      "projects/mockups/ecomerce/ss8.png",
+      "projects/mockups/ecomerce/ss9.png",
+      "projects/mockups/ecomerce/ss10.png",
+      "projects/mockups/ecomerce/ss11.png",
+      "projects/mockups/ecomerce/ss12.png",
+      "projects/mockups/ecomerce/ss13.png",
+      "projects/mockups/ecomerce/ss14.png",
+      "projects/mockups/ecomerce/ss15.png",
+      "projects/mockups/ecomerce/ss16.png"
     ],
     brand: {
       primary: "#6A0DAD",
