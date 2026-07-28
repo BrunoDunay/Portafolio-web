@@ -1,5 +1,26 @@
-<div class="page">
-
-    <h1>Projects</h1>
-
-</div>
+<section class="projects">
+    <div class="header">
+        <h1>
+            My <span>Projects</span>
+        </h1>
+    </div>
+    <div class="filter">
+        <button
+            [class.active]="selectedCategory()==='development'"
+            (click)="showDevelopment()">
+            Development
+        </button>
+        <button
+            [class.active]="selectedCategory()==='design'"
+            (click)="showDesign()">
+            Design
+        </button>
+    </div>
+    <div class="projects-grid">
+        @for(project of projects();track project.id){
+            <app-project-card
+                [project]="project">
+            </app-project-card>
+        }
+    </div>
+</section>

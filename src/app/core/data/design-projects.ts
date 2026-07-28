@@ -1,0 +1,179 @@
+import { DesignProject } from "../interfaces/design-project";
+
+export const DESIGN_PROJECTS: DesignProject[] = [
+  {
+    id: "fitness",
+    slug: "fitness-by-evidence",
+    title: "Fitness by Evidence",
+    category: "Brand Identity",
+    shortDescription:
+      "Modern brand identity for a fitness company.",
+    objective:
+      "Create a recognizable fitness brand.",
+    deliverables: [
+      "Logo Design",
+      "Color Palette"
+    ],
+    tools: [
+      "Photoshop",
+      "Illustrator"
+    ],
+    cover: "assets/design/fitness/cover.webp",
+    logo: "assets/design/fitness/logo.webp",
+    gallery: [
+      "assets/design/fitness/1.webp",
+      "assets/design/fitness/2.webp"
+    ],
+    brand: {
+      primary: "#0b6e4f",
+      secondary: "#0e312e",
+      light: "#f4f7f5",
+      accent: "#617a7a",
+      dark: "#325c82"
+    }
+  },
+  {
+    id: "dalia",
+    slug: "dalia-diaz",
+    title: "Dalia Díaz",
+    category: "Brand Identity",
+    shortDescription:
+      "Complete visual identity for a personal brand.",
+    objective:
+      "Design a cohesive personal brand.",
+    deliverables: [
+      "Logo",
+      "Icons",
+      "Typography",
+      "Brand Colors"
+    ],
+    tools: [
+      "Photoshop",
+      "Illustrator",
+      "Canva"
+    ],
+    cover: "assets/design/dalia/cover.webp",
+    logo: "/projects/logos/DaliaDiaz.png",
+    gallery: [
+      "/projects/mockups/dalia_2.jpg",
+      "/projects/mockups/dalia_1.png",
+      "/projects/mockups/dalia_3.jpg",
+      "/projects/mockups/dalia_4.jpg",
+      "/projects/mockups/dalia_5.jpg"
+    ],
+    brand: {
+      primary: "#edadc7",
+      secondary: "#315d81",
+      light: "#fafffd",
+      accent: "#1b2945",
+      dark: "#d8e4ff"
+    }
+  },
+  {
+    id: "banished",
+    slug: "the-banished",
+    title: "The Banished",
+    category: "Esports Branding",
+    shortDescription:
+      "Visual identity for an esports team.",
+    objective:
+      "Build a strong esports brand.",
+    deliverables: [
+      "Logo",
+      "Jersey Mockups",
+      "Brand Colors"
+    ],
+    tools: [
+      "Illustrator",
+      "Photoshop",
+      "Canva"
+    ],
+    cover: "assets/design/banished/cover.webp",
+    logo: "/projects/logos/TheBanished.png",
+    gallery: [
+      "assets/design/banished/1.webp",
+      "assets/design/banished/2.webp"
+    ],
+    brand: {
+      primary: "#6b207a",
+      secondary: "#452d4a",
+      light: "#f4f7f5",
+      accent: "#a9a9aa",
+      dark: "#020202"
+    }
+  },
+  {
+    id: "reyes",
+    slug: "reyes-transport",
+    title: "Reyes Transport",
+    category: "Marketing Design",
+    shortDescription:
+      "Marketing assets for print and digital media.",
+    objective:
+      "Promote transportation services.",
+    deliverables: [
+      "Flyers",
+      "Stories",
+      "Badges"
+    ],
+    tools: [
+      "Photoshop",
+      "Illustrator"
+    ],
+    cover: "assets/design/reyes/cover.webp",
+    logo: "/projects/logos/Logo reyes negro.png",
+    gallery: [
+      "/projects/mockups/reyes_10.jpeg",
+      "/projects/mockups/reyes_1.jpeg",
+      "/projects/mockups/reyes_7.jpeg",
+      "/projects/mockups/reyes_8.jpeg",
+      "/projects/mockups/reyes_9.jpeg",
+      "/projects/mockups/reyes_11.jpeg",
+      "/projects/mockups/reyes_2.jpeg",
+      "/projects/mockups/reyes_3.jpeg",
+      "/projects/mockups/reyes_4.jpeg",
+      "/projects/mockups/reyes_5.jpeg",
+      "/projects/mockups/reyes_6.jpeg"
+    ],
+    brand: {
+      primary: "#ec0404",
+      secondary: "#050406",
+      light: "#ffffff",
+      accent: "#919191",
+      dark: "#802420"
+    }
+  },
+  {
+    id: "uia-brand",
+    slug: "universidad-internacional-brand",
+    title: "Universidad Internacional",
+    category: "Marketing Design",
+    shortDescription:
+      "Institutional graphics for digital communication.",
+    objective:
+      "Ensure a consistent visual identity.",
+    deliverables: [
+      "Social Media",
+      "Presentations",
+      "Logo Variations"
+    ],
+    tools: [
+      "Photoshop",
+      "Illustrator",
+      "Canva"
+    ],
+    cover: "assets/design/uia/cover.webp",
+    logo: "/projects/logos/Logo UI.jpg",
+    gallery: [
+      "assets/design/uia/1.webp",
+      "assets/design/uia/2.webp"
+    ],
+    brand: {
+      primary: "#aa882c",
+      secondary: "#b1902f",
+      light: "#fbfbfb",
+      accent: "#2f2c58",
+      dark: "#17142c"
+    }
+  }
+];

@@ -1,0 +1,25 @@
+<article class="card" [style.--project-color]="project().brand.primary" (click)="openProject()">
+    <div class="cover">
+        <img
+            [src]="project().logo"
+            [alt]="project().title">
+    </div>
+
+    <div class="content">
+        <h3>
+            {{project().title}}
+        </h3>
+
+        <p>
+            {{project().shortDescription}}
+        </p>
+
+        <div class="tags">
+            @for(tag of tags();track tag){
+                <span>
+                    {{tag}}
+                </span>
+            }
+        </div>
+    </div>
+</article>

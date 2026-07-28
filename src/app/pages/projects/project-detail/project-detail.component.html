@@ -1,0 +1,142 @@
+<section
+  class="hero"
+  [style.--primary]="primaryColor"
+  [style.--secondary]="secondaryColor"
+>
+  <div class="background"></div>
+  <button class="back-button" (click)="goBack()">← Back to Projects</button>
+  <div class="hero-content">
+    <div class="left">
+      <span class="project-type">
+        {{ projectType }}
+      </span>
+      <h1>
+        {{ title }}
+      </h1>
+      <p class="description">
+        {{ description }}
+      </p>
+      <div class="project-info">
+        <div class="details-column">
+          @if (developmentProject; as p) {
+            <div class="detail-card">
+              <h2>Problem</h2>
+              <p>
+                {{ p.problem }}
+              </p>
+            </div>
+            <div class="detail-card">
+              <h2>Solution</h2>
+              <p>
+                {{ p.solution }}
+              </p>
+            </div>
+          }
+          @if (designProject; as p) {
+            <div class="detail-card">
+              <h2>Objective</h2>
+              <p>
+                {{ p.objective }}
+              </p>
+            </div>
+            <div class="detail-card">
+              <h2>Deliverables</h2>
+              <ul class="deliverables-list">
+                @for (item of p.deliverables; track item) {
+                  <li>
+                    {{ item }}
+                  </li>
+                }
+              </ul>
+            </div>
+          }
+        </div>
+        <div class="tools-card">
+          <div class="tools-header">
+            <h2>
+              {{ developmentProject ? "Technologies" : "Tools" }}
+            </h2>
+          </div>
+
+          <ul class="tools-list">
+            @for (skill of skills; track skill) {
+              <li>
+                <span></span>
+                {{ skill }}
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
+      <div class="actions">
+        @if (hasWebsite) {
+          <a class="btn primary" [href]="website" target="_blank">
+            Visit Website
+          </a>
+        }
+        @if (hasGithub) {
+          <a class="btn secondary" [href]="github" target="_blank">
+            View GitHub
+          </a>
+        }
+      </div>
+    </div>
+    <div class="right">
+      <div class="gallery-card">
+        <div class="gallery-image">
+          <img
+            [src]="gallery[selectedImage]"
+            [alt]="title"
+            (click)="openImage()"
+          />
+        </div>
+        <div class="gallery-logo">
+          <img [src]="logo" [alt]="title" />
+        </div>
+        <div class="gallery-body">
+          <div class="gallery-controls">
+            <button class="gallery-arrow" (click)="previousImage()">←</button>
+
+            <div class="gallery-dots">
+              @for (image of gallery; track image; let i = $index) {
+                <span
+                  [class.active]="i === selectedImage"
+                  (click)="selectImage(i)"
+                >
+                </span>
+              }
+            </div>
+
+            <button class="gallery-arrow" (click)="nextImage()">→</button>
+          </div>
+
+          <div class="brand-palette">
+            @for (color of brandColors; track color) {
+              <div
+                class="palette-color"
+                [style.background]="color"
+                (mouseenter)="activeColor = color"
+                (mouseleave)="activeColor = null"
+              >
+                @if (activeColor === color) {
+                  <span>
+                    {{ color }}
+                  </span>
+                }
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  @if (showImage) {
+    <div class="image-modal" (click)="closeImage()">
+      <img
+        [src]="gallery[selectedImage]"
+        [alt]="title"
+        (click)="$event.stopPropagation()"
+      />
+    </div>
+  }
+</section>

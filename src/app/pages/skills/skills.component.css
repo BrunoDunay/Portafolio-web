@@ -36,7 +36,8 @@
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:25px;
-    min-width: 50px;
+    min-width:50px;
+    justify-items:center;
 }
 
 .skill-pill{
@@ -72,8 +73,8 @@
 }
 
 .icon-container img{
-    width:27px;
-    height:27px;
+    width:30px;
+    height:30px;
     object-fit:contain;
     transition:transform .3s ease;
 }
@@ -91,10 +92,26 @@
 }
 
 .skill-pill:hover{
-    width:max-content;
+    width:140px;
     border-color:transparent;
     transform:translateY(-5px);
     box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+.postgresql:hover{
+    width: 150px;
+}
+.creative-cloud:hover{
+    width: 170px;
+}
+.after-effects:hover{
+    width:150px;
+}
+.premiere:hover{
+    width:155px;
+}
+.canva:hover{
+    width: 120px;
 }
 
 .skill-pill:hover .icon-container{
@@ -104,10 +121,8 @@
 }
 
 .skill-pill:hover .icon-container img{
-    transform:scale(0.75);
+    transform:scale(.68);
 }
-
-
 
 .skill-pill:hover span{
     opacity:1;
@@ -117,9 +132,9 @@
 
 .card{
     border-radius:var(--radius-lg);
-    padding: 35px;
+    padding:35px;
     transition:var(--transition);
-    min-width: 380px;
+    min-width:0;
 }
 
 .card:hover{
@@ -158,172 +173,186 @@
     box-shadow:0 0 10px var(--accent);
 }
 
+/* ========================= */
+/* TABLET */
+/* ========================= */
+
+@media(max-width:1024px){
+
+    .header h1{
+        font-size:3rem;
+    }
+
+    .skills-container{
+        grid-template-columns:1fr;
+    }
+
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
 @media(max-width:768px){
 
-.skills-container{
-    grid-template-columns:1fr;
-}
+    .skills{
+        height:auto;
+        min-height:100%;
+        justify-content:flex-start;
+        padding:20px 0 40px;
+    }
 
+    .header{
+        max-width:100%;
+        margin-bottom:30px;
+        text-align:center;
+    }
 
-.skill-pill{
-    width:50px;
-    height:50px;
-}
+    .header h1{
+        font-size:2.4rem;
+        margin-bottom:16px;
+    }
+
+    .header p{
+        font-size:.95rem;
+        line-height:1.7;
+    }
+
+    .skills-container{
+        grid-template-columns:1fr;
+        gap:22px;
+    }
+
+    .card{
+        width:94%;
+        padding:24px;
+        margin:auto;
+    }
+
+    .card h2{
+        font-size:1.2rem;
+        text-align:center;
+        margin-bottom:22px;
+    }
+
+    .skills-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:20px 18px;
+        justify-items:center;
+    }
+
+    .skill-pill{
+        width:50px;
+        height:50px;
+    }
+
+    .skill-pill:hover{
+        width:140px;
+    }
+
+    /* Excepciones móviles */
+    .postgresql:hover{
+        width:155px;
+    }
+
+    .after-effects:hover{
+        width:160px;
+    }
+
+    .premiere:hover{
+        width:160px;
+    }
+
+    .creative-cloud:hover{
+        width:180px;
+    }
+
+    .canva:hover{
+        width:130px;
+    }
+
+    .icon-container{
+        width:34px;
+        height:34px;
+    }
+
+    .icon-container img{
+        width:30px;
+        height:30px;
+    }
+
+    .skill-pill span{
+        font-size:.85rem;
+    }
 
 }
 
 /* ===================================== COLORS ===========================================*/
 
 .angular:hover{
-    background:
-    linear-gradient(
-        135deg,
-        #dd0031,
-        #ff5a6f
-    );
+    background:linear-gradient(135deg,#dd0031,#ff5a6f);
 }
 
 .typescript:hover{
-    background:
-    linear-gradient(
-        135deg,
-        #3178c6,
-        #5ca8ff
-    );
+    background:linear-gradient(135deg,#3178c6,#5ca8ff);
 }
 
 .javascript:hover{
-    background:
-    linear-gradient(
-        135deg,
-        #f7df1e,
-        #ffe873
-    );
+    background:linear-gradient(135deg,#f7df1e,#ffe873);
 }
 
-
 .node:hover{
-    background:
-    linear-gradient(
-        135deg,
-        #339933,
-        #6cc24a
-    );
+    background:linear-gradient(135deg,#339933,#6cc24a);
 }
 
 .tailwind:hover{
-    background:
-    linear-gradient(
-        135deg,
-        #06b6d4,
-        #38d9f5
-    );
+    background:linear-gradient(135deg,#06b6d4,#38d9f5);
 }
 
 .bootstrap:hover{
-    background:
-    linear-gradient(
-        135deg,
-        #7952b3,
-        #a98eda
-    );
+    background:linear-gradient(135deg,#7952b3,#a98eda);
 }
 
 .postgresql:hover{
-    background:
-    linear-gradient(
-        135deg,
-        #336791,
-        #5b9bd5
-    );
+    background:linear-gradient(135deg,#336791,#5b9bd5);
 }
 
 .mongodb:hover{
-    background:
-    linear-gradient(
-        135deg,
-        #47a248,
-        #83d44a
-    );
+    background:linear-gradient(135deg,#47a248,#83d44a);
 }
 
 .github:hover{
-    background:
-    linear-gradient(
-        135deg,
-        #181717,
-        #444444
-    );
+    background:linear-gradient(135deg,#181717,#444444);
 }
 
 .photoshop:hover{
-    background:
-    linear-gradient(
-        135deg,
-        #31a8ff,
-        #78c8ff
-    );
+    background:linear-gradient(135deg,#31a8ff,#78c8ff);
 }
 
 .illustrator:hover{
-    background:
-    linear-gradient(
-        135deg,
-        #ff9a00,
-        #ffca66
-    );
+    background:linear-gradient(135deg,#ff9a00,#ffca66);
 }
 
 .after-effects:hover{
-    background:
-    linear-gradient(
-        135deg,
-        #9999ff,
-        #c5c5ff
-    );
+    background:linear-gradient(135deg,#9999ff,#c5c5ff);
 }
 
 .premiere:hover{
-    background:
-    linear-gradient(
-        135deg,
-        #9999ff,
-        #d1d1ff
-    );
+    background:linear-gradient(135deg,#9999ff,#d1d1ff);
 }
 
 .audition:hover{
-    background:
-    linear-gradient(
-        135deg,
-        #00e4a0,
-        #6fffe9
-    );
+    background:linear-gradient(135deg,#00e4a0,#6fffe9);
 }
 
 .lightroom:hover{
-    background:
-    linear-gradient(
-        135deg,
-        #31A8FF,
-        #2D3246
-    );
+    background:linear-gradient(135deg,#31A8FF,#2D3246);
 }
 
 .canva:hover{
-    background:
-    linear-gradient(
-        135deg,
-        #00c4cc,
-        #6ee7ff
-    );
+    background:linear-gradient(135deg,#00c4cc,#6ee7ff);
 }
 
 .creative-cloud:hover{
-    background:
-    linear-gradient(
-        135deg,
-        #da1f26,
-        #ff6b70
-    );
+    background:linear-gradient(135deg,#da1f26,#ff6b70);
 }

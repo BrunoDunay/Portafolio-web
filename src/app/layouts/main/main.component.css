@@ -5,12 +5,52 @@
     align-items:center;
     padding:var(--layout-padding);
     gap:30px;
+    overflow:hidden;
 }
 
 .content{
     flex:1;
     height:100%;
     padding:var(--content-padding);
-    overflow:hidden;
     position:relative;
+    overflow:hidden;
+}
+
+/* ========================= */
+/* TABLET */
+/* ========================= */
+
+@media (max-width:1024px){
+
+    .layout{
+        gap:20px;
+    }
+
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width:768px){
+
+    .layout{
+        flex-direction:column;
+        justify-content:flex-start;
+        align-items:center;
+        gap:20px;
+        padding:0 20px;
+        height:100dvh;
+        overflow:hidden;
+    }
+
+    .content{
+        width:100%;
+        flex:1;
+        height:auto;
+        padding:0;
+        overflow-y:auto;
+        overflow-x:hidden;
+    }
+
 }

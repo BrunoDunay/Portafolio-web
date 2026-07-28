@@ -8,7 +8,7 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'main',
+        redirectTo: 'home',
         pathMatch: 'full',
       },
       {
@@ -37,6 +37,13 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./pages/projects/projects.component').then(
             (c) => c.ProjectsComponent
+          ),
+      },
+      {
+        path: 'projects/:slug',
+        loadComponent: () =>
+          import('./pages/projects/project-detail/project-detail.component').then(
+            (c) => c.ProjectComponent
           ),
       },
       {
