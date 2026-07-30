@@ -19,10 +19,14 @@ export const DESIGN_PROJECTS: DesignProject[] = [
       "Illustrator"
     ],
     cover: "assets/design/fitness/cover.webp",
-    logo: "assets/design/fitness/logo.webp",
+    logo: "/projects/logos/Fitness.png",
     gallery: [
-      "assets/design/fitness/1.webp",
-      "assets/design/fitness/2.webp"
+      "/projects/mockups/fbe/fbe1.png",
+      "/projects/mockups/fbe/fbe2.png",
+      "/projects/mockups/fbe/fbe3.png",
+      "/projects/mockups/fbe/fbe4.png",
+      "/projects/mockups/fbe/fbe5.png",
+      "/projects/mockups/fbe/fbe6.png",
     ],
     brand: {
       primary: "#0b6e4f",
@@ -55,11 +59,11 @@ export const DESIGN_PROJECTS: DesignProject[] = [
     cover: "assets/design/dalia/cover.webp",
     logo: "/projects/logos/DaliaDiaz.png",
     gallery: [
-      "/projects/mockups/dalia_2.jpg",
-      "/projects/mockups/dalia_1.png",
-      "/projects/mockups/dalia_3.jpg",
-      "/projects/mockups/dalia_4.jpg",
-      "/projects/mockups/dalia_5.jpg"
+      "/projects/mockups/dalia/dalia_2.jpg",
+      "/projects/mockups/dalia/dalia_1.png",
+      "/projects/mockups/dalia/dalia_3.jpg",
+      "/projects/mockups/dalia/dalia_4.jpg",
+      "/projects/mockups/dalia/dalia_5.jpg"
     ],
     brand: {
       primary: "#edadc7",
@@ -91,8 +95,13 @@ export const DESIGN_PROJECTS: DesignProject[] = [
     cover: "assets/design/banished/cover.webp",
     logo: "/projects/logos/TheBanished.png",
     gallery: [
-      "assets/design/banished/1.webp",
-      "assets/design/banished/2.webp"
+      "/projects/mockups/banished/banished1.png",
+      "/projects/mockups/banished/banished2.png",
+      "/projects/mockups/banished/banished3.png",
+      "/projects/mockups/banished/banished4.png",
+      "/projects/mockups/banished/banished5.png",
+      "/projects/mockups/banished/banished6.png",
+      "/projects/mockups/banished/banished7.png",
     ],
     brand: {
       primary: "#6b207a",
@@ -123,17 +132,17 @@ export const DESIGN_PROJECTS: DesignProject[] = [
     cover: "assets/design/reyes/cover.webp",
     logo: "/projects/logos/Logo reyes negro.png",
     gallery: [
-      "/projects/mockups/reyes_10.jpeg",
-      "/projects/mockups/reyes_1.jpeg",
-      "/projects/mockups/reyes_7.jpeg",
-      "/projects/mockups/reyes_8.jpeg",
-      "/projects/mockups/reyes_9.jpeg",
-      "/projects/mockups/reyes_11.jpeg",
-      "/projects/mockups/reyes_2.jpeg",
-      "/projects/mockups/reyes_3.jpeg",
-      "/projects/mockups/reyes_4.jpeg",
-      "/projects/mockups/reyes_5.jpeg",
-      "/projects/mockups/reyes_6.jpeg"
+      "/projects/mockups/reyes/reyes_10.jpeg",
+      "/projects/mockups/reyes/reyes_1.jpeg",
+      "/projects/mockups/reyes/reyes_7.jpeg",
+      "/projects/mockups/reyes/reyes_8.jpeg",
+      "/projects/mockups/reyes/reyes_9.jpeg",
+      "/projects/mockups/reyes/reyes_11.jpeg",
+      "/projects/mockups/reyes/reyes_2.jpeg",
+      "/projects/mockups/reyes/reyes_3.jpeg",
+      "/projects/mockups/reyes/reyes_4.jpeg",
+      "/projects/mockups/reyes/reyes_5.jpeg",
+      "/projects/mockups/reyes/reyes_6.jpeg"
     ],
     brand: {
       primary: "#ec0404",
