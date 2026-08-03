@@ -38,7 +38,7 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
       accent: "#2f2c58",
       dark: "#17142c"
     },
-    website: "",
+    website: "https://www.iinternacional.edu.mx/",
     github: ""
   },
   {
@@ -125,6 +125,6 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
       dark: "#2b2b2b"
     },
     website: "",
-    github: ""
+    github: "https://github.com/BrunoDunay/Ecommerce-Proyecto-Final.git"
   }
 ];

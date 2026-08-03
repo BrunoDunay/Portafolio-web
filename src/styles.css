@@ -92,3 +92,35 @@ img{
     max-width:100%;
 
 }
+
+@keyframes old-page{
+
+    from{
+        opacity:1;
+        transform:translateX(0) scale(1);
+        filter:blur(0);
+    }
+
+    to{
+        opacity:0;
+        transform:translateX(-30px) scale(.985);
+        filter:blur(4px);
+    }
+
+}
+
+@keyframes new-page{
+
+    from{
+        opacity:0;
+        transform:translateX(30px) scale(1.015);
+        filter:blur(4px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateX(0) scale(1);
+        filter:blur(0);
+    }
+
+}
