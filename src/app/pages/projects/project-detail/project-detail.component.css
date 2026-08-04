@@ -59,7 +59,6 @@
 }
 
 .left h1{
-    margin-top:14px;
     font-size:2.3rem;
     line-height:1.1;
     max-width:650px;
@@ -463,6 +462,44 @@
     font-weight:700;
     white-space:nowrap;
     box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+.project-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+}
+
+.project-links{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.icon-button{
+    width:30px;
+    height:30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    color:var(--text-secondary);
+    text-decoration:none;
+    transition:.3s;
+}
+
+.icon-button:hover{
+    background:var(--primary);
+    color:white;
+    transform:translateY(-2px);
+    box-shadow:0 0 20px color-mix(in srgb,var(--primary) 50%,transparent);
+}
+
+.icon-button .material-icons{
+    font-size:20px;
 }
 
 

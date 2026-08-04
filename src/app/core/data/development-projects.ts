@@ -77,7 +77,7 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
       dark: "#354044"
     },
     website: "",
-    github: ""
+    github: "https://github.com/BrunoDunay/cafecito-pos.git"
   },
   {
     id: "funko",

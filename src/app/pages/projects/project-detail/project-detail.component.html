@@ -7,9 +7,25 @@
   <button class="back-button" (click)="goBack()">← Back to Projects</button>
   <div class="hero-content">
     <div class="left">
-      <span class="project-type">
-        {{ projectType }}
-      </span>
+      <div class="project-header">
+  <span class="project-type">
+    {{ projectType }}
+  </span>
+
+  <div class="project-links">
+    @if (hasWebsite) {
+      <a class="icon-button" [href]="website" target="_blank" aria-label="Visit Website">
+        <span class="material-icons">language</span>
+      </a>
+    }
+
+    @if (hasGithub) {
+      <a class="icon-button" [href]="github" target="_blank" aria-label="View GitHub">
+        <span class="material-icons">code</span>
+      </a>
+    }
+  </div>
+</div>
       <h1>
         {{ title }}
       </h1>
@@ -67,18 +83,6 @@
             }
           </ul>
         </div>
-      </div>
-      <div class="actions">
-        @if (hasWebsite) {
-          <a class="btn primary" [href]="website" target="_blank">
-            Visit Website
-          </a>
-        }
-        @if (hasGithub) {
-          <a class="btn secondary" [href]="github" target="_blank">
-            View GitHub
-          </a>
-        }
       </div>
     </div>
     <div class="right">
