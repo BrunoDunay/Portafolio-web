@@ -1,17 +1,13 @@
-:host{
-    display:block;
-}
 
 .hero{
     --primary:#0099ff;
     --secondary:#00d4ff;
     position:relative;
     overflow:hidden;
-    padding:20px 45px 0 45px;
+    padding:0 45px;
     border-radius:32px;
     background:var(--surface-light);
     isolation:isolate;
-    margin-top:10px;
 }
 
 .background{
@@ -28,7 +24,7 @@
 .hero-content{
     display:grid;
     grid-template-columns:1.1fr .9fr;
-    gap:60px;
+    gap:40px;
 }
 
 .left{
@@ -42,7 +38,8 @@
     color:var(--text-secondary);
     font-size:.7rem;
     cursor:pointer;
-    margin-bottom:15px;
+    margin-bottom:5px;
+    margin-top: 10px;
     transition:.3s;
 }
 
@@ -92,6 +89,7 @@
 
 
 .detail-card{
+    min-width: 260px;
     background:rgba(255,255,255,.05);
     border:1px solid rgba(255,255,255,.08);
     border-radius:22px;
@@ -165,6 +163,7 @@
 
 .tools-card{
     width:100%;
+    max-width: 150px;
     background:rgba(255,255,255,.05);
     border:1px solid rgba(255,255,255,.08);
     border-radius:22px;
