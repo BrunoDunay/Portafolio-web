@@ -42,6 +42,81 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
     github: ""
   },
   {
+    id: "armando-ovalle",
+    slug: "armando-ovalle-wedding-studio",
+    title: "Armando Ovalle Wedding Studio",
+    type: "Full Stack Website",
+    shortDescription:
+      "Wedding photographer's website with an admin panel for galleries, packages and bookings.",
+    problem:
+      "The photographer needed a site to showcase his work and let clients check date availability, with content he could update without a developer.",
+    solution:
+      "Built a server-rendered Angular site and admin panel on top of an Express REST API and PostgreSQL, with Cloudinary image hosting and an availability calendar.",
+    technologies: [
+      "Angular",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Cloudinary"
+    ],
+    cover: "assets/projects/armando-ovalle/cover.webp",
+    logo: "/projects/logos/ArmandoOvalle.png",
+    gallery: [
+      "projects/mockups/armando-ovalle/ss1.png",
+      "projects/mockups/armando-ovalle/ss2.png",
+      "projects/mockups/armando-ovalle/ss3.png",
+      "projects/mockups/armando-ovalle/ss4.png",
+      "projects/mockups/armando-ovalle/ss5.png"
+    ],
+    brand: {
+      primary: "#7d5f4b",
+      secondary: "#d9b994",
+      light: "#faf7f3",
+      accent: "#f1ebe4",
+      dark: "#2a2421"
+    },
+    website: "",
+    github: "https://github.com/BrunoDunay/Fotografia-pagina-web.git"
+  },
+  {
+    id: "pokedex",
+    slug: "pokedex",
+    title: "Pokédex Explorer",
+    type: "Frontend Application",
+    shortDescription:
+      "Pokédex with type filters, pagination and detailed stats for every Pokémon.",
+    problem:
+      "Browsing more than 1,300 Pokémon from a public API needs fast navigation and a clear way to read each one's data.",
+    solution:
+      "Built an Angular single-page app on top of PokéAPI with URL-driven filters and pagination, response caching, light and dark themes and animated transitions between list and detail.",
+    technologies: [
+      "Angular",
+      "TypeScript",
+      "RxJS",
+      "CSS",
+      "PokéAPI"
+    ],
+    cover: "assets/projects/pokedex/cover.webp",
+    logo: "/projects/logos/Pokedex.png",
+    gallery: [
+      "projects/mockups/pokedex/ss1.png",
+      "projects/mockups/pokedex/ss2.png",
+      "projects/mockups/pokedex/ss3.png",
+      "projects/mockups/pokedex/ss4.png",
+      "projects/mockups/pokedex/ss5.png"
+    ],
+    brand: {
+      primary: "#ee1515",
+      secondary: "#f7d02c",
+      light: "#f5f5f7",
+      accent: "#6390f0",
+      dark: "#1d1d1f"
+    },
+    website: "https://neurobit-pokedex.vercel.app/",
+    github: "https://github.com/BrunoDunay/neurobit-pokedex.git"
+  },
+  {
     id: "cafecito",
     slug: "cafecito-feliz",
     title: "Cafecito Feliz POS System",
@@ -126,42 +201,5 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
     },
     website: "",
     github: "https://github.com/BrunoDunay/Ecommerce-Proyecto-Final.git"
-  },
-  {
-    id: "pokedex",
-    slug: "pokedex",
-    title: "Pokédex Explorer",
-    type: "Frontend Application",
-    shortDescription:
-      "Pokédex with type filters, pagination and detailed stats for every Pokémon.",
-    problem:
-      "Browsing more than 1,300 Pokémon from a public API needs fast navigation and a clear way to read each one's data.",
-    solution:
-      "Built an Angular single-page app on top of PokéAPI with URL-driven filters and pagination, response caching, light and dark themes and animated transitions between list and detail.",
-    technologies: [
-      "Angular",
-      "TypeScript",
-      "RxJS",
-      "CSS",
-      "PokéAPI"
-    ],
-    cover: "assets/projects/pokedex/cover.webp",
-    logo: "/projects/logos/Pokedex.png",
-    gallery: [
-      "projects/mockups/pokedex/ss1.png",
-      "projects/mockups/pokedex/ss2.png",
-      "projects/mockups/pokedex/ss3.png",
-      "projects/mockups/pokedex/ss4.png",
-      "projects/mockups/pokedex/ss5.png"
-    ],
-    brand: {
-      primary: "#ee1515",
-      secondary: "#f7d02c",
-      light: "#f5f5f7",
-      accent: "#6390f0",
-      dark: "#1d1d1f"
-    },
-    website: "https://neurobit-pokedex.vercel.app/",
-    github: "https://github.com/BrunoDunay/neurobit-pokedex.git"
   }
 ];
