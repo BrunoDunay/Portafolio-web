@@ -55,12 +55,14 @@
     font-weight:700;
     white-space:nowrap;
     isolation:isolate;
-    /* Closing is quicker than opening */
+    /* A gentle curve that eases in as well as out, so the pill glides open instead of snapping */
+    --pill-ease:cubic-bezier(.4, 0, .2, 1);
+    /* Closing is a little quicker than opening */
     transition:
-        grid-template-columns .22s var(--ease-out),
-        transform .22s var(--ease-out),
-        border-color .2s ease,
-        box-shadow .2s ease;
+        grid-template-columns .42s var(--pill-ease),
+        transform .42s var(--pill-ease),
+        border-color .3s ease,
+        box-shadow .35s ease;
 }
 
 /* The brand gradient fades in on its own layer (gradients can't be transitioned directly) */
@@ -72,7 +74,7 @@
     border-radius:inherit;
     background:linear-gradient(135deg, var(--from), var(--to));
     opacity:0;
-    transition:opacity .2s ease;
+    transition:opacity .35s ease;
 }
 
 .icon-container{
@@ -102,8 +104,8 @@
     opacity:0;
     transform:translateX(-8px);
     transition:
-        opacity .12s ease,
-        transform .22s var(--ease-out);
+        opacity .2s ease,
+        transform .42s var(--pill-ease);
 }
 
 @media (hover:hover) and (pointer:fine){
@@ -113,19 +115,20 @@
         transform:translateY(-3px);
         border-color:transparent;
         box-shadow:0 14px 28px -14px var(--from);
-        transition-duration:.4s, .4s, .2s, .3s;
+        transition-duration:.6s, .6s, .3s, .5s;
     }
 
     .skill-pill:hover::before{
         opacity:1;
+        transition-duration:.5s;
     }
 
     .skill-pill:hover .label span{
         opacity:1;
         transform:none;
         transition:
-            opacity .25s ease .06s,
-            transform .4s var(--ease-out);
+            opacity .4s ease .15s,
+            transform .6s var(--pill-ease);
     }
 
 }
