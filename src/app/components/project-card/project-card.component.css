@@ -1,29 +1,31 @@
+:host{
+    display:block;
+    min-width:0;
+}
+
 .card{
     display:flex;
     flex-direction:column;
+    height:100%;
+    overflow:hidden;
+    border-radius:20px;
     background:var(--surface-light);
     border:1px solid var(--border-color);
-    border-radius:18px;
-    overflow:hidden;
-    transition:.35s;
-    max-width: 400px;
-    position:relative;
-    border:1px solid var(--border-color);
-    border-radius:18px;
-    transition:.35s;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+    transition:
+        transform .25s var(--ease-out),
+        border-color .2s ease,
+        box-shadow .25s ease;
 }
 
-.card:hover{
-    border-color:var(--project-color);
-    box-shadow:
-        0 0 8px color-mix(in srgb, var(--project-color) 45%, transparent),
-        0 0 24px color-mix(in srgb, var(--project-color) 35%, transparent);
+.card:active{
+    transform:scale(.98);
+    transition-duration:.12s;
 }
 
 .cover{
-    position: relative;
-    height:130px;
-    display:flex;
+    position:relative;
+    height:150px;
     background:white;
     overflow:hidden;
 }
@@ -31,13 +33,8 @@
 .cover img{
     width:100%;
     height:100%;
-    transition:.45s;
-    object-fit: cover;
-    overflow: hidden;
-}
-
-.card:hover .cover img{
-    transform:scale(1.05);
+    object-fit:cover;
+    transition:transform .5s var(--ease-out);
 }
 
 .cover::after{
@@ -46,52 +43,119 @@
     inset:0;
     background:linear-gradient(
         to top,
-        rgba(0,0,0,.35),
-        transparent
+        rgba(11,18,32,.16),
+        transparent 55%
     );
+}
+
+.open{
+    position:absolute;
+    top:12px;
+    right:12px;
+    z-index:1;
+    display:grid;
+    place-items:center;
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    background:rgba(11,18,32,.82);
+    color:#fff;
+    font-size:18px;
+    opacity:0;
+    transform:translate(-4px, 4px);
+    transition:
+        opacity .2s ease,
+        transform .25s var(--ease-out);
 }
 
 .content{
     display:flex;
     flex-direction:column;
-    padding:18px;
-    gap:14px;
     flex:1;
+    padding:20px;
+}
+
+.badge{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:var(--text-secondary);
+    font-size:.6875rem;
+    font-weight:700;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+}
+
+.badge::before{
+    content:"";
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--project-color);
+    box-shadow:0 0 0 3px color-mix(in srgb, var(--project-color) 25%, transparent);
 }
 
 .content h3{
-    font-size:1.05rem;
-    line-height:1.35;
-    min-height: 45px;
+    margin-top:12px;
+    font-size:1.125rem;
+    font-weight:700;
+    line-height:1.3;
+    letter-spacing:-.01em;
+    text-wrap:balance;
 }
 
 .content p{
-    color:var(--text-secondary);
-    line-height:1.55;
-    font-size:.80rem;
     flex:1;
-    min-height: 40px;
+    margin-top:8px;
+    color:var(--text-secondary);
+    font-size:.875rem;
+    line-height:1.6;
 }
 
 .tags{
     display:flex;
     flex-wrap:wrap;
-    gap:8px;
+    gap:6px;
+    margin-top:18px;
 }
 
 .tags span{
-    padding:5px 10px;
+    padding:4px 10px;
     border-radius:999px;
     background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.08);
+    border:1px solid var(--border-color);
     color:var(--text-secondary);
-    font-size:.56rem;
-    transition:.3s;
+    font-size:.6875rem;
+    line-height:1.3;
 }
 
-.tags span:hover{
-    border-color:var(--primary);
-    color:white;
-    cursor: pointer;
+@media (hover:hover) and (pointer:fine){
+
+    .card:hover{
+        transform:translateY(-4px);
+        border-color:color-mix(in srgb, var(--project-color) 70%, transparent);
+        box-shadow:
+            inset 0 1px 0 rgba(255,255,255,.04),
+            0 22px 44px -22px color-mix(in srgb, var(--project-color) 80%, transparent);
+    }
+
+    .card:hover .cover img{
+        transform:scale(1.04);
+    }
+
+    .card:hover .open{
+        opacity:1;
+        transform:none;
+    }
+
 }
 
+@media (prefers-reduced-motion:reduce){
+
+    .card,
+    .cover img,
+    .open{
+        transform:none !important;
+    }
+
+}

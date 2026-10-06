@@ -1,35 +1,33 @@
+/* Soft light behind everything: gives the dark background depth without stealing focus */
+.ambient{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+    view-transition-name:ambient;
+    background:
+        radial-gradient(60rem 40rem at 88% -12%, rgba(59,130,246,.17), transparent 62%),
+        radial-gradient(48rem 34rem at -8% 108%, rgba(56,189,248,.10), transparent 62%);
+}
+
 .layout{
-    width:100vw;
-    max-width: 1400px;
-    height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content: start;
-    padding:var(--layout-padding);
-    gap:30px;
-    overflow:hidden;
+    display:grid;
+    grid-template-columns:auto minmax(0, 1fr);
+    gap:clamp(28px, 5vw, 72px);
+    max-width:var(--max-width);
+    min-height:100dvh;
+    margin-inline:auto;
+    padding-inline:var(--page-gutter);
 }
 
+/* The page scrolls; content that fits is centered, content that doesn't just grows */
 .content{
-    display: flex;
-    align-items: start;
-    justify-content: start;
-    height:100%;
-    max-height: 500px;
-    margin-top: 30px;
-    padding:var(--content-padding);
-}
-
-/* ========================= */
-/* TABLET */
-/* ========================= */
-
-@media (max-width:1024px){
-
-    .layout{
-        gap:20px;
-    }
-
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    min-width:0;
+    min-height:100dvh;
+    padding-block:clamp(40px, 8vh, 88px);
 }
 
 /* ========================= */
@@ -39,25 +37,13 @@
 @media (max-width:768px){
 
     .layout{
-        flex-direction:column;
-        justify-content:flex-start;
-        align-items:stretch;
-        gap:20px;
-        padding:0 20px;
-        height:100dvh;
-        overflow:hidden;
+        display:block;
     }
 
+    /* Room for the floating bottom bar and the home indicator */
     .content{
-        width:100%;
-        flex:1;
-        height:auto;
-        min-height:0;
-        max-height:none;
-        padding:0;
-        overflow-y:auto;
-        overflow-x:hidden;
-        align-items:stretch;
+        justify-content:flex-start;
+        padding-block:32px calc(112px + env(safe-area-inset-bottom, 0px));
     }
 
 }

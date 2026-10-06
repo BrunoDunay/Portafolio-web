@@ -1,24 +1,36 @@
 <section class="projects">
     <div class="header">
-        <h1>
+        <h1 class="page-title rise">
             My <span>Projects</span>
         </h1>
-    </div>
-    <div class="filter">
-        <button
-            [class.active]="selectedCategory()==='development'"
-            (click)="showDevelopment()">
-            Development
-        </button>
-        <button
-            [class.active]="selectedCategory()==='design'"
-            (click)="showDesign()">
-            Design
-        </button>
+        <div
+            class="filter rise"
+            style="--i:1"
+            role="group"
+            aria-label="Project category"
+            [attr.data-active]="selectedCategory()">
+            <span class="thumb" aria-hidden="true"></span>
+            <button
+                type="button"
+                [class.active]="selectedCategory()==='development'"
+                [attr.aria-pressed]="selectedCategory()==='development'"
+                (click)="showDevelopment()">
+                Development
+            </button>
+            <button
+                type="button"
+                [class.active]="selectedCategory()==='design'"
+                [attr.aria-pressed]="selectedCategory()==='design'"
+                (click)="showDesign()">
+                Design
+            </button>
+        </div>
     </div>
     <div class="projects-grid">
-        @for(project of projects();track project.id){
+        @for(project of projects();track project.id; let i = $index){
             <app-project-card
+                class="rise"
+                [style.--i]="i + 2"
                 [project]="project">
             </app-project-card>
         }

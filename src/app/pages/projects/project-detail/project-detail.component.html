@@ -4,35 +4,38 @@
   [style.--secondary]="secondaryColor"
 >
   <div class="background"></div>
-  <button class="back-button" (click)="goBack()">← Back to Projects</button>
+  <button type="button" class="back-button rise" (click)="goBack()">
+    <span class="material-icons" aria-hidden="true">arrow_back</span>
+    Back to Projects
+  </button>
   <div class="hero-content">
     <div class="left">
-      <div class="project-header">
-  <span class="project-type">
-    {{ projectType }}
-  </span>
+      <div class="project-header rise" style="--i:1">
+        <span class="project-type">
+          {{ projectType }}
+        </span>
 
-  <div class="project-links">
-    @if (hasWebsite) {
-      <a class="icon-button" [href]="website" target="_blank" aria-label="Visit Website">
-        <span class="material-icons">language</span>
-      </a>
-    }
+        <div class="project-links">
+          @if (hasWebsite) {
+            <a class="icon-button" [href]="website" target="_blank" rel="noopener" aria-label="Visit Website">
+              <span class="material-icons" aria-hidden="true">language</span>
+            </a>
+          }
 
-    @if (hasGithub) {
-      <a class="icon-button" [href]="github" target="_blank" aria-label="View GitHub">
-        <span class="material-icons">code</span>
-      </a>
-    }
-  </div>
-</div>
-      <h1>
+          @if (hasGithub) {
+            <a class="icon-button" [href]="github" target="_blank" rel="noopener" aria-label="View GitHub">
+              <span class="material-icons" aria-hidden="true">code</span>
+            </a>
+          }
+        </div>
+      </div>
+      <h1 class="rise" style="--i:2">
         {{ title }}
       </h1>
-      <p class="description">
+      <p class="description rise" style="--i:3">
         {{ description }}
       </p>
-      <div class="project-info">
+      <div class="project-info rise" style="--i:4">
         <div class="details-column">
           @if (developmentProject; as p) {
             <div class="detail-card">
@@ -68,11 +71,9 @@
           }
         </div>
         <div class="tools-card">
-          <div class="tools-header">
-            <h2>
-              {{ developmentProject ? "Technologies" : "Tools" }}
-            </h2>
-          </div>
+          <h2>
+            {{ developmentProject ? "Technologies" : "Tools" }}
+          </h2>
 
           <ul class="tools-list">
             @for (skill of skills; track skill) {
@@ -85,37 +86,42 @@
         </div>
       </div>
     </div>
-    <div class="right">
+    <div class="right rise" style="--i:2">
       <div class="gallery-card">
-        <div class="gallery-image">
+        <button type="button" class="gallery-image" (click)="openImage()" aria-label="Open image full size">
           <img
             [src]="gallery[selectedImage]"
             [alt]="title"
-            (click)="openImage()"
           />
-        </div>
+        </button>
         <div class="gallery-logo">
-          <img [src]="logo" [alt]="title" />
+          <img [src]="logo" alt="" />
         </div>
         <div class="gallery-body">
           <div class="gallery-controls">
-            <button class="gallery-arrow" (click)="previousImage()">←</button>
+            <button type="button" class="gallery-arrow" (click)="previousImage()" aria-label="Previous image">
+              <span class="material-icons" aria-hidden="true">arrow_back</span>
+            </button>
 
             <div class="gallery-dots">
               @for (image of gallery; track image; let i = $index) {
-                <span
+                <button
+                  type="button"
                   [class.active]="i === selectedImage"
+                  [attr.aria-label]="'Image ' + (i + 1)"
                   (click)="selectImage(i)"
                 >
-                </span>
+                </button>
               }
             </div>
 
-            <button class="gallery-arrow" (click)="nextImage()">→</button>
+            <button type="button" class="gallery-arrow" (click)="nextImage()" aria-label="Next image">
+              <span class="material-icons" aria-hidden="true">arrow_forward</span>
+            </button>
           </div>
 
           <div class="brand-palette">
-            @for (color of brandColors; track color) {
+            @for (color of brandColors; track $index) {
               <div
                 class="palette-color"
                 [style.background]="color"

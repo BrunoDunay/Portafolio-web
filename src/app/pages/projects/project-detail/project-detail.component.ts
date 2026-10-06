@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule, Location } from '@angular/common';
 
@@ -191,5 +191,10 @@ get developmentProject(): DevelopmentProject | null {
 closeImage(){
     this.showImage=false;
 }
+
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    this.closeImage();
+  }
 
 }
