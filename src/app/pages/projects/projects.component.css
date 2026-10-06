@@ -1,5 +1,13 @@
 :host{
-    display:block;
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+}
+
+.projects{
+    display:flex;
+    flex-direction:column;
+    min-height:0;
 }
 
 .header{
@@ -9,6 +17,7 @@
     justify-content:space-between;
     gap:20px 32px;
     margin-bottom:clamp(28px, 5vh, 44px);
+    flex-shrink:0;
 }
 
 /* Segmented control: one thumb slides under the two labels */
@@ -65,7 +74,7 @@
 
 }
 
-/* Every project is on the page: no inner scroll, no clipped rows */
+/* Whole cards, never clipped: the grid scrolls under the title when there are more rows */
 .projects-grid{
     display:grid;
     grid-template-columns:repeat(auto-fill, minmax(min(100%, 280px), 1fr));

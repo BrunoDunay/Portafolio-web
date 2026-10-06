@@ -1,11 +1,20 @@
 :host{
-    display:block;
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+}
+
+.skills{
+    display:flex;
+    flex-direction:column;
+    min-height:0;
 }
 
 .header{
     display:grid;
     gap:18px;
     margin-bottom:clamp(28px, 5vh, 44px);
+    flex-shrink:0;
 }
 
 .skills-container{
@@ -38,11 +47,10 @@
     height:50px;
 }
 
-/* The label column goes from 0fr to 1fr: the pill opens to the exact width of its name */
+/* The label animates from 0 to its measured width (--label), so the pill opens to exactly fit its name */
 .skill-pill{
     position:relative;
-    display:inline-grid;
-    grid-template-columns:auto 0fr;
+    display:inline-flex;
     align-items:center;
     flex-shrink:0;
     height:50px;
@@ -56,11 +64,10 @@
     white-space:nowrap;
     isolation:isolate;
     /* A gentle curve that eases in as well as out, so the pill glides open instead of snapping */
-    --pill-ease:cubic-bezier(.4, 0, .2, 1);
+    --pill-ease:cubic-bezier(.5, 0, .2, 1);
     /* Closing is a little quicker than opening */
     transition:
-        grid-template-columns .42s var(--pill-ease),
-        transform .42s var(--pill-ease),
+        transform .5s var(--pill-ease),
         border-color .3s ease,
         box-shadow .35s ease;
 }
@@ -94,28 +101,28 @@
 }
 
 .label{
-    min-width:0;
+    width:0;
     overflow:hidden;
+    transition:width .5s var(--pill-ease);
 }
 
 .label span{
-    display:block;
+    display:inline-block;
     padding:0 14px 0 10px;
     opacity:0;
     transform:translateX(-8px);
     transition:
         opacity .2s ease,
-        transform .42s var(--pill-ease);
+        transform .5s var(--pill-ease);
 }
 
 @media (hover:hover) and (pointer:fine){
 
     .skill-pill:hover{
-        grid-template-columns:auto 1fr;
         transform:translateY(-3px);
         border-color:transparent;
         box-shadow:0 14px 28px -14px var(--from);
-        transition-duration:.6s, .6s, .3s, .5s;
+        transition-duration:.7s, .35s, .6s;
     }
 
     .skill-pill:hover::before{
@@ -123,12 +130,17 @@
         transition-duration:.5s;
     }
 
+    .skill-pill:hover .label{
+        width:var(--label, auto);
+        transition-duration:.7s;
+    }
+
     .skill-pill:hover .label span{
         opacity:1;
         transform:none;
         transition:
-            opacity .4s ease .15s,
-            transform .6s var(--pill-ease);
+            opacity .45s ease .2s,
+            transform .7s var(--pill-ease);
     }
 
 }
@@ -147,10 +159,13 @@
     }
 
     .skill-pill{
-        grid-template-columns:auto 1fr;
         height:46px;
         padding:5px;
         color:var(--text-primary);
+    }
+
+    .label{
+        width:auto;
     }
 
     .label span{
@@ -183,6 +198,7 @@
 @media (prefers-reduced-motion:reduce){
 
     .skill-pill,
+    .label,
     .label span{
         transform:none !important;
         transition-duration:.01s !important;

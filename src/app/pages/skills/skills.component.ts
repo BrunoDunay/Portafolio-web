@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, afterNextRender, inject } from '@angular/core';
 
 // Text color for brand gradients too light to carry white text
 const DARK_INK = '#0B1220';
@@ -10,6 +10,24 @@ const DARK_INK = '#0B1220';
   styleUrl: './skills.component.css'
 })
 export class SkillsComponent {
+
+  private host = inject<ElementRef<HTMLElement>>(ElementRef);
+
+  constructor() {
+    // CSS can't transition to an automatic width, so each pill is told how wide its name is
+    afterNextRender(() => {
+      const measure = () => {
+        this.host.nativeElement.querySelectorAll<HTMLElement>('.label').forEach(label => {
+          const name = label.firstElementChild as HTMLElement;
+          label.style.setProperty('--label', name.offsetWidth + 'px');
+        });
+      };
+
+      measure();
+      // The name gets wider or narrower once the web font replaces the fallback
+      document.fonts?.ready.then(measure);
+    });
+  }
 
   readonly groups = [
     {

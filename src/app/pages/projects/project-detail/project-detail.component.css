@@ -1,5 +1,7 @@
 :host{
-    display:block;
+    display:flex;
+    flex-direction:column;
+    min-height:0;
 }
 
 .hero{
@@ -8,7 +10,12 @@
     /* Brand colors can be very dark: lift them before using them as text on navy */
     --primary-text:color-mix(in srgb, var(--primary) 55%, white);
     position:relative;
-    overflow:hidden;
+    min-height:0;
+    overflow-x:hidden;
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    scrollbar-width:thin;
+    scrollbar-color:rgba(255,255,255,.18) transparent;
     padding:clamp(20px, 3.4vw, 44px);
     border-radius:var(--radius-xl);
     background:var(--surface-light);

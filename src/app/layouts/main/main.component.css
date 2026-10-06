@@ -20,14 +20,24 @@
     padding-inline:var(--page-gutter);
 }
 
-/* The page scrolls; content that fits is centered, content that doesn't just grows */
+/* Always exactly one screen: content that fits is centered, content that doesn't scrolls inside its page */
 .content{
     display:flex;
     flex-direction:column;
     justify-content:center;
     min-width:0;
-    min-height:100dvh;
-    padding-block:clamp(40px, 8vh, 88px);
+    height:100dvh;
+    padding-block:clamp(28px, 6vh, 72px);
+}
+
+/* Too short for a fixed header: fall back to a scrolling page */
+@media (max-height:600px){
+
+    .content{
+        height:auto;
+        min-height:100dvh;
+    }
+
 }
 
 /* ========================= */
@@ -42,6 +52,8 @@
 
     /* Room for the floating bottom bar and the home indicator */
     .content{
+        height:auto;
+        min-height:100dvh;
         justify-content:flex-start;
         padding-block:32px calc(112px + env(safe-area-inset-bottom, 0px));
     }
