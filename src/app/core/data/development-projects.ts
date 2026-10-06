@@ -161,7 +161,7 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
       accent: "#6390f0",
       dark: "#1d1d1f"
     },
-    website: "",
+    website: "https://neurobit-pokedex.vercel.app/",
     github: "https://github.com/BrunoDunay/neurobit-pokedex.git"
   }
 ];
