@@ -23,11 +23,19 @@
 
                 <ul class="skills-grid">
                     @for (skill of group.skills; track skill.name) {
-                        <li class="skill-pill" [style.--brand]="skill.color">
-                            <span class="icon-container">
-                                <img [src]="skill.icon" alt="" width="24" height="24" loading="lazy">
-                            </span>
-                            {{ skill.name }}
+                        <li>
+                            <div
+                                class="skill-pill"
+                                [style.--from]="skill.from"
+                                [style.--to]="skill.to"
+                                [style.--ink]="skill.ink">
+                                <span class="icon-container">
+                                    <img [src]="skill.icon" alt="" width="24" height="24" loading="lazy">
+                                </span>
+                                <span class="label">
+                                    <span>{{ skill.name }}</span>
+                                </span>
+                            </div>
                         </li>
                     }
                 </ul>

@@ -19,46 +19,70 @@
 }
 
 .card h2{
-    margin-bottom:20px;
+    margin-bottom:24px;
     font-size:1.125rem;
     font-weight:700;
     letter-spacing:-.01em;
 }
 
+/* Each pill grows from the center of its own cell, so its neighbours never move */
 .skills-grid{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:20px 8px;
 }
 
-/* The name is always visible: nothing here depends on hovering */
+.skills-grid li{
+    display:flex;
+    justify-content:center;
+    height:50px;
+}
+
+/* The label column goes from 0fr to 1fr: the pill opens to the exact width of its name */
 .skill-pill{
-    display:inline-flex;
+    position:relative;
+    display:inline-grid;
+    grid-template-columns:auto 0fr;
     align-items:center;
-    gap:10px;
-    padding:7px 16px 7px 7px;
-    border-radius:14px;
+    flex-shrink:0;
+    height:50px;
+    padding:6px;
+    border-radius:999px;
     background:rgba(255,255,255,.04);
     border:1px solid var(--border-color);
-    color:var(--text-primary);
-    font-size:.9rem;
-    font-weight:600;
+    color:var(--ink);
+    font-size:.875rem;
+    font-weight:700;
     white-space:nowrap;
+    isolation:isolate;
+    /* Closing is quicker than opening */
     transition:
-        transform .2s var(--ease-out),
-        background-color .2s ease,
+        grid-template-columns .22s var(--ease-out),
+        transform .22s var(--ease-out),
         border-color .2s ease,
         box-shadow .2s ease;
+}
+
+/* The brand gradient fades in on its own layer (gradients can't be transitioned directly) */
+.skill-pill::before{
+    content:"";
+    position:absolute;
+    inset:-1px;
+    z-index:-1;
+    border-radius:inherit;
+    background:linear-gradient(135deg, var(--from), var(--to));
+    opacity:0;
+    transition:opacity .2s ease;
 }
 
 .icon-container{
     display:grid;
     place-items:center;
-    width:34px;
-    height:34px;
-    border-radius:10px;
+    width:36px;
+    height:36px;
+    border-radius:50%;
     background:#fff;
-    flex-shrink:0;
+    box-shadow:0 2px 6px rgba(0,0,0,.18);
 }
 
 .icon-container img{
@@ -67,13 +91,68 @@
     object-fit:contain;
 }
 
+.label{
+    min-width:0;
+    overflow:hidden;
+}
+
+.label span{
+    display:block;
+    padding:0 14px 0 10px;
+    opacity:0;
+    transform:translateX(-8px);
+    transition:
+        opacity .12s ease,
+        transform .22s var(--ease-out);
+}
+
 @media (hover:hover) and (pointer:fine){
 
     .skill-pill:hover{
-        transform:translateY(-2px);
-        background:color-mix(in srgb, var(--brand) 14%, transparent);
-        border-color:color-mix(in srgb, var(--brand) 55%, transparent);
-        box-shadow:0 10px 24px -12px var(--brand);
+        grid-template-columns:auto 1fr;
+        transform:translateY(-3px);
+        border-color:transparent;
+        box-shadow:0 14px 28px -14px var(--from);
+        transition-duration:.4s, .4s, .2s, .3s;
+    }
+
+    .skill-pill:hover::before{
+        opacity:1;
+    }
+
+    .skill-pill:hover .label span{
+        opacity:1;
+        transform:none;
+        transition:
+            opacity .25s ease .06s,
+            transform .4s var(--ease-out);
+    }
+
+}
+
+/* No hover on touch screens: the names are simply always there */
+@media (hover:none), (pointer:coarse){
+
+    .skills-grid{
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px;
+    }
+
+    .skills-grid li{
+        height:auto;
+    }
+
+    .skill-pill{
+        grid-template-columns:auto 1fr;
+        height:46px;
+        padding:5px;
+        color:var(--text-primary);
+    }
+
+    .label span{
+        opacity:1;
+        transform:none;
     }
 
 }
@@ -82,7 +161,7 @@
 /* TABLET AND BELOW */
 /* ========================= */
 
-@media (max-width:1024px){
+@media (max-width:1180px){
 
     .skills-container{
         grid-template-columns:1fr;
@@ -90,10 +169,20 @@
 
 }
 
+@media (max-width:560px){
+
+    .skills-grid{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+    }
+
+}
+
 @media (prefers-reduced-motion:reduce){
 
-    .skill-pill{
+    .skill-pill,
+    .label span{
         transform:none !important;
+        transition-duration:.01s !important;
     }
 
 }
