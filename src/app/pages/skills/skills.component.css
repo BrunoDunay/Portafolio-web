@@ -125,6 +125,12 @@
 .canva:hover{
     width: 120px;
 }
+.claude-code:hover{
+    width:155px;
+}
+.codex:hover{
+    width:120px;
+}
 
 .skill-pill:hover .icon-container{
     background:white;
@@ -284,6 +290,14 @@
         width:130px;
     }
 
+    .claude-code:hover{
+        width:160px;
+    }
+
+    .codex:hover{
+        width:130px;
+    }
+
     .icon-container{
         width:34px;
         height:34px;
@@ -336,6 +350,14 @@
 
 .github:hover{
     background:linear-gradient(135deg,#181717,#444444);
+}
+
+.claude-code:hover{
+    background:linear-gradient(135deg,#d97757,#eda58c);
+}
+
+.codex:hover{
+    background:linear-gradient(135deg,#3941ff,#7a9dff);
 }
 
 .photoshop:hover{

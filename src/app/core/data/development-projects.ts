@@ -42,6 +42,48 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
     github: ""
   },
   {
+    id: "fitness-platform",
+    slug: "fitness-by-evidence-platform",
+    title: "Fitness by Evidence Coaching Platform",
+    type: "Full Stack Application",
+    shortDescription:
+      "Coaching platform with a public site, a coach panel for training and nutrition plans, and a private portal for each client.",
+    problem:
+      "An online fitness coach built every client's training and nutrition plan by hand in spreadsheets, with no single place for clients to see their plan or report progress.",
+    solution:
+      "Built a server-rendered Angular site, coach panel and client portal on an Express REST API and PostgreSQL. It calculates calories, macros and training volume, and explains each exercise with a figure animated in code.",
+    technologies: [
+      "Angular",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "JWT"
+    ],
+    cover: "assets/projects/fitness-platform/cover.webp",
+    logo: "/projects/logos/Fitness.png",
+    gallery: [
+      "projects/mockups/fbe-platform/ss1.png",
+      "projects/mockups/fbe-platform/ss2.png",
+      "projects/mockups/fbe-platform/ss3.png",
+      "projects/mockups/fbe-platform/ss4.png",
+      "projects/mockups/fbe-platform/ss5.png",
+      "projects/mockups/fbe-platform/ss6.png",
+      "projects/mockups/fbe-platform/ss7.png",
+      "projects/mockups/fbe-platform/ss8.png",
+      "projects/mockups/fbe-platform/ss9.png"
+    ],
+    brand: {
+      primary: "#0b6e4f",
+      secondary: "#0e312e",
+      light: "#f4f7f5",
+      accent: "#617a7a",
+      dark: "#325c82"
+    },
+    website: "https://fitnessbyevidence.netlify.app/",
+    github: "https://github.com/BrunoDunay/Panel-administrativo-web-Fitness.git"
+  },
+  {
     id: "armando-ovalle",
     slug: "armando-ovalle-wedding-studio",
     title: "Armando Ovalle Wedding Studio",
