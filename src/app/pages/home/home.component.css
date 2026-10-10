@@ -74,10 +74,95 @@
     margin-top:clamp(28px, 4.5vh, 44px);
 }
 
+/* The two home buttons keep their original motion: a shine that sweeps across the primary one
+   and a gradient that fills the secondary one from the left. */
 .buttons .btn{
+    position:relative;
+    overflow:hidden;
     min-height:52px;
-    padding:0 30px;
+    padding:0 34px;
     font-size:1rem;
+    transition:.3s ease;
+}
+
+.buttons .btn-primary{
+    background:linear-gradient(135deg, var(--accent), var(--primary));
+    box-shadow:0 0 30px rgba(59,131,246,.651);
+}
+
+.buttons .btn-primary:hover{
+    transform:translateY(-3px);
+    filter:none;
+    box-shadow:
+        0 0 18px rgba(56,189,248,.35),
+        0 0 35px rgba(59,130,246,.45);
+}
+
+.buttons .btn-primary::before{
+    content:"";
+    position:absolute;
+    top:8%;
+    left:-40%;
+    width:22px;
+    height:84%;
+    background:rgba(255,255,255,.9);
+    box-shadow:0 0 30px rgba(255,255,255,.9);
+    transform:skewX(-25deg);
+    opacity:0;
+}
+
+.buttons .btn-primary:hover::before{
+    animation:shine .7s ease;
+}
+
+@keyframes shine{
+    0%{
+        left:-40%;
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    100%{
+        left:130%;
+        opacity:0;
+    }
+}
+
+.buttons .btn-ghost{
+    background:transparent;
+    border:2px solid var(--border-color);
+    color:var(--text-primary);
+}
+
+.buttons .btn-ghost:hover{
+    background:transparent;
+    border-color:var(--primary);
+}
+
+.buttons .btn-ghost::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:inherit;
+    background:linear-gradient(135deg, var(--accent), var(--primary));
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform .45s ease;
+    z-index:0;
+}
+
+.buttons .btn-ghost:hover::before{
+    transform:scaleX(1);
+}
+
+.button-content{
+    position:relative;
+    z-index:1;
+}
+
+.buttons .btn-ghost:hover .button-content{
+    color:white;
 }
 
 /* ========================= */
