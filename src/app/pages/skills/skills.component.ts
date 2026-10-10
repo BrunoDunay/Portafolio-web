@@ -42,6 +42,8 @@ export class SkillsComponent {
         { name: 'PostgreSQL', icon: '/postgresql.png', from: '#336791', to: '#5b9bd5', ink: '#fff' },
         { name: 'MongoDB', icon: '/mongodb.png', from: '#47a248', to: '#83d44a', ink: DARK_INK },
         { name: 'GitHub', icon: '/github.png', from: '#181717', to: '#444444', ink: '#fff' },
+        { name: 'Claude Code', icon: '/claude-code.svg', from: '#d97757', to: '#eda58c', ink: DARK_INK },
+        { name: 'Codex', icon: '/codex.svg', from: '#3941ff', to: '#7a9dff', ink: '#fff' },
       ],
     },
     {
