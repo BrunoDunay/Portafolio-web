@@ -63,12 +63,10 @@
     font-weight:700;
     white-space:nowrap;
     isolation:isolate;
-    /* A gentle curve that eases in as well as out, so the pill glides open instead of snapping */
-    --pill-ease:cubic-bezier(.5, 0, .2, 1);
-    /* Closing is a little quicker than opening */
+    /* The original, punchier motion: the pill snaps open and jumps up */
     transition:
-        transform .5s var(--pill-ease),
-        border-color .3s ease,
+        transform .3s ease,
+        border-color .35s ease,
         box-shadow .35s ease;
 }
 
@@ -92,55 +90,66 @@
     border-radius:50%;
     background:#fff;
     box-shadow:0 2px 6px rgba(0,0,0,.18);
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
 }
 
 .icon-container img{
     width:22px;
     height:22px;
     object-fit:contain;
+    transition:transform .3s ease;
 }
 
 .label{
     width:0;
     overflow:hidden;
-    transition:width .5s var(--pill-ease);
+    transition:width .35s ease;
 }
 
 .label span{
     display:inline-block;
     padding:0 14px 0 10px;
     opacity:0;
-    transform:translateX(-8px);
+    transform:translateX(-10px);
     transition:
-        opacity .2s ease,
-        transform .5s var(--pill-ease);
+        opacity .3s ease,
+        transform .6s ease;
 }
 
 @media (hover:hover) and (pointer:fine){
 
+    /* The lift and drop shadow of the original, plus the brand-colored glow of the redesign */
     .skill-pill:hover{
-        transform:translateY(-3px);
+        transform:translateY(-5px);
         border-color:transparent;
-        box-shadow:0 14px 28px -14px var(--from);
-        transition-duration:.7s, .35s, .6s;
+        box-shadow:
+            0 10px 25px rgba(0,0,0,.25),
+            0 14px 28px -14px var(--from);
     }
 
     .skill-pill:hover::before{
         opacity:1;
-        transition-duration:.5s;
+    }
+
+    /* The logo pops: its circle grows while the logo itself settles back */
+    .skill-pill:hover .icon-container{
+        transform:scale(1.15);
+        box-shadow:0 3px 10px rgba(0,0,0,.2);
+    }
+
+    .skill-pill:hover .icon-container img{
+        transform:scale(.9);
     }
 
     .skill-pill:hover .label{
         width:var(--label, auto);
-        transition-duration:.7s;
     }
 
     .skill-pill:hover .label span{
         opacity:1;
         transform:none;
-        transition:
-            opacity .45s ease .2s,
-            transform .7s var(--pill-ease);
     }
 
 }
@@ -198,6 +207,8 @@
 @media (prefers-reduced-motion:reduce){
 
     .skill-pill,
+    .icon-container,
+    .icon-container img,
     .label,
     .label span{
         transform:none !important;
