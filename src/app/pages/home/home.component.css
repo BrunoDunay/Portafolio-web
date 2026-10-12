@@ -90,14 +90,6 @@
     box-shadow:0 0 30px rgba(59,131,246,.651);
 }
 
-.buttons .btn-primary:hover{
-    transform:translateY(-3px);
-    filter:none;
-    box-shadow:
-        0 0 18px rgba(56,189,248,.35),
-        0 0 35px rgba(59,130,246,.45);
-}
-
 .buttons .btn-primary::before{
     content:"";
     position:absolute;
@@ -109,10 +101,6 @@
     box-shadow:0 0 30px rgba(255,255,255,.9);
     transform:skewX(-25deg);
     opacity:0;
-}
-
-.buttons .btn-primary:hover::before{
-    animation:shine .7s ease;
 }
 
 @keyframes shine{
@@ -135,11 +123,6 @@
     color:var(--text-primary);
 }
 
-.buttons .btn-ghost:hover{
-    background:transparent;
-    border-color:var(--primary);
-}
-
 .buttons .btn-ghost::before{
     content:"";
     position:absolute;
@@ -152,17 +135,39 @@
     z-index:0;
 }
 
-.buttons .btn-ghost:hover::before{
-    transform:scaleX(1);
-}
-
 .button-content{
     position:relative;
     z-index:1;
 }
 
-.buttons .btn-ghost:hover .button-content{
-    color:white;
+/* Hover only where there is a real pointer, so a tap on a phone doesn't leave it stuck */
+@media (hover:hover) and (pointer:fine){
+
+    .buttons .btn-primary:hover{
+        transform:translateY(-3px);
+        filter:none;
+        box-shadow:
+            0 0 18px rgba(56,189,248,.35),
+            0 0 35px rgba(59,130,246,.45);
+    }
+
+    .buttons .btn-primary:hover::before{
+        animation:shine .7s ease;
+    }
+
+    .buttons .btn-ghost:hover{
+        background:transparent;
+        border-color:var(--primary);
+    }
+
+    .buttons .btn-ghost:hover::before{
+        transform:scaleX(1);
+    }
+
+    .buttons .btn-ghost:hover .button-content{
+        color:white;
+    }
+
 }
 
 /* ========================= */

@@ -40,6 +40,95 @@
     margin-top:28px;
 }
 
+/* The contact buttons keep their original colors and motion: a red "Send mail" with a shine sweep,
+   and outlined buttons that fill with LinkedIn blue from the left. */
+.btn{
+    position:relative;
+    overflow:hidden;
+    transition:.3s ease;
+}
+
+.btn-primary{
+    background:linear-gradient(135deg, #EA4335, #F87171);
+    box-shadow:0 0 15px rgba(234,67,53,.35);
+}
+
+.btn-primary::before{
+    content:"";
+    position:absolute;
+    top:8%;
+    left:-40%;
+    width:22px;
+    height:84%;
+    background:rgba(255,255,255,.85);
+    box-shadow:0 0 30px rgba(255,255,255,.75);
+    transform:skewX(-25deg);
+    opacity:0;
+}
+
+@keyframes shine{
+    0%{
+        left:-40%;
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    100%{
+        left:130%;
+        opacity:0;
+    }
+}
+
+.btn-ghost::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:inherit;
+    background:linear-gradient(135deg, #0A66C2, #0077B5);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform .45s ease;
+    z-index:0;
+}
+
+.button-content{
+    position:relative;
+    z-index:1;
+}
+
+/* Hover only where there is a real pointer, so a tap on a phone doesn't leave it stuck */
+@media (hover:hover) and (pointer:fine){
+
+    .btn-primary:hover{
+        transform:translateY(-3px);
+        filter:none;
+        box-shadow:
+            0 0 18px rgba(234,67,53,.45),
+            0 0 35px rgba(234,67,53,.35);
+    }
+
+    .btn-primary:hover::before{
+        animation:shine .7s ease;
+    }
+
+    .btn-ghost:hover{
+        border-color:#0A66C2;
+        box-shadow:
+            0 0 15px rgba(10,102,194,.35),
+            0 0 30px rgba(0,119,181,.25);
+    }
+
+    .btn-ghost:hover::before{
+        transform:scaleX(1);
+    }
+
+    .btn-ghost:hover .button-content{
+        color:white;
+    }
+
+}
+
 .availability{
     display:flex;
     align-items:center;
