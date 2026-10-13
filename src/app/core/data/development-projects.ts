@@ -47,11 +47,11 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
     title: "Fitness by Evidence Coaching Platform",
     type: "Full Stack Application",
     shortDescription:
-      "Coaching platform with a public site, a coach panel for training and nutrition plans, and a private portal for each client.",
+      "Coaching platform with a public site, a coach panel for training plans, nutrition plans and session scheduling, and a private portal for each client.",
     problem:
       "An online fitness coach built every client's training and nutrition plan by hand in spreadsheets, with no single place for clients to see their plan or report progress.",
     solution:
-      "Built a server-rendered Angular site, coach panel and client portal on an Express REST API and PostgreSQL. It calculates calories, macros and training volume, and explains each exercise with a figure animated in code.",
+      "Built a server-rendered Angular site, coach panel and client portal on an Express REST API and PostgreSQL. It calculates calories, macros and training volume, schedules video-call sessions that clients join from their portal, and explains each exercise with a figure animated in code. The brand mark is drawn in SVG and assembles itself on load.",
     technologies: [
       "Angular",
       "TypeScript",
@@ -75,10 +75,10 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
     ],
     brand: {
       primary: "#0b6e4f",
-      secondary: "#0e312e",
-      light: "#f4f7f5",
-      accent: "#617a7a",
-      dark: "#325c82"
+      secondary: "#0a1f1c",
+      light: "#f0f3f1",
+      accent: "#4fd6a4",
+      dark: "#1f6f94"
     },
     website: "https://fitnessbyevidence.netlify.app/",
     github: "https://github.com/BrunoDunay/Panel-administrativo-web-Fitness.git"
