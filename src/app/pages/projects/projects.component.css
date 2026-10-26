@@ -24,7 +24,7 @@
 .filter{
     position:relative;
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:repeat(3, 1fr);
     padding:4px;
     border-radius:999px;
     background:var(--card);
@@ -36,7 +36,7 @@
     top:4px;
     bottom:4px;
     left:4px;
-    width:calc(50% - 4px);
+    width:calc((100% - 8px) / 3);
     border-radius:999px;
     background:linear-gradient(135deg, #4B8DF8, var(--primary-hover));
     box-shadow:
@@ -47,6 +47,19 @@
 
 .filter[data-active="design"] .thumb{
     transform:translateX(100%);
+}
+
+.filter[data-active="demos"] .thumb{
+    transform:translateX(200%);
+}
+
+.demos-note{
+    max-width:640px;
+    margin:calc(clamp(28px, 5vh, 44px) * -0.5) 0 24px;
+    color:var(--text-secondary);
+    font-size:.95rem;
+    line-height:1.6;
+    flex-shrink:0;
 }
 
 .filter button{

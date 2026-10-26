@@ -24,8 +24,21 @@
                 (click)="showDesign()">
                 Design
             </button>
+            <button
+                type="button"
+                [class.active]="selectedCategory()==='demos'"
+                [attr.aria-pressed]="selectedCategory()==='demos'"
+                (click)="showDemos()">
+                Demo Sites
+            </button>
         </div>
     </div>
+    @if(selectedCategory()==='demos'){
+        <p class="demos-note rise" style="--i:1">
+            Fictional brands I design and build as templates, one for each of my web packages
+            (Basic, Professional and Premium). Every site is live: open it and scroll.
+        </p>
+    }
     <div class="projects-grid scroller">
         @for(project of projects();track project.id; let i = $index){
             <app-project-card

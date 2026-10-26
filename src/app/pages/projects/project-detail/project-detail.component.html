@@ -17,7 +17,7 @@
 
         <div class="project-links">
           @if (hasWebsite) {
-            <a class="icon-button" [href]="website" target="_blank" rel="noopener" aria-label="Visit Website">
+            <a class="icon-button" [href]="website" target="_blank" rel="noopener" [attr.aria-label]="developmentProject?.demo ? 'Open live demo' : 'Visit Website'">
               <span class="material-icons" aria-hidden="true">language</span>
             </a>
           }
@@ -39,13 +39,13 @@
         <div class="details-column">
           @if (developmentProject; as p) {
             <div class="detail-card">
-              <h2>Problem</h2>
+              <h2>{{ p.demo ? "Concept" : "Problem" }}</h2>
               <p>
                 {{ p.problem }}
               </p>
             </div>
             <div class="detail-card">
-              <h2>Solution</h2>
+              <h2>{{ p.demo ? "What it shows" : "Solution" }}</h2>
               <p>
                 {{ p.solution }}
               </p>

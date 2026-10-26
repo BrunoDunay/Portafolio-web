@@ -18,5 +18,7 @@ export interface DevelopmentProject {
     dark: string;
   };
   github?: string;
+  /** Fictional brand built as a template (shown under "Demo Sites"). */
+  demo?: boolean;
   website?: string;
 }

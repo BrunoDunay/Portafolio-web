@@ -2,6 +2,7 @@ import { Component, computed, signal } from '@angular/core';
 import { ProjectCardComponent } from '../../components/project-card/project-card.component';
 import { DEVELOPMENT_PROJECTS } from '../../core/data/development-projects';
 import { DESIGN_PROJECTS } from '../../core/data/design-projects';
+import { DEMO_PROJECTS } from '../../core/data/demo-projects';
 
 @Component({
   selector: 'app-projects',
@@ -11,10 +12,16 @@ import { DESIGN_PROJECTS } from '../../core/data/design-projects';
 })
 export class ProjectsComponent {
 
-  selectedCategory=signal<'development'|'design'>('development');
+  selectedCategory=signal<'development'|'design'|'demos'>('development');
 
   projects=computed(()=>{
-    return this.selectedCategory()==='development'
+    const category=this.selectedCategory();
+
+    if(category==='demos'){
+      return DEMO_PROJECTS;
+    }
+
+    return category==='development'
       ? DEVELOPMENT_PROJECTS
       : DESIGN_PROJECTS;
   });
@@ -25,6 +32,10 @@ export class ProjectsComponent {
 
   showDesign(){
     this.selectedCategory.set('design');
+  }
+
+  showDemos(){
+    this.selectedCategory.set('demos');
   }
 
 }

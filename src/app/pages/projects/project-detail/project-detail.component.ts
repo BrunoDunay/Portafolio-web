@@ -4,6 +4,7 @@ import { CommonModule, Location } from '@angular/common';
 
 import { DEVELOPMENT_PROJECTS } from '../../../core/data/development-projects';
 import { DESIGN_PROJECTS } from '../../../core/data/design-projects';
+import { DEMO_PROJECTS } from '../../../core/data/demo-projects';
 
 import { DevelopmentProject } from '../../../core/interfaces/development-project';
 import { DesignProject } from '../../../core/interfaces/design-project';
@@ -37,7 +38,7 @@ export class ProjectComponent implements OnInit {
 
     const slug = this.route.snapshot.paramMap.get('slug');
 
-    const development = DEVELOPMENT_PROJECTS.find(
+    const development = [...DEVELOPMENT_PROJECTS, ...DEMO_PROJECTS].find(
       project => project.slug === slug
     );
 
