@@ -106,5 +106,109 @@ export const DEMO_PROJECTS: DevelopmentProject[] = [
     },
     website: "https://demo-gym-umbral.vercel.app",
     github: "https://github.com/BrunoDunay/Demos-de-gimnasio"
+  },
+  {
+    id: "demo-nido",
+    slug: "nido-newborn-photography-demo",
+    title: "Nido · Newborn & Family Photography",
+    type: "Demo Site · Professional Package",
+    demo: true,
+    shortDescription:
+      "Site for a newborn and family photographer, built as a photo album: a darkroom intro, pages that turn as you scroll, chapters per session, a contact sheet with a loupe and a fill-in-the-blanks booking form.",
+    problem:
+      "A photographer sells trust and a feeling, not a price list. Parents need to see the work, understand how a session goes with a newborn and book the right window (5 to 15 days after birth) without a long back-and-forth. Fictional brand built as a template for the Professional package.",
+    solution:
+      "An editorial album with GSAP and Lenis: a darkroom intro where the first print develops from negative to positive, a hero whose print turns like an album page, four chapters with their own magazine layouts, a film contact sheet with a 2.4× loupe and swipe gestures, a session day stitched with a red thread, printed rates and a booking sentence that becomes a WhatsApp message.",
+    technologies: ["Angular", "TypeScript", "GSAP", "ScrollTrigger", "Lenis", "SEO", "Vercel"],
+    cover: "",
+    logo: "/projects/logos/demo-nido.png",
+    gallery: [
+      "projects/mockups/demo-nido/ss1.webp",
+      "projects/mockups/demo-nido/ss2.webp",
+      "projects/mockups/demo-nido/ss3.webp",
+      "projects/mockups/demo-nido/ss4.webp",
+      "projects/mockups/demo-nido/ss5.webp",
+      "projects/mockups/demo-nido/ss6.webp",
+      "projects/mockups/demo-nido/ss7.webp",
+      "projects/mockups/demo-nido/ss8.webp"
+    ],
+    brand: {
+      primary: "#b5452f",
+      secondary: "#e7c9a8",
+      light: "#f6f1ea",
+      accent: "#ece3d6",
+      dark: "#2a211c"
+    },
+    website: "https://demo-foto-nido.vercel.app",
+    github: "https://github.com/BrunoDunay/Demos-de-fotograf-a"
+  },
+  {
+    id: "demo-alero",
+    slug: "alero-real-estate-demo",
+    title: "Alero · Real Estate Agency",
+    type: "Demo Site · Basic Package",
+    demo: true,
+    shortDescription:
+      "Real estate site with a property search, detail sheets with photo galleries, a mortgage calculator, the buying process and agents who answer on WhatsApp.",
+    problem:
+      "A small real estate agency needs more than a brochure: buyers want to filter homes, see every photo and know what they can afford before they call. Fictional brand built as a template for the Basic package.",
+    solution:
+      "A clean, mobile-first page with a working search by operation, type and zone, property cards with a second photo on hover, detail sheets that open as a bottom sheet on phones (swipe down to close, swipe photos sideways), a mortgage calculator with live monthly payments and favorites. CSS and IntersectionObserver motion, pre-rendered for SEO.",
+    technologies: ["Angular", "TypeScript", "CSS", "SEO", "Vercel"],
+    cover: "",
+    logo: "/projects/logos/demo-alero.png",
+    gallery: [
+      "projects/mockups/demo-alero/ss1.webp",
+      "projects/mockups/demo-alero/ss2.webp",
+      "projects/mockups/demo-alero/ss3.webp",
+      "projects/mockups/demo-alero/ss4.webp",
+      "projects/mockups/demo-alero/ss5.webp",
+      "projects/mockups/demo-alero/ss6.webp",
+      "projects/mockups/demo-alero/ss7.webp",
+      "projects/mockups/demo-alero/ss8.webp"
+    ],
+    brand: {
+      primary: "#1e3a2f",
+      secondary: "#c49a55",
+      light: "#f4f2ed",
+      accent: "#dfe8e2",
+      dark: "#15191a"
+    },
+    website: "https://demo-inmo-alero.vercel.app",
+    github: "https://github.com/BrunoDunay/Demos-de-inmoviliaria"
+  },
+  {
+    id: "demo-tilde",
+    slug: "tilde-coffee-shop-demo",
+    title: "Tilde · Neighborhood Coffee Shop",
+    type: "Demo Site · Basic Package",
+    demo: true,
+    shortDescription:
+      "Coffee shop site with a build-your-cup tool, the full chalkboard menu, a live “what just came out of the oven” timeline and a to-go order sent by WhatsApp.",
+    problem:
+      "A neighborhood café gets orders through Instagram messages and phone calls. It needs a page with personality where people can see the menu, know what is fresh right now and send a clear to-go order. Fictional brand built as a template for the Basic package.",
+    solution:
+      "A storefront-style page: an awning that rolls up on scroll, an open/closed sign that flips with the real time, a cup builder that names the drink and its price, a chalkboard menu, a bakery timeline compared with the visitor's clock, and a side bag (swipe to close) that writes the WhatsApp order. CSS and IntersectionObserver motion.",
+    technologies: ["Angular", "TypeScript", "CSS", "SEO", "Vercel"],
+    cover: "",
+    logo: "/projects/logos/demo-tilde.png",
+    gallery: [
+      "projects/mockups/demo-tilde/ss1.webp",
+      "projects/mockups/demo-tilde/ss2.webp",
+      "projects/mockups/demo-tilde/ss3.webp",
+      "projects/mockups/demo-tilde/ss4.webp",
+      "projects/mockups/demo-tilde/ss5.webp",
+      "projects/mockups/demo-tilde/ss6.webp",
+      "projects/mockups/demo-tilde/ss7.webp"
+    ],
+    brand: {
+      primary: "#d4502f",
+      secondary: "#f2cf5b",
+      light: "#f6efe3",
+      accent: "#b9dfcb",
+      dark: "#3a2a20"
+    },
+    website: "https://demo-cafe-tilde.vercel.app",
+    github: "https://github.com/BrunoDunay/Demos-cafeter-as-restaurantes"
   }
 ];
