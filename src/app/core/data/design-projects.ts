@@ -20,6 +20,11 @@ export const DESIGN_PROJECTS: DesignProject[] = [
       '/projects/mockups/fbe/fbe5.png',
       '/projects/mockups/fbe/fbe6.png',
     ],
+    card: {
+      background: 'radial-gradient(110% 100% at 85% 0%, #14906a 0%, transparent 58%), linear-gradient(135deg, #071a16, #0b3d2f)',
+      image: '/projects/cards/fitness.webp',
+      tint: '#4fd6a4'
+    },
     brand: {
       primary: '#0b6e4f',
       secondary: '#0e312e',
@@ -48,6 +53,11 @@ export const DESIGN_PROJECTS: DesignProject[] = [
       '/projects/mockups/dalia/dalia_6.png',
       '/projects/mockups/dalia/dalia_7.png',
     ],
+    card: {
+      background: 'radial-gradient(100% 100% at 85% 0%, #fff4f8 0%, transparent 60%), linear-gradient(135deg, #f7d3e1, #e9a2bf)',
+      image: '/projects/cards/dalia.webp',
+      tint: '#f2a7c6'
+    },
     brand: {
       primary: '#edadc7',
       secondary: '#315d81',
@@ -76,6 +86,12 @@ export const DESIGN_PROJECTS: DesignProject[] = [
       '/projects/mockups/banished/banished6.png',
       '/projects/mockups/banished/banished7.png',
     ],
+    card: {
+      background: 'radial-gradient(70% 90% at 50% 100%, #9b2fb3 0%, transparent 70%), linear-gradient(180deg, #12051a, #34103f)',
+      image: '/projects/cards/banished.webp',
+      fit: 'bottom',
+      tint: '#c45ade'
+    },
     brand: {
       primary: '#6b207a',
       secondary: '#452d4a',
@@ -108,6 +124,12 @@ export const DESIGN_PROJECTS: DesignProject[] = [
       '/projects/mockups/reyes/reyes_5.jpeg',
       '/projects/mockups/reyes/reyes_6.jpeg',
     ],
+    card: {
+      background: '#d9d9d9',
+      image: '/projects/cards/reyes.webp',
+      fit: 'cover',
+      tint: '#ff3b3b'
+    },
     brand: {
       primary: '#ec0404',
       secondary: '#050406',
@@ -148,6 +170,11 @@ export const DESIGN_PROJECTS: DesignProject[] = [
       '/projects/mockups/uinternacional_diseños/diseño19.png',
       '/projects/mockups/uinternacional_diseños/diseño20.png',
     ],
+    card: {
+      background: 'radial-gradient(120% 100% at 90% 0%, #3d3878 0%, transparent 55%), linear-gradient(135deg, #17142c, #26224d)',
+      image: '/projects/cards/uia.webp',
+      tint: '#c9a84a'
+    },
     brand: {
       primary: '#aa882c',
       secondary: '#b1902f',

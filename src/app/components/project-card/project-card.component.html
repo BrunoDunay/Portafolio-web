@@ -1,12 +1,22 @@
 <a
     class="card"
     [routerLink]="['/projects', project().slug]"
-    [style.--project-color]="project().brand.primary">
-    <div class="cover">
+    [style.--tint]="theme().tint">
+    <div
+        class="cover"
+        [class.fill]="theme().fit === 'cover'"
+        [class.bottom]="theme().fit === 'bottom'"
+        [class.has-photo]="!!theme().photo"
+        [style.background]="theme().background">
+        @if (theme().photo) {
+            <img class="photo" [src]="theme().photo" alt="" loading="lazy">
+        }
         <img
-            [src]="project().logo"
+            class="mark"
+            [src]="theme().image"
             alt=""
             loading="lazy">
+        <span class="sheen" aria-hidden="true"></span>
         <span class="open material-icons" aria-hidden="true">north_east</span>
     </div>
 

@@ -1,64 +1,107 @@
-import { Component, ElementRef, afterNextRender, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  DestroyRef,
+  ElementRef,
+  afterNextRender,
+  inject,
+} from '@angular/core';
+import gsap from 'gsap';
 
-// Text color for brand gradients too light to carry white text
-const DARK_INK = '#0B1220';
+interface Skill {
+  name: string;
+  icon: string;
+  /** Brand color: the tile's glow, border and spotlight */
+  color: string;
+  /** Dark logos (GitHub) are flipped to white on the dark tile */
+  invert?: boolean;
+}
 
 @Component({
   selector: 'app-skills',
   imports: [],
   templateUrl: './skills.component.html',
-  styleUrl: './skills.component.css'
+  styleUrl: './skills.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SkillsComponent {
 
-  private host = inject<ElementRef<HTMLElement>>(ElementRef);
+  private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
+  private readonly destroyRef = inject(DestroyRef);
 
-  constructor() {
-    // CSS can't transition to an automatic width, so each pill is told how wide its name is
-    afterNextRender(() => {
-      const measure = () => {
-        this.host.nativeElement.querySelectorAll<HTMLElement>('.label').forEach(label => {
-          const name = label.firstElementChild as HTMLElement;
-          label.style.setProperty('--label', name.offsetWidth + 'px');
-        });
-      };
-
-      measure();
-      // The name gets wider or narrower once the web font replaces the fallback
-      document.fonts?.ready.then(measure);
-    });
-  }
-
-  readonly groups = [
+  readonly groups: { title: string; icon: string; skills: Skill[] }[] = [
     {
       title: 'Software Development',
+      icon: 'terminal',
       skills: [
-        { name: 'Angular', icon: '/angular.webp', from: '#dd0031', to: '#ff5a6f', ink: '#fff' },
-        { name: 'TypeScript', icon: '/typescript.png', from: '#3178c6', to: '#5ca8ff', ink: '#fff' },
-        { name: 'JavaScript', icon: '/javascript.png', from: '#f7df1e', to: '#ffe873', ink: DARK_INK },
-        { name: 'Node.js', icon: '/node.png', from: '#339933', to: '#6cc24a', ink: '#fff' },
-        { name: 'Tailwind', icon: '/tailwind.webp', from: '#06b6d4', to: '#38d9f5', ink: DARK_INK },
-        { name: 'Bootstrap', icon: '/bootstrap.webp', from: '#7952b3', to: '#a98eda', ink: '#fff' },
-        { name: 'PostgreSQL', icon: '/postgresql.png', from: '#336791', to: '#5b9bd5', ink: '#fff' },
-        { name: 'MongoDB', icon: '/mongodb.png', from: '#47a248', to: '#83d44a', ink: DARK_INK },
-        { name: 'GitHub', icon: '/github.png', from: '#181717', to: '#444444', ink: '#fff' },
-        { name: 'Claude Code', icon: '/claude-code.svg', from: '#d97757', to: '#eda58c', ink: DARK_INK },
-        { name: 'Codex', icon: '/codex.svg', from: '#3941ff', to: '#7a9dff', ink: '#fff' },
+        { name: 'Angular', icon: '/angular.webp', color: '#ff2d55' },
+        { name: 'TypeScript', icon: '/typescript.png', color: '#3178c6' },
+        { name: 'JavaScript', icon: '/javascript.png', color: '#f7df1e' },
+        { name: 'Node.js', icon: '/node.png', color: '#5fa04e' },
+        { name: 'Tailwind', icon: '/tailwind.webp', color: '#38bdf8' },
+        { name: 'Bootstrap', icon: '/bootstrap.webp', color: '#8f6ad6' },
+        { name: 'PostgreSQL', icon: '/postgresql.png', color: '#4f8fd1' },
+        { name: 'MongoDB', icon: '/mongodb.png', color: '#47a248' },
+        { name: 'GitHub', icon: '/github.png', color: '#e2e8f0', invert: true },
+        { name: 'Claude Code', icon: '/claude-code.svg', color: '#d97757' },
+        { name: 'Codex', icon: '/codex.svg', color: '#7a9dff' },
       ],
     },
     {
       title: 'Design & Multimedia',
+      icon: 'palette',
       skills: [
-        { name: 'Photoshop', icon: '/photoshop.webp', from: '#31a8ff', to: '#78c8ff', ink: DARK_INK },
-        { name: 'Illustrator', icon: '/illustrator.webp', from: '#ff9a00', to: '#ffca66', ink: DARK_INK },
-        { name: 'After Effects', icon: '/after-effects.webp', from: '#9999ff', to: '#c5c5ff', ink: DARK_INK },
-        { name: 'Premiere Pro', icon: '/premiere.webp', from: '#9999ff', to: '#d1d1ff', ink: DARK_INK },
-        { name: 'Audition', icon: '/audition.webp', from: '#00e4a0', to: '#6fffe9', ink: DARK_INK },
-        { name: 'Lightroom', icon: '/lightroom.webp', from: '#31A8FF', to: '#2D3246', ink: '#fff' },
-        { name: 'Canva', icon: '/canva.png', from: '#00c4cc', to: '#6ee7ff', ink: DARK_INK },
-        { name: 'Creative Cloud', icon: '/creative-cloud.png', from: '#da1f26', to: '#ff6b70', ink: '#fff' },
+        { name: 'Photoshop', icon: '/photoshop.webp', color: '#31a8ff' },
+        { name: 'Illustrator', icon: '/illustrator.webp', color: '#ff9a00' },
+        { name: 'After Effects', icon: '/after-effects.webp', color: '#9999ff' },
+        { name: 'Premiere Pro', icon: '/premiere.webp', color: '#b4a5ff' },
+        { name: 'Audition', icon: '/audition.webp', color: '#00e4a0' },
+        { name: 'Lightroom', icon: '/lightroom.webp', color: '#31a8ff' },
+        { name: 'Canva', icon: '/canva.png', color: '#00c4cc' },
+        { name: 'Creative Cloud', icon: '/creative-cloud.png', color: '#ff4b52' },
       ],
     },
   ];
+
+  constructor() {
+    afterNextRender(() => {
+      const root = this.host.nativeElement;
+      const ctx = gsap.context(() => {
+        gsap.from(root.querySelectorAll('.group-title'), {
+          y: 16,
+          autoAlpha: 0,
+          duration: 0.8,
+          ease: 'expo.out',
+          stagger: 0.12,
+          delay: 0.1,
+          clearProps: 'transform,opacity,visibility',
+        });
+
+        // Tiles drop into place from the top-left corner of each grid outward
+        root.querySelectorAll<HTMLElement>('.tiles').forEach((grid, g) => {
+          gsap.from(grid.querySelectorAll('.tile'), {
+            y: 26,
+            scale: 0.86,
+            autoAlpha: 0,
+            duration: 0.8,
+            ease: 'back.out(1.8)',
+            delay: 0.18 + g * 0.12,
+            stagger: { each: 0.04, grid: 'auto', from: 'start' },
+            clearProps: 'transform,opacity,visibility',
+          });
+        });
+      }, root);
+
+      this.destroyRef.onDestroy(() => ctx.revert());
+    });
+  }
+
+  /** The tile's light follows the pointer */
+  track(event: PointerEvent): void {
+    const tile = event.currentTarget as HTMLElement;
+    const rect = tile.getBoundingClientRect();
+    tile.style.setProperty('--mx', `${event.clientX - rect.left}px`);
+    tile.style.setProperty('--my', `${event.clientY - rect.top}px`);
+  }
 
 }

@@ -20,166 +20,152 @@
 .skills-container{
     display:grid;
     grid-template-columns:repeat(2, minmax(0, 1fr));
-    gap:24px;
+    gap:clamp(28px, 3vw, 44px);
+    align-content:start;
 }
 
-.card{
-    padding:clamp(22px, 3vw, 32px);
-}
-
-.card h2{
-    margin-bottom:24px;
+.group-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:18px;
     font-size:1.125rem;
     font-weight:700;
     letter-spacing:-.01em;
 }
 
-/* Each pill grows from the center of its own cell, so its neighbours never move */
-.skills-grid{
+.group-title .material-icons{
+    color:var(--primary-light);
+    font-size:22px;
+}
+
+.count{
     display:grid;
-    grid-template-columns:repeat(3, minmax(0, 1fr));
-    gap:20px 8px;
-}
-
-.skills-grid li{
-    display:flex;
-    justify-content:center;
-    height:50px;
-}
-
-/* The label animates from 0 to its measured width (--label), so the pill opens to exactly fit its name */
-.skill-pill{
-    position:relative;
-    display:inline-flex;
-    align-items:center;
-    flex-shrink:0;
-    height:50px;
-    padding:6px;
+    place-items:center;
+    min-width:26px;
+    height:22px;
+    padding:0 7px;
     border-radius:999px;
-    background:rgba(255,255,255,.04);
-    border:1px solid var(--border-color);
-    color:var(--ink);
-    font-size:.875rem;
-    font-weight:700;
-    white-space:nowrap;
-    isolation:isolate;
-    /* The original, punchier motion: the pill snaps open and jumps up */
-    transition:
-        transform .3s ease,
-        border-color .35s ease,
-        box-shadow .35s ease;
+    background:rgba(96,165,250,.14);
+    color:var(--primary-light);
+    font-size:.75rem;
+    font-weight:800;
+    font-variant-numeric:tabular-nums;
 }
 
-/* The brand gradient fades in on its own layer (gradients can't be transitioned directly) */
-.skill-pill::before{
+/* A grid of square tiles, one per tool, like keys on a board */
+.tiles{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(min(100%, 98px), 1fr));
+    gap:12px;
+    list-style:none;
+}
+
+.tile{
+    --mx:50%;
+    --my:30%;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    aspect-ratio:1;
+    padding:14px 8px;
+    overflow:hidden;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,.08);
+    background:
+        linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.015)),
+        rgba(11,18,32,.6);
+    -webkit-backdrop-filter:blur(10px);
+    backdrop-filter:blur(10px);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.06),
+        0 10px 24px -16px rgba(0,0,0,.8);
+    isolation:isolate;
+    transition:
+        transform .45s var(--ease-out),
+        border-color .3s ease,
+        box-shadow .45s var(--ease-out);
+}
+
+/* Light in the tool's own color, under the pointer */
+.tile::before{
     content:"";
     position:absolute;
-    inset:-1px;
+    inset:0;
     z-index:-1;
-    border-radius:inherit;
-    background:linear-gradient(135deg, var(--from), var(--to));
+    background:radial-gradient(140px circle at var(--mx) var(--my), color-mix(in srgb, var(--c) 34%, transparent), transparent 70%);
     opacity:0;
     transition:opacity .35s ease;
 }
 
-.icon-container{
+/* A faint brand-colored floor that is always there, so every tile has its own identity */
+.tile::after{
+    content:"";
+    position:absolute;
+    left:20%;
+    right:20%;
+    bottom:-30%;
+    z-index:-1;
+    height:60%;
+    border-radius:50%;
+    background:color-mix(in srgb, var(--c) 26%, transparent);
+    filter:blur(22px);
+    opacity:.55;
+    transition:opacity .35s ease;
+}
+
+.icon{
     display:grid;
     place-items:center;
-    width:36px;
-    height:36px;
-    border-radius:50%;
-    background:#fff;
-    box-shadow:0 2px 6px rgba(0,0,0,.18);
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease;
+    width:48px;
+    height:48px;
+    transition:transform .5s var(--ease-out);
 }
 
-.icon-container img{
-    width:22px;
-    height:22px;
+.icon img{
+    width:44px;
+    height:44px;
     object-fit:contain;
-    transition:transform .3s ease;
+    filter:drop-shadow(0 6px 12px rgba(0,0,0,.35));
 }
 
-.label{
-    width:0;
-    overflow:hidden;
-    transition:width .35s ease;
+.icon img.invert{
+    filter:invert(1) drop-shadow(0 6px 12px rgba(0,0,0,.35));
 }
 
-.label span{
-    display:inline-block;
-    padding:0 14px 0 10px;
-    opacity:0;
-    transform:translateX(-10px);
-    transition:
-        opacity .3s ease,
-        transform .6s ease;
+.name{
+    max-width:100%;
+    color:var(--text-primary);
+    font-size:.8125rem;
+    font-weight:700;
+    line-height:1.2;
+    text-align:center;
+    text-wrap:balance;
 }
 
 @media (hover:hover) and (pointer:fine){
 
-    /* The lift and drop shadow of the original, plus the brand-colored glow of the redesign */
-    .skill-pill:hover{
-        transform:translateY(-5px);
-        border-color:transparent;
+    .tile:hover{
+        transform:translateY(-6px);
+        border-color:color-mix(in srgb, var(--c) 60%, transparent);
         box-shadow:
-            0 10px 25px rgba(0,0,0,.25),
-            0 14px 28px -14px var(--from);
+            inset 0 1px 0 rgba(255,255,255,.08),
+            0 22px 40px -18px color-mix(in srgb, var(--c) 75%, transparent);
     }
 
-    .skill-pill:hover::before{
+    .tile:hover::before{
         opacity:1;
     }
 
-    /* The logo pops: its circle grows while the logo itself settles back */
-    .skill-pill:hover .icon-container{
-        transform:scale(1.15);
-        box-shadow:0 3px 10px rgba(0,0,0,.2);
-    }
-
-    .skill-pill:hover .icon-container img{
-        transform:scale(.9);
-    }
-
-    .skill-pill:hover .label{
-        width:var(--label, auto);
-    }
-
-    .skill-pill:hover .label span{
+    .tile:hover::after{
         opacity:1;
-        transform:none;
     }
 
-}
-
-/* No hover on touch screens: the names are simply always there */
-@media (hover:none), (pointer:coarse){
-
-    .skills-grid{
-        display:flex;
-        flex-wrap:wrap;
-        gap:10px;
-    }
-
-    .skills-grid li{
-        height:auto;
-    }
-
-    .skill-pill{
-        height:46px;
-        padding:5px;
-        color:var(--text-primary);
-    }
-
-    .label{
-        width:auto;
-    }
-
-    .label span{
-        opacity:1;
-        transform:none;
+    .tile:hover .icon{
+        transform:translateY(-2px) scale(1.12) rotate(-4deg);
     }
 
 }
@@ -198,21 +184,23 @@
 
 @media (max-width:560px){
 
-    .skills-grid{
-        grid-template-columns:repeat(2, minmax(0, 1fr));
+    .tiles{
+        grid-template-columns:repeat(3, minmax(0, 1fr));
+        gap:10px;
     }
 
-}
+    .tile{
+        border-radius:16px;
+        gap:8px;
+    }
 
-@media (prefers-reduced-motion:reduce){
+    .icon img{
+        width:36px;
+        height:36px;
+    }
 
-    .skill-pill,
-    .icon-container,
-    .icon-container img,
-    .label,
-    .label span{
-        transform:none !important;
-        transition-duration:.01s !important;
+    .name{
+        font-size:.75rem;
     }
 
 }

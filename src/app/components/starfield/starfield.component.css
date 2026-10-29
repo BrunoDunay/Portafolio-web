@@ -1,0 +1,81 @@
+:host{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    display:block;
+    overflow:hidden;
+    pointer-events:none;
+    background:
+        radial-gradient(120% 90% at 50% 120%, #0d1a3a 0%, transparent 60%),
+        linear-gradient(180deg, #060b18 0%, var(--background) 55%, #070d1c 100%);
+    view-transition-name:ambient;
+}
+
+canvas{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+}
+
+/* Clouds of blue light that wander slowly behind the stars */
+.nebula{
+    position:absolute;
+    border-radius:50%;
+    will-change:transform;
+}
+
+.n1{
+    width:70vmax;
+    height:55vmax;
+    top:-22vmax;
+    right:-18vmax;
+    background:radial-gradient(closest-side, rgba(59,130,246,.30), rgba(59,130,246,.08) 55%, transparent);
+    animation:drift-a 38s ease-in-out infinite alternate;
+}
+
+.n2{
+    width:60vmax;
+    height:50vmax;
+    bottom:-24vmax;
+    left:-20vmax;
+    background:radial-gradient(closest-side, rgba(56,189,248,.18), rgba(37,99,235,.06) 60%, transparent);
+    animation:drift-b 46s ease-in-out infinite alternate;
+}
+
+.n3{
+    width:42vmax;
+    height:36vmax;
+    top:30%;
+    left:38%;
+    background:radial-gradient(closest-side, rgba(99,102,241,.14), transparent 70%);
+    animation:drift-c 54s ease-in-out infinite alternate;
+}
+
+@keyframes drift-a{
+    to{
+        transform:translate(-9vmax, 7vmax) scale(1.12);
+    }
+}
+
+@keyframes drift-b{
+    to{
+        transform:translate(10vmax, -6vmax) scale(1.18);
+    }
+}
+
+@keyframes drift-c{
+    0%{
+        transform:translate(0, 0) scale(.9);
+    }
+    100%{
+        transform:translate(-14vmax, -8vmax) scale(1.15);
+    }
+}
+
+/* Darker edges keep the eye on the content */
+.vignette{
+    position:absolute;
+    inset:0;
+    background:radial-gradient(130% 100% at 50% 45%, transparent 55%, rgba(3,6,14,.55));
+}

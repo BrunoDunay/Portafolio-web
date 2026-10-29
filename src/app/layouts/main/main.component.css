@@ -1,16 +1,7 @@
-/* Soft light behind everything: gives the dark background depth without stealing focus */
-.ambient{
-    position:fixed;
-    inset:0;
-    z-index:-1;
-    pointer-events:none;
-    view-transition-name:ambient;
-    background:
-        radial-gradient(60rem 40rem at 88% -12%, rgba(59,130,246,.17), transparent 62%),
-        radial-gradient(48rem 34rem at -8% 108%, rgba(56,189,248,.10), transparent 62%);
-}
-
+/* Above the night sky (app-starfield), which stays fixed behind everything */
 .layout{
+    position:relative;
+    z-index:1;
     display:grid;
     grid-template-columns:auto minmax(0, 1fr);
     gap:clamp(28px, 5vw, 72px);

@@ -16,31 +16,36 @@
 
     <div class="skills-container scroller">
 
-        @for (group of groups; track group.title; let g = $index) {
-            <article class="card surface rise" [style.--i]="g + 2">
+        @for (group of groups; track group.title) {
+            <section class="group">
 
-                <h2>{{ group.title }}</h2>
+                <h2 class="group-title">
+                    <span class="material-icons" aria-hidden="true">{{ group.icon }}</span>
+                    {{ group.title }}
+                    <span class="count">{{ group.skills.length }}</span>
+                </h2>
 
-                <ul class="skills-grid">
+                <ul class="tiles">
                     @for (skill of group.skills; track skill.name) {
-                        <li>
-                            <div
-                                class="skill-pill"
-                                [style.--from]="skill.from"
-                                [style.--to]="skill.to"
-                                [style.--ink]="skill.ink">
-                                <span class="icon-container">
-                                    <img [src]="skill.icon" alt="" width="24" height="24" loading="lazy">
-                                </span>
-                                <span class="label">
-                                    <span>{{ skill.name }}</span>
-                                </span>
-                            </div>
+                        <li
+                            class="tile"
+                            [style.--c]="skill.color"
+                            (pointermove)="track($event)">
+                            <span class="icon">
+                                <img
+                                    [src]="skill.icon"
+                                    [class.invert]="skill.invert"
+                                    alt=""
+                                    width="44"
+                                    height="44"
+                                    loading="lazy">
+                            </span>
+                            <span class="name">{{ skill.name }}</span>
                         </li>
                     }
                 </ul>
 
-            </article>
+            </section>
         }
 
     </div>

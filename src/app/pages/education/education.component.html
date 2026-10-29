@@ -51,93 +51,73 @@
                 <span class="material-icons" aria-hidden="true">workspace_premium</span>
                 Certifications
             </h2>
-            <div class="cards scroller">
-                <article class="card card-link">
-                    <a href="https://certificates.dev/angular/certificates/a1e70b4c-35b2-47b2-b7e3-2e15dd06010b" target="_blank" rel="noopener" class="card-anchor" aria-label="View certificate"></a>
-                    <div class="card-accent"></div>
-                    <div class="card-content">
-                        <div class="card-header">
-                            <h3>Certified Junior Angular Developer</h3>
-                            <span class="year">2026</span>
-                        </div>
-                        <p>certificates.dev</p>
-                        <div class="tags">
-                            <span>Angular</span>
-                            <span>TypeScript</span>
-                            <span>RxJS</span>
-                            <span>Routing</span>
-                            <span>DI</span>
-                            <span>Reactive Forms</span>
-                            <span>HTTP</span>
-                            <span>Testing</span>
-                        </div>
-                    </div>
-                </article>
-                <article class="card card-link">
-                    <a href="https://www.salesforce.com/trailblazer/odfagwrgiay0reulat" target="_blank" rel="noopener" class="card-anchor" aria-label="View certificate"></a>
-                    <div class="card-accent"></div>
-                    <div class="card-content">
-                        <div class="card-header">
-                            <h3>Salesforce Platform Developer</h3>
-                            <span class="year">2026</span>
-                        </div>
-                        <p>Trailhead · Salesforce</p>
-                        <div class="tags">
-                            <span>Apex</span>
-                            <span>LWC</span>
-                            <span>Flows</span>
-                            <span>SOQL</span>
-                            <span>Security</span>
-                            <span>Salesforce DX</span>
-                        </div>
-                    </div>
-                </article>
-                <article class="card card-link">
-                    <a href="https://verify.openedg.org/?id=LY2Q.T9O2.hLrj" target="_blank" rel="noopener" class="card-anchor" aria-label="View certificate"></a>
-                    <div class="card-accent"></div>
-                    <div class="card-content">
-                        <div class="card-header">
-                            <h3>PCEP™ – Certified Entry-Level Python Programmer</h3>
-                            <span class="year">2026</span>
-                        </div>
-                        <p>OpenEDG Python Institute</p>
-                        <div class="tags">
-                            <span>Python</span>
-                            <span>Programming Fundamentals</span>
-                            <span>Syntax &amp; Semantics</span>
-                            <span>Data Types</span>
-                            <span>Functions</span>
-                            <span>Control Flow</span>
-                            <span>Exceptions</span>
-                            <span>Standard Library</span>
-                        </div>
-                    </div>
-                </article>
-                <article class="card">
-                    <div class="card-accent"></div>
-                    <div class="card-content">
-                        <div class="card-header">
-                            <h3>Full Stack Developer (Angular · Node.js)</h3>
-                            <span class="year">2026</span>
-                        </div>
-                        <p>Inadaptados</p>
-                        <div class="tags">
-                            <span>Angular</span>
-                            <span>Node.js</span>
-                            <span>Express</span>
-                            <span>TypeScript</span>
-                            <span>JavaScript</span>
-                            <span>REST API</span>
-                            <span>SQL</span>
-                            <span>MongoDB</span>
-                            <span>Git</span>
-                            <span>GitHub</span>
-                            <span>Testing</span>
-                            <span>CI/CD</span>
-                        </div>
-                    </div>
-                </article>
+            <div class="certs scroller">
+                @for (cert of certs; track cert.title) {
+                    <button
+                        type="button"
+                        class="cert"
+                        [style.--c]="cert.color"
+                        (click)="active.set(cert)"
+                        (pointermove)="tilt($event)"
+                        (pointerleave)="untilt($event)"
+                        [attr.aria-label]="'View ' + cert.title">
+                        <span class="print">
+                            @if (cert.image) {
+                                <img [src]="cert.image" alt="" loading="lazy">
+                            } @else {
+                                <span class="face">
+                                    <span class="material-icons seal" aria-hidden="true">{{ cert.glyph }}</span>
+                                    <b>{{ cert.issuer }}</b>
+                                    <span>{{ cert.title }}</span>
+                                    <small>{{ cert.year }}</small>
+                                </span>
+                            }
+                            <span class="glare" aria-hidden="true"></span>
+                        </span>
+                        <span class="info">
+                            <b>{{ cert.title }}</b>
+                            <small>{{ cert.issuer }} · {{ cert.year }}</small>
+                        </span>
+                    </button>
+                }
             </div>
         </section>
     </div>
 </section>
+
+@if (active(); as cert) {
+    <div class="viewer" (click)="active.set(null)" role="dialog" aria-modal="true" [attr.aria-label]="cert.title">
+        <div class="sheet" [style.--c]="cert.color" (click)="$event.stopPropagation()">
+            <div class="sheet-print">
+                @if (cert.image) {
+                    <img [src]="cert.image" [alt]="cert.title + ' certificate'">
+                } @else {
+                    <span class="face large">
+                        <span class="material-icons seal" aria-hidden="true">{{ cert.glyph }}</span>
+                        <b>{{ cert.issuer }}</b>
+                        <span>{{ cert.title }}</span>
+                        <small>{{ cert.year }}</small>
+                    </span>
+                }
+            </div>
+            <div class="sheet-info">
+                <h3>{{ cert.title }}</h3>
+                <p>{{ cert.issuer }} · {{ cert.year }}</p>
+                <div class="tags">
+                    @for (tag of cert.tags; track tag) {
+                        <span>{{ tag }}</span>
+                    }
+                </div>
+                @if (cert.url) {
+                    <a class="btn btn-primary" [href]="cert.url" target="_blank" rel="noopener">
+                        <span class="material-icons" aria-hidden="true">verified</span>
+                        Verify credential
+                    </a>
+                }
+            </div>
+            <button type="button" class="close" (click)="active.set(null)" aria-label="Close">
+                <span class="material-icons" aria-hidden="true">close</span>
+            </button>
+        </div>
+    </div>
+}

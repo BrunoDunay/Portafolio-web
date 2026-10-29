@@ -31,6 +31,11 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
       "projects/mockups/uinternacional/ss7.png",
       "projects/mockups/uinternacional/ss8.png",
     ],
+    card: {
+      background: "radial-gradient(120% 100% at 90% 0%, #3d3878 0%, transparent 55%), linear-gradient(135deg, #17142c, #26224d)",
+      image: "/projects/cards/uia.webp",
+      tint: "#c9a84a"
+    },
     brand: {
       primary: "#aa882c",
       secondary: "#b1902f",
@@ -73,6 +78,11 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
       "projects/mockups/fbe-platform/ss8.png",
       "projects/mockups/fbe-platform/ss9.png"
     ],
+    card: {
+      background: "radial-gradient(110% 100% at 85% 0%, #14906a 0%, transparent 58%), linear-gradient(135deg, #071a16, #0b3d2f)",
+      image: "/projects/cards/fitness.webp",
+      tint: "#4fd6a4"
+    },
     brand: {
       primary: "#0b6e4f",
       secondary: "#0a1f1c",
@@ -89,28 +99,39 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
     title: "Armando Ovalle Wedding Studio",
     type: "Full Stack Website",
     shortDescription:
-      "Wedding photographer's website with an admin panel for galleries, packages and bookings.",
+      "Wedding and event photographer's website, live with his real work: nine service pages with galleries and packages, an availability calendar and an admin panel he runs himself.",
     problem:
-      "The photographer needed a site to showcase his work and let clients check date availability, with content he could update without a developer.",
+      "Jorge Armando Ovalle covers weddings, XV años, proposals and studio sessions in Aguascalientes and across Mexico. He needed a site that sells with his photography, answers the usual questions and shows which dates are free, with content he can change without a developer.",
     solution:
-      "Built a server-rendered Angular site and admin panel on top of an Express REST API and PostgreSQL, with Cloudinary image hosting and an availability calendar.",
+      "A server-rendered Angular site and admin panel on an Express REST API and PostgreSQL. From the panel he edits services, galleries, packages, FAQ, legal pages and the calendar, uploads photos and service videos straight to Cloudinary, and manages bookings with contracts and confirmation emails. Seasonal themes (Día de Muertos, Christmas, Independence Day and more) restyle the site on their own by date.",
     technologies: [
       "Angular",
       "TypeScript",
       "Node.js",
       "Express",
       "PostgreSQL",
-      "Cloudinary"
+      "Cloudinary",
+      "JWT",
+      "SEO"
     ],
     cover: "assets/projects/armando-ovalle/cover.webp",
-    logo: "/projects/logos/ArmandoOvalle.png",
+    logo: "/projects/cards/armando-ovalle.webp",
     gallery: [
-      "projects/mockups/armando-ovalle/ss1.png",
-      "projects/mockups/armando-ovalle/ss2.png",
-      "projects/mockups/armando-ovalle/ss3.png",
-      "projects/mockups/armando-ovalle/ss4.png",
-      "projects/mockups/armando-ovalle/ss5.png"
+      "projects/mockups/armando-ovalle/ss1.webp",
+      "projects/mockups/armando-ovalle/ss2.webp",
+      "projects/mockups/armando-ovalle/ss3.webp",
+      "projects/mockups/armando-ovalle/ss4.webp",
+      "projects/mockups/armando-ovalle/ss5.webp",
+      "projects/mockups/armando-ovalle/ss6.webp",
+      "projects/mockups/armando-ovalle/ss7.webp",
+      "projects/mockups/armando-ovalle/ss8.webp"
     ],
+    card: {
+      background: "#2a2421",
+      photo: "/projects/cards/armando-ovalle-photo.webp",
+      image: "/projects/cards/armando-ovalle.webp",
+      tint: "#d9b994"
+    },
     brand: {
       primary: "#7d5f4b",
       secondary: "#d9b994",
@@ -148,6 +169,11 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
       "projects/mockups/pokedex/ss4.png",
       "projects/mockups/pokedex/ss5.png"
     ],
+    card: {
+      background: "radial-gradient(70% 120% at 18% 50%, rgba(238,21,21,.55), transparent 62%), linear-gradient(135deg, #1d1d1f, #2b1215)",
+      image: "/projects/cards/pokedex.webp",
+      tint: "#ff4d4d"
+    },
     brand: {
       primary: "#ee1515",
       secondary: "#f7d02c",
@@ -186,6 +212,11 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
       "projects/mockups/cafecito/ss5.png",
       "projects/mockups/cafecito/ss6.png"
     ],
+    card: {
+      background: "radial-gradient(100% 100% at 85% 0%, #86a88a 0%, transparent 60%), linear-gradient(135deg, #5f7f63, #3f5a45)",
+      image: "/projects/cards/cafecito.webp",
+      tint: "#e0a35c"
+    },
     brand: {
       primary: "#5f7f63",
       secondary: "#c7853a",
@@ -234,6 +265,11 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
       "projects/mockups/ecomerce/ss15.png",
       "projects/mockups/ecomerce/ss16.png"
     ],
+    card: {
+      background: "radial-gradient(90% 120% at 100% 100%, #ff5ca8 0%, transparent 60%), linear-gradient(135deg, #4b0a80, #8a1fb8)",
+      image: "/projects/cards/funko.webp",
+      tint: "#ff5ca8"
+    },
     brand: {
       primary: "#6A0DAD",
       secondary: "#FF5CA8",

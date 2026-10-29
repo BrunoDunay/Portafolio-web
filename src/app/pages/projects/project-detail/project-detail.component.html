@@ -1,152 +1,199 @@
-<section
-  class="hero"
-  [style.--primary]="primaryColor"
-  [style.--secondary]="secondaryColor"
->
-  <div class="background"></div>
-  <button type="button" class="back-button rise" (click)="goBack()">
-    <span class="material-icons" aria-hidden="true">arrow_back</span>
-    Back to Projects
-  </button>
-  <div class="hero-content">
-    <div class="left">
-      <div class="project-header rise" style="--i:1">
-        <span class="project-type">
-          {{ projectType }}
-        </span>
+@if (project; as p) {
+<article
+    class="project scroller"
+    [style.--brand]="accent()"
+    [style.--brand-2]="accent2()"
+    [style.--on-brand]="onAccent()">
 
-        <div class="project-links">
-          @if (hasWebsite) {
-            <a class="icon-button" [href]="website" target="_blank" rel="noopener" [attr.aria-label]="developmentProject?.demo ? 'Open live demo' : 'Visit Website'">
-              <span class="material-icons" aria-hidden="true">language</span>
-            </a>
-          }
+    <div class="glow" aria-hidden="true"></div>
 
-          @if (hasGithub) {
-            <a class="icon-button" [href]="github" target="_blank" rel="noopener" aria-label="View GitHub">
-              <span class="material-icons" aria-hidden="true">code</span>
-            </a>
-          }
-        </div>
-      </div>
-      <h1 class="rise" style="--i:2">
-        {{ title }}
-      </h1>
-      <p class="description rise" style="--i:3">
-        {{ description }}
-      </p>
-      <div class="project-info rise" style="--i:4">
-        <div class="details-column">
-          @if (developmentProject; as p) {
-            <div class="detail-card">
-              <h2>{{ p.demo ? "Concept" : "Problem" }}</h2>
-              <p>
-                {{ p.problem }}
-              </p>
-            </div>
-            <div class="detail-card">
-              <h2>{{ p.demo ? "What it shows" : "Solution" }}</h2>
-              <p>
-                {{ p.solution }}
-              </p>
-            </div>
-          }
-          @if (designProject; as p) {
-            <div class="detail-card">
-              <h2>Objective</h2>
-              <p>
-                {{ p.objective }}
-              </p>
-            </div>
-            <div class="detail-card">
-              <h2>Deliverables</h2>
-              <ul class="deliverables-list">
-                @for (item of p.deliverables; track item) {
-                  <li>
-                    {{ item }}
-                  </li>
-                }
-              </ul>
-            </div>
-          }
-        </div>
-        <div class="tools-card">
-          <h2>
-            {{ developmentProject ? "Technologies" : "Tools" }}
-          </h2>
-
-          <ul class="tools-list">
-            @for (skill of skills; track skill) {
-              <li>
-                <span></span>
-                {{ skill }}
-              </li>
-            }
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="right rise" style="--i:2">
-      <div class="gallery-card">
-        <button type="button" class="gallery-image" (click)="openImage()" aria-label="Open image full size">
-          <img
-            [src]="gallery[selectedImage]"
-            [alt]="title"
-          />
+    <nav class="crumbs" aria-label="Breadcrumb">
+        <button type="button" class="back" (click)="goBack()">
+            <span class="material-icons" aria-hidden="true">arrow_back</span>
+            Back
         </button>
-        <div class="gallery-logo">
-          <img [src]="logo" alt="" />
-        </div>
-        <div class="gallery-body">
-          <div class="gallery-controls">
-            <button type="button" class="gallery-arrow" (click)="previousImage()" aria-label="Previous image">
-              <span class="material-icons" aria-hidden="true">arrow_back</span>
-            </button>
+        <ol>
+            <li><a routerLink="/projects">Projects</a></li>
+            <li class="sep material-icons" aria-hidden="true">chevron_right</li>
+            <li aria-current="page">{{ p.title }}</li>
+        </ol>
+    </nav>
 
-            <div class="gallery-dots">
-              @for (image of gallery; track image; let i = $index) {
+    <header class="intro">
+
+        <div class="text">
+            <span class="eyebrow">{{ kind() }}</span>
+
+            <h1 class="title" [attr.aria-label]="p.title">
+                @for (word of titleWords(); track $index) {
+                    <span class="word" aria-hidden="true"><span>{{ word }}</span></span>
+                }
+            </h1>
+
+            <p class="lede" data-rise>{{ p.shortDescription }}</p>
+
+            @if (website() || github()) {
+                <div class="actions" data-rise>
+                    @if (website()) {
+                        <a class="btn btn-brand" [href]="website()" target="_blank" rel="noopener">
+                            <span class="material-icons" aria-hidden="true">language</span>
+                            {{ dev()?.demo ? 'Open live demo' : 'Visit website' }}
+                            <span class="material-icons arrow" aria-hidden="true">north_east</span>
+                        </a>
+                    }
+                    @if (github()) {
+                        <a class="btn btn-ghost" [href]="github()" target="_blank" rel="noopener">
+                            <img src="/github.png" alt="" width="18" height="18" class="gh">
+                            Source code
+                        </a>
+                    }
+                </div>
+            }
+        </div>
+
+        <section class="stack" aria-labelledby="stack-title">
+            <h2 id="stack-title" data-rise>
+                <span class="material-icons" aria-hidden="true">code</span>
+                {{ dev() ? 'Technologies used' : 'Tools used' }}
+            </h2>
+            <ul class="chips">
+                @for (tech of stack(); track tech.name) {
+                    <li class="chip" [style.--c]="tech.color">
+                        @if (tech.icon) {
+                            <img [src]="tech.icon" alt="" width="20" height="20">
+                        } @else {
+                            <span class="material-icons" aria-hidden="true">{{ tech.glyph }}</span>
+                        }
+                        {{ tech.name }}
+                    </li>
+                }
+            </ul>
+        </section>
+
+        <figure class="showcase">
+            <div class="frame" [class.browser]="!!dev()">
+                @if (dev()) {
+                    <div class="bar" aria-hidden="true">
+                        <span class="dots"><i></i><i></i><i></i></span>
+                        <span class="url">
+                            <span class="material-icons">lock</span>
+                            {{ address() }}
+                        </span>
+                    </div>
+                }
                 <button
-                  type="button"
-                  [class.active]="i === selectedImage"
-                  [attr.aria-label]="'Image ' + (i + 1)"
-                  (click)="selectImage(i)"
-                >
+                    type="button"
+                    class="screen"
+                    [class.contain]="!dev()"
+                    (click)="zoomed.set(true)"
+                    aria-label="Open image full size">
+                    @if (previous() !== null) {
+                        <img class="under" [src]="gallery()[previous()!]" alt="">
+                    }
+                    @for (i of [selected()]; track i) {
+                        <img
+                            class="current"
+                            [class.from-left]="direction() === -1"
+                            [src]="gallery()[i]"
+                            [alt]="p.title + ', image ' + (i + 1)">
+                    }
+                    <span class="zoom material-icons" aria-hidden="true">zoom_in</span>
                 </button>
-              }
+
+                @if (gallery().length > 1) {
+                    <button type="button" class="nav prev" (click)="prev()" aria-label="Previous image">
+                        <span class="material-icons" aria-hidden="true">chevron_left</span>
+                    </button>
+                    <button type="button" class="nav next" (click)="next()" aria-label="Next image">
+                        <span class="material-icons" aria-hidden="true">chevron_right</span>
+                    </button>
+                }
             </div>
 
-            <button type="button" class="gallery-arrow" (click)="nextImage()" aria-label="Next image">
-              <span class="material-icons" aria-hidden="true">arrow_forward</span>
-            </button>
-          </div>
-
-          <div class="brand-palette">
-            @for (color of brandColors; track $index) {
-              <div
-                class="palette-color"
-                [style.background]="color"
-                (mouseenter)="activeColor = color"
-                (mouseleave)="activeColor = null"
-              >
-                @if (activeColor === color) {
-                  <span>
-                    {{ color }}
-                  </span>
-                }
-              </div>
+            @if (gallery().length > 1) {
+                <figcaption class="caption">
+                    <span class="counter">{{ counter() }}</span>
+                    <div class="thumbs" #thumbs>
+                        @for (image of gallery(); track image; let i = $index) {
+                            <button
+                                type="button"
+                                class="thumb"
+                                [class.active]="i === selected()"
+                                [attr.aria-label]="'Show image ' + (i + 1)"
+                                [attr.aria-current]="i === selected()"
+                                (click)="select(i)">
+                                <img [src]="image" alt="" loading="lazy">
+                            </button>
+                        }
+                    </div>
+                </figcaption>
             }
-          </div>
-        </div>
-      </div>
+        </figure>
+
+    </header>
+
+    <section class="story">
+        @if (dev(); as d) {
+            <article class="panel">
+                <span class="num">01</span>
+                <h2>{{ d.demo ? 'Concept' : 'The challenge' }}</h2>
+                <p>{{ d.problem }}</p>
+            </article>
+            <article class="panel">
+                <span class="num">02</span>
+                <h2>{{ d.demo ? 'What it shows' : 'What I built' }}</h2>
+                <p>{{ d.solution }}</p>
+            </article>
+        }
+        @if (design(); as d) {
+            <article class="panel">
+                <span class="num">01</span>
+                <h2>Objective</h2>
+                <p>{{ d.objective }}</p>
+            </article>
+            <article class="panel">
+                <span class="num">02</span>
+                <h2>Deliverables</h2>
+                <ul class="deliverables">
+                    @for (item of d.deliverables; track item) {
+                        <li>{{ item }}</li>
+                    }
+                </ul>
+            </article>
+        }
+        <article class="panel palette">
+            <span class="num">03</span>
+            <h2>Brand palette</h2>
+            <ul class="swatches">
+                @for (swatch of swatches(); track $index) {
+                    <li>
+                        <button
+                            type="button"
+                            class="swatch"
+                            [style.--sw]="swatch.hex"
+                            (click)="copy(swatch.hex)"
+                            [attr.aria-label]="'Copy ' + swatch.hex">
+                            <span class="chip-color"></span>
+                            <span class="meta">
+                                <b>{{ copied() === swatch.hex ? 'Copied' : swatch.hex }}</b>
+                                <small>{{ swatch.name }}</small>
+                            </span>
+                        </button>
+                    </li>
+                }
+            </ul>
+        </article>
+    </section>
+
+</article>
+
+<!-- Outside the scrolling article, whose fade mask would otherwise clip it -->
+@if (zoomed()) {
+    <div class="lightbox" (click)="zoomed.set(false)" role="dialog" aria-modal="true" [attr.aria-label]="p.title">
+        <img [src]="gallery()[selected()]" [alt]="p.title" (click)="$event.stopPropagation()">
+        <button type="button" class="close" (click)="zoomed.set(false)" aria-label="Close">
+            <span class="material-icons" aria-hidden="true">close</span>
+        </button>
     </div>
-  </div>
-  @if (showImage) {
-    <div class="image-modal" (click)="closeImage()">
-      <img
-        [src]="gallery[selectedImage]"
-        [alt]="title"
-        (click)="$event.stopPropagation()"
-      />
-    </div>
-  }
-</section>
+}
+}
