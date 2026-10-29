@@ -21,7 +21,7 @@ export const DESIGN_PROJECTS: DesignProject[] = [
       '/projects/mockups/fbe/fbe6.png',
     ],
     card: {
-      background: 'radial-gradient(110% 100% at 85% 0%, #14906a 0%, transparent 58%), linear-gradient(135deg, #071a16, #0b3d2f)',
+      background: 'radial-gradient(110% 100% at 88% 0%, #d9f3e8 0%, transparent 58%), linear-gradient(135deg, #ffffff, #eef5f1)',
       image: '/projects/cards/fitness.webp',
       tint: '#4fd6a4'
     },
@@ -54,7 +54,7 @@ export const DESIGN_PROJECTS: DesignProject[] = [
       '/projects/mockups/dalia/dalia_7.png',
     ],
     card: {
-      background: 'radial-gradient(100% 100% at 85% 0%, #fff4f8 0%, transparent 60%), linear-gradient(135deg, #f7d3e1, #e9a2bf)',
+      background: 'radial-gradient(100% 100% at 88% 0%, #fbdbe7 0%, transparent 60%), linear-gradient(135deg, #ffffff, #fbf2f6)',
       image: '/projects/cards/dalia.webp',
       tint: '#f2a7c6'
     },
@@ -171,7 +171,7 @@ export const DESIGN_PROJECTS: DesignProject[] = [
       '/projects/mockups/uinternacional_diseños/diseño20.png',
     ],
     card: {
-      background: 'radial-gradient(120% 100% at 90% 0%, #3d3878 0%, transparent 55%), linear-gradient(135deg, #17142c, #26224d)',
+      background: 'radial-gradient(110% 100% at 92% 0%, #f7eccb 0%, transparent 58%), linear-gradient(135deg, #ffffff, #f2f1f8)',
       image: '/projects/cards/uia.webp',
       tint: '#c9a84a'
     },

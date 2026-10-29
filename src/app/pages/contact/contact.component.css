@@ -153,13 +153,60 @@
 
 .contact-card{
     padding:clamp(20px, 2.4vw, 28px);
+    background:
+        radial-gradient(90% 60% at 100% 0%, rgba(59,130,246,.12), transparent 70%),
+        rgba(13,20,36,.62);
+    -webkit-backdrop-filter:blur(14px);
+    backdrop-filter:blur(14px);
+}
+
+.card-header{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px 14px;
+    margin-bottom:12px;
 }
 
 .card-header h2{
-    margin-bottom:10px;
     font-size:1.125rem;
     font-weight:700;
     letter-spacing:-.01em;
+}
+
+/* My local time, live */
+.clock{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:5px 11px;
+    border-radius:999px;
+    background:rgba(255,255,255,.05);
+    border:1px solid var(--border-color);
+    color:var(--text-secondary);
+    font-size:.75rem;
+    font-weight:600;
+    font-variant-numeric:tabular-nums;
+    white-space:nowrap;
+}
+
+.clock-dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#4ade80;
+    animation:pulse 2.4s ease-out infinite;
+}
+
+@keyframes pulse{
+    0%{
+        box-shadow:0 0 0 0 rgba(74,222,128,.55);
+    }
+    70%,
+    100%{
+        box-shadow:0 0 0 7px rgba(74,222,128,0);
+    }
 }
 
 .contact-list{
@@ -167,41 +214,55 @@
     flex-direction:column;
     gap:2px;
     margin-inline:-10px;
+    list-style:none;
 }
 
 .contact-item{
+    position:relative;
+    display:flex;
+    align-items:center;
+    border-radius:var(--radius-md);
+    transition:background-color .25s ease;
+}
+
+.row{
     display:flex;
     align-items:center;
     gap:14px;
+    flex:1;
+    min-width:0;
     padding:10px;
-    border-radius:var(--radius-md);
-    transition:background-color .2s ease;
+    border-radius:inherit;
 }
 
+/* Every channel shows its own color from the start, and fills with it on hover */
 .icon{
+    display:grid;
+    place-items:center;
+    flex-shrink:0;
     width:44px;
     height:44px;
     border-radius:14px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:rgba(255,255,255,.05);
-    border:1px solid var(--border-color);
-    flex-shrink:0;
+    background:color-mix(in srgb, var(--c) 16%, transparent);
+    border:1px solid color-mix(in srgb, var(--c) 34%, transparent);
     transition:
-        background-color .2s ease,
-        border-color .2s ease;
+        background-color .25s ease,
+        border-color .25s ease,
+        transform .4s var(--ease-out),
+        box-shadow .3s ease;
 }
 
 .icon svg{
     width:20px;
     height:20px;
-    fill:white;
+    fill:color-mix(in srgb, var(--c) 45%, white);
+    transition:fill .25s ease;
 }
 
 .info{
     display:flex;
     flex-direction:column;
+    flex:1;
     min-width:0;
 }
 
@@ -210,47 +271,82 @@
     font-size:.75rem;
 }
 
-.info a,
-.info p{
+.info b{
     color:var(--text-primary);
     font-size:.9375rem;
     font-weight:600;
     overflow-wrap:anywhere;
-    transition:color .2s ease;
+}
+
+.go{
+    color:var(--text-muted);
+    font-size:18px;
+    opacity:0;
+    transform:translate(-6px, 6px);
+    transition:
+        opacity .25s ease,
+        transform .35s var(--ease-out),
+        color .25s ease;
+}
+
+.copy{
+    display:grid;
+    place-items:center;
+    flex-shrink:0;
+    width:36px;
+    height:36px;
+    margin-right:8px;
+    border-radius:10px;
+    border:1px solid var(--border-color);
+    background:rgba(255,255,255,.04);
+    color:var(--text-secondary);
+    transition:
+        background-color .2s ease,
+        border-color .2s ease,
+        color .2s ease,
+        transform .16s var(--ease-out);
+}
+
+.copy .material-icons{
+    font-size:17px;
+}
+
+.copy:active{
+    transform:scale(.9);
+}
+
+.copy.done{
+    border-color:rgba(74,222,128,.5);
+    background:rgba(74,222,128,.14);
+    color:#4ade80;
 }
 
 @media (hover:hover) and (pointer:fine){
 
     .contact-item:hover{
-        background:rgba(255,255,255,.04);
+        background:rgba(255,255,255,.045);
     }
 
     .contact-item:hover .icon{
+        background:var(--c);
         border-color:transparent;
+        transform:scale(1.06) rotate(-4deg);
+        box-shadow:0 10px 22px -10px var(--c);
     }
 
-    .contact-item:hover .email{
-        background:#EA4335;
+    .contact-item:hover .icon svg{
+        fill:#fff;
     }
 
-    .contact-item:hover .linkedin{
-        background:#0A66C2;
+    .contact-item:hover .go{
+        opacity:1;
+        transform:none;
+        color:var(--text-primary);
     }
 
-    .contact-item:hover .github{
-        background:#30363d;
-    }
-
-    .contact-item:hover .phone{
-        background:#1fa855;
-    }
-
-    .contact-item:hover .location{
-        background:var(--primary);
-    }
-
-    .info a:hover{
-        color:var(--primary-light);
+    .copy:hover{
+        border-color:var(--border-strong);
+        color:var(--text-primary);
     }
 
 }
@@ -260,6 +356,9 @@
 /* ========================= */
 
 .cta{
+    position:relative;
+    isolation:isolate;
+    overflow:hidden;
     display:flex;
     flex-wrap:wrap;
     justify-content:space-between;
@@ -267,6 +366,33 @@
     gap:16px 24px;
     margin-top:clamp(28px, 5vh, 44px);
     padding:20px clamp(20px, 2.4vw, 28px);
+}
+
+/* A slow band of light travels around the edge */
+.cta::before{
+    content:"";
+    position:absolute;
+    inset:-150%;
+    z-index:-2;
+    background:conic-gradient(from 0deg, transparent 0 70%, rgba(96,165,250,.9) 80%, rgba(56,189,248,.9) 85%, transparent 92%);
+    animation:orbit 6s linear infinite;
+}
+
+.cta::after{
+    content:"";
+    position:absolute;
+    inset:1px;
+    z-index:-1;
+    border-radius:inherit;
+    background:
+        radial-gradient(80% 140% at 0% 50%, rgba(59,130,246,.16), transparent 60%),
+        #0e1628;
+}
+
+@keyframes orbit{
+    to{
+        transform:rotate(1turn);
+    }
 }
 
 .cta h2{

@@ -32,7 +32,7 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
       "projects/mockups/uinternacional/ss8.png",
     ],
     card: {
-      background: "radial-gradient(120% 100% at 90% 0%, #3d3878 0%, transparent 55%), linear-gradient(135deg, #17142c, #26224d)",
+      background: "radial-gradient(110% 100% at 92% 0%, #f7eccb 0%, transparent 58%), linear-gradient(135deg, #ffffff, #f2f1f8)",
       image: "/projects/cards/uia.webp",
       tint: "#c9a84a"
     },
@@ -79,7 +79,7 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
       "projects/mockups/fbe-platform/ss9.png"
     ],
     card: {
-      background: "radial-gradient(110% 100% at 85% 0%, #14906a 0%, transparent 58%), linear-gradient(135deg, #071a16, #0b3d2f)",
+      background: "radial-gradient(110% 100% at 88% 0%, #d9f3e8 0%, transparent 58%), linear-gradient(135deg, #ffffff, #eef5f1)",
       image: "/projects/cards/fitness.webp",
       tint: "#4fd6a4"
     },

@@ -59,7 +59,7 @@
     max-width:72%;
     max-height:58%;
     object-fit:contain;
-    filter:drop-shadow(0 10px 18px rgba(0,0,0,.28));
+    filter:drop-shadow(0 8px 14px rgba(0,0,0,.16));
     transition:transform .6s var(--ease-out);
 }
 

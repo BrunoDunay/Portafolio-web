@@ -25,6 +25,34 @@ export class EducationComponent {
 
   readonly active = signal<Certificate | null>(null);
 
+  /** Each school with its own logo and color */
+  readonly schools = [
+    {
+      degree: 'Bachelor\'s Degree in Design and Content Production',
+      name: 'Universidad Cuauhtémoc Aguascalientes',
+      level: 'Bachelor\'s',
+      years: '2021 – 2024',
+      logo: '/education/universidad-cuauhtemoc.svg',
+      color: '#2f6fd6',
+    },
+    {
+      degree: 'Full Stack Developer (MEAN)',
+      name: 'Inadaptados',
+      level: 'Bootcamp',
+      years: '2024 – 2026',
+      logo: '/education/inadaptados.webp',
+      color: '#2fb2ea',
+    },
+    {
+      degree: 'Master\'s Degree in Teaching Skills Development for Digital Transformation',
+      name: 'Universidad Internacional de Aguascalientes',
+      level: 'Master\'s',
+      years: '2024 – 2026',
+      logo: '/education/universidad-internacional.webp',
+      color: '#c9a84a',
+    },
+  ];
+
   readonly certs: Certificate[] = [
     {
       title: 'Certified Junior Angular Developer',
@@ -58,7 +86,7 @@ export class EducationComponent {
       issuer: 'Inadaptados',
       year: '2026',
       glyph: 'school',
-      color: '#7c6cff',
+      color: '#2fb2ea',
       tags: ['Angular', 'Node.js', 'Express', 'TypeScript', 'JavaScript', 'REST API', 'SQL', 'MongoDB', 'Git', 'GitHub', 'Testing', 'CI/CD'],
     },
   ];

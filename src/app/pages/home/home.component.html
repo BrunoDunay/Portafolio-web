@@ -1,35 +1,93 @@
 <section class="home scroller">
 
-    <p class="status rise">
-        <span class="status-dot" aria-hidden="true"></span>
-        Available for new opportunities
-    </p>
+    <div class="intro">
 
-    <h1 class="title rise" style="--i:1">
-        Bruno Dunay
-        <span>Acevedo Rivas</span>
-    </h1>
+        <p class="status rise">
+            <span class="status-dot" aria-hidden="true"></span>
+            Available for new opportunities
+        </p>
 
-    <h2 class="subtitle rise" style="--i:2">
-        Full Stack Developer
-    </h2>
+        <h1 class="title rise" style="--i:1">
+            Bruno Dunay
+            <span>Acevedo Rivas</span>
+        </h1>
 
-    <p class="description rise" style="--i:3">
-        I’m a Software Developer passionate about building modern web
-        applications, combining frontend engineering, backend
-        development and digital design to create complete digital
-        solutions.
-    </p>
+        <h2 class="subtitle rise" style="--i:2">
+            Full Stack Developer
+        </h2>
 
-    <div class="buttons rise" style="--i:4">
+        <p class="description rise" style="--i:3">
+            I’m a Software Developer passionate about building modern web
+            applications, combining frontend engineering, backend
+            development and digital design to create complete digital
+            solutions.
+        </p>
 
-        <a class="btn btn-primary" routerLink="/projects">
-            View Projects
-        </a>
+        <div class="buttons rise" style="--i:4">
 
-        <a class="btn btn-ghost" href="/documents/Bruno Dunay Acevedo Rivas CVtec English.pdf" download>
-            <span class="button-content">Download CV</span>
-        </a>
+            <a class="btn btn-primary" routerLink="/projects">
+                View Projects
+            </a>
+
+            <a class="btn btn-ghost" href="/documents/Bruno Dunay Acevedo Rivas CVtec English.pdf" download>
+                <span class="button-content">Download CV</span>
+            </a>
+
+        </div>
+
+        <dl class="stats rise" style="--i:5">
+            @for (stat of stats; track stat.label) {
+                <div class="stat">
+                    <dt>{{ stat.label }}</dt>
+                    <dd class="count" [attr.data-to]="stat.value">{{ stat.value }}</dd>
+                </div>
+            }
+        </dl>
+
+    </div>
+
+    <!-- Real work on the first screen: a deck of live projects that deals itself -->
+    <div
+        class="deck rise"
+        style="--i:3"
+        (pointermove)="tilt($event)"
+        (pointerleave)="untilt()"
+        (mouseenter)="paused.set(true)"
+        (mouseleave)="paused.set(false)">
+
+        <div class="stage" #stage>
+            @for (item of deck; track item.slug; let i = $index) {
+                <a
+                    class="sheet"
+                    [routerLink]="['/projects', item.slug]"
+                    [attr.data-pos]="position(i)"
+                    [style.--tint]="item.tint"
+                    [attr.tabindex]="position(i) === 0 ? 0 : -1"
+                    [attr.aria-hidden]="position(i) !== 0"
+                    [attr.aria-label]="'Open ' + item.title">
+                    <span class="bar" aria-hidden="true">
+                        <span class="dots"><i></i><i></i><i></i></span>
+                        <span class="url">{{ item.host }}</span>
+                    </span>
+                    <img [src]="item.image" alt="" loading="lazy">
+                </a>
+            }
+        </div>
+
+        <div class="deck-caption">
+            <span class="deck-kind">{{ current().kind }}</span>
+            <b>{{ current().title }}</b>
+            <div class="deck-dots" role="group" aria-label="Featured projects">
+                @for (item of deck; track item.slug; let i = $index) {
+                    <button
+                        type="button"
+                        [class.active]="i === front()"
+                        [attr.aria-label]="'Show ' + item.title"
+                        (click)="show(i)">
+                    </button>
+                }
+            </div>
+        </div>
 
     </div>
 
