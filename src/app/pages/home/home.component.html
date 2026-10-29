@@ -35,15 +35,6 @@
 
         </div>
 
-        <dl class="stats rise" style="--i:5">
-            @for (stat of stats; track stat.label) {
-                <div class="stat">
-                    <dt>{{ stat.label }}</dt>
-                    <dd class="count" [attr.data-to]="stat.value">{{ stat.value }}</dd>
-                </div>
-            }
-        </dl>
-
     </div>
 
     <!-- Real work on the first screen: a deck of live projects that deals itself -->

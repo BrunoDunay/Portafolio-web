@@ -20,43 +20,6 @@
 }
 
 /* ========================= */
-/* STATS */
-/* ========================= */
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(4, auto);
-    gap:12px clamp(20px, 2.6vw, 36px);
-    margin-top:clamp(28px, 4.5vh, 44px);
-    padding-top:clamp(20px, 3vh, 28px);
-    border-top:1px solid var(--border-color);
-}
-
-.stat{
-    display:flex;
-    flex-direction:column-reverse;
-    gap:2px;
-}
-
-.stat dd{
-    font-size:clamp(1.75rem, 1.3rem + 1.4vw, 2.4rem);
-    font-weight:800;
-    line-height:1;
-    letter-spacing:-.03em;
-    font-variant-numeric:tabular-nums;
-    background:linear-gradient(120deg, #fff, var(--primary-light));
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-}
-
-.stat dt{
-    color:var(--text-muted);
-    font-size:.78rem;
-    font-weight:600;
-}
-
-/* ========================= */
 /* PROJECT DECK */
 /* ========================= */
 
@@ -249,15 +212,6 @@
 
     .deck{
         width:min(560px, 100%);
-    }
-
-}
-
-@media (max-width:560px){
-
-    .stats{
-        grid-template-columns:repeat(2, auto);
-        justify-content:start;
     }
 
 }

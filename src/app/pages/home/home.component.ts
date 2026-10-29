@@ -10,11 +10,9 @@ import {
   viewChild,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import gsap from 'gsap';
 
 import { DEVELOPMENT_PROJECTS } from '../../core/data/development-projects';
 import { DEMO_PROJECTS } from '../../core/data/demo-projects';
-import { DESIGN_PROJECTS } from '../../core/data/design-projects';
 import { DevelopmentProject } from '../../core/interfaces/development-project';
 
 const FEATURED = [
@@ -33,7 +31,6 @@ const FEATURED = [
 })
 export class HomeComponent {
 
-  private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
   private readonly destroyRef = inject(DestroyRef);
   private readonly stage = viewChild<ElementRef<HTMLElement>>('stage');
 
@@ -49,13 +46,6 @@ export class HomeComponent {
       host: p.website ? new URL(p.website).host.replace(/^www\./, '') : p.slug,
     }));
 
-  readonly stats = [
-    { label: 'Web projects', value: DEVELOPMENT_PROJECTS.length },
-    { label: 'Demo sites', value: DEMO_PROJECTS.length },
-    { label: 'Brand identities', value: DESIGN_PROJECTS.length },
-    { label: 'Certifications', value: 4 },
-  ];
-
   readonly front = signal(0);
   readonly paused = signal(false);
   readonly current = computed(() => this.deck[this.front()]);
@@ -67,27 +57,7 @@ export class HomeComponent {
         if (!this.paused() && !document.hidden) this.show(this.front() + 1);
       }, 3800);
 
-      // The numbers count up once, after the page has settled in
-      const ctx = gsap.context(() => {
-        this.host.nativeElement.querySelectorAll<HTMLElement>('.count').forEach((el, i) => {
-          const to = Number(el.dataset['to']);
-          const counter = { n: 0 };
-          gsap.to(counter, {
-            n: to,
-            duration: 1.4,
-            delay: 0.55 + i * 0.1,
-            ease: 'expo.out',
-            onUpdate: () => {
-              el.textContent = String(Math.round(counter.n));
-            },
-          });
-        });
-      }, this.host.nativeElement);
-
-      this.destroyRef.onDestroy(() => {
-        clearInterval(timer);
-        ctx.revert();
-      });
+      this.destroyRef.onDestroy(() => clearInterval(timer));
     });
   }
 
