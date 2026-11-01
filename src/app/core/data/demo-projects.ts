@@ -168,8 +168,8 @@ export const DEMO_PROJECTS: DevelopmentProject[] = [
       "projects/mockups/demo-astor/ss8.webp"
     ],
     brand: {
-      primary: "#a4514f",
-      secondary: "#e2a7a0",
+      primary: "#3a5288",
+      secondary: "#141b2d",
       light: "#e9ebef",
       accent: "#dfe3ea",
       dark: "#141b2d"
