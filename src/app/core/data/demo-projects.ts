@@ -143,6 +143,41 @@ export const DEMO_PROJECTS: DevelopmentProject[] = [
     github: "https://github.com/BrunoDunay/Demos-de-fotograf-a"
   },
   {
+    id: "demo-astor",
+    slug: "astor-wedding-photography-demo",
+    title: "Astor · Wedding & Event Photography",
+    type: "Demo Site · Premium Package",
+    demo: true,
+    shortDescription:
+      "Premium site for a wedding and events photographer: a table of prints you can toss around, a 3D gallery that plays like an exhibition, a hanging camera with real physics and a 3D business card.",
+    problem:
+      "A wedding photographer competes on feeling, and couples compare dozens of portfolios that all look the same. The site has to be memorable from the first second, show hundreds of photos without tiring the visitor and turn interest into a date check. Fictional brand built as the template for the Premium package.",
+    solution:
+      "Interactive pieces built in code: a home table of darkroom prints you drag, fling and bring up close in 3D; a Three.js gallery with five rooms of LED screens, silhouettes and shader transitions driven by scroll, followed by a filterable photo archive; a film reel of event clips in black and white or color; a hyperrealistic DSLR hanging from its strap with Verlet physics; a letterpress business card in 3D with four colors; a save-the-date calendar, Instagram-style reviews and a WhatsApp form.",
+    technologies: ["Angular", "TypeScript", "Three.js", "WebGL", "GSAP", "Lenis", "SEO", "Vercel"],
+    cover: "",
+    logo: "/projects/logos/demo-astor.png",
+    gallery: [
+      "projects/mockups/demo-astor/ss1.webp",
+      "projects/mockups/demo-astor/ss2.webp",
+      "projects/mockups/demo-astor/ss3.webp",
+      "projects/mockups/demo-astor/ss4.webp",
+      "projects/mockups/demo-astor/ss5.webp",
+      "projects/mockups/demo-astor/ss6.webp",
+      "projects/mockups/demo-astor/ss7.webp",
+      "projects/mockups/demo-astor/ss8.webp"
+    ],
+    brand: {
+      primary: "#a4514f",
+      secondary: "#e2a7a0",
+      light: "#e9ebef",
+      accent: "#dfe3ea",
+      dark: "#141b2d"
+    },
+    website: "https://demo-foto-astor.vercel.app",
+    github: "https://github.com/BrunoDunay/Demo-fotograf-a-premium"
+  },
+  {
     id: "demo-alero",
     slug: "alero-real-estate-demo",
     title: "Alero · Real Estate Agency",
