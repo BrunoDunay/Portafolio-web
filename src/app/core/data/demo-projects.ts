@@ -35,7 +35,7 @@ export const DEMO_PROJECTS: DevelopmentProject[] = [
       dark: "#14151a"
     },
     website: "https://demo-gym-brio.vercel.app",
-    github: "https://github.com/BrunoDunay/Demos-de-gimnasio"
+    github: "https://github.com/BrunoDunay/Demos-de-servicios-web"
   },
   {
     id: "demo-forja",
@@ -70,7 +70,7 @@ export const DEMO_PROJECTS: DevelopmentProject[] = [
       dark: "#0b0b0c"
     },
     website: "https://demo-gym-forja-box.vercel.app",
-    github: "https://github.com/BrunoDunay/Demos-de-gimnasio"
+    github: "https://github.com/BrunoDunay/Demos-de-servicios-web"
   },
   {
     id: "demo-umbral",
@@ -105,7 +105,7 @@ export const DEMO_PROJECTS: DevelopmentProject[] = [
       dark: "#0b0a08"
     },
     website: "https://demo-gym-umbral.vercel.app",
-    github: "https://github.com/BrunoDunay/Demos-de-gimnasio"
+    github: "https://github.com/BrunoDunay/Demos-de-servicios-web"
   },
   {
     id: "demo-nido",
@@ -140,7 +140,7 @@ export const DEMO_PROJECTS: DevelopmentProject[] = [
       dark: "#2a211c"
     },
     website: "https://demo-foto-nido.vercel.app",
-    github: "https://github.com/BrunoDunay/Demos-de-fotograf-a"
+    github: "https://github.com/BrunoDunay/Demos-de-servicios-web"
   },
   {
     id: "demo-astor",
@@ -175,7 +175,7 @@ export const DEMO_PROJECTS: DevelopmentProject[] = [
       dark: "#141b2d"
     },
     website: "https://demo-foto-astor.vercel.app",
-    github: "https://github.com/BrunoDunay/Demo-fotograf-a-premium"
+    github: "https://github.com/BrunoDunay/Demos-de-servicios-web"
   },
   {
     id: "demo-alero",
@@ -210,7 +210,7 @@ export const DEMO_PROJECTS: DevelopmentProject[] = [
       dark: "#15191a"
     },
     website: "https://demo-inmo-alero.vercel.app",
-    github: "https://github.com/BrunoDunay/Demos-de-inmoviliaria"
+    github: "https://github.com/BrunoDunay/Demos-de-servicios-web"
   },
   {
     id: "demo-tilde",
@@ -244,6 +244,76 @@ export const DEMO_PROJECTS: DevelopmentProject[] = [
       dark: "#3a2a20"
     },
     website: "https://demo-cafe-tilde.vercel.app",
-    github: "https://github.com/BrunoDunay/Demos-cafeter-as-restaurantes"
+    github: "https://github.com/BrunoDunay/Demos-de-servicios-web"
+  },
+  {
+    id: "demo-marfil",
+    slug: "marfil-dental-clinic-demo",
+    title: "Marfil · Dental Clinic",
+    type: "Demo Site · Professional Package",
+    demo: true,
+    shortDescription:
+      "Dental clinic site with a real-time 3D tooth that travels down the page, a treatment arc, a whitening brightness simulator and an app-style booking flow.",
+    problem:
+      "Dental clinics compete on trust: patients want to know what a treatment involves and what it costs before they sit in the chair. Most local clinics have no site, or a template that looks like every other one. Fictional brand built as the template for the health vertical, Professional package.",
+    solution:
+      "A clinical-blue design with glass cards and giant cut-off words. A tooth modeled in code with Three.js lands in the hero and then becomes the center of an arc of treatments, each with a glass detail card and a fold-out dental chart. A brightness slider lightens only the teeth in a photo (mask generated from the image), chevron steps explain the first visit, and an app-style calendar writes the WhatsApp message. Micro-interactions adapted from transitions.dev (tilt with glare, sliding tabs, toggles, success check) and route transitions with the View Transitions API.",
+    technologies: ["Angular", "TypeScript", "Three.js", "GSAP", "Lenis", "View Transitions", "Vercel"],
+    cover: "",
+    logo: "/projects/logos/demo-marfil.png",
+    gallery: [
+      "projects/mockups/demo-marfil/ss1.webp",
+      "projects/mockups/demo-marfil/ss2.webp",
+      "projects/mockups/demo-marfil/ss3.webp",
+      "projects/mockups/demo-marfil/ss4.webp",
+      "projects/mockups/demo-marfil/ss5.webp",
+      "projects/mockups/demo-marfil/ss6.webp",
+      "projects/mockups/demo-marfil/ss7.webp",
+      "projects/mockups/demo-marfil/ss8.webp"
+    ],
+    brand: {
+      primary: "#2456d6",
+      secondary: "#8cc3f0",
+      light: "#eef4fd",
+      accent: "#d6e4fa",
+      dark: "#0c1b3d"
+    },
+    website: "https://demo-salud-marfil.vercel.app",
+    github: "https://github.com/BrunoDunay/Demos-de-servicios-web"
+  },
+  {
+    id: "demo-claro",
+    slug: "claro-psychology-practice-demo",
+    title: "Claro · Psychology Practice",
+    type: "Demo Site · Professional Package",
+    demo: true,
+    shortDescription:
+      "Editorial collage site for a psychologist: an anxious scribble that untangles into a spiral, hand-drawn illustrations, a guided breathing exercise and a notebook-style booking page.",
+    problem:
+      "People looking for therapy arrive anxious and unsure where to start; a cold clinical page makes that worse. A therapist needs a site that feels human, explains how sessions work and lowers the barrier to the first message. Fictional brand built as the template for the health vertical, Professional package.",
+    solution:
+      "A paper collage: blue-toned photos with torn edges and tape, huge condensed type and handwritten notes. The intro draws a tangled line that morphs into a calm spiral (GSAP MorphSVG), and the same tangle over the hero photo unravels on scroll. Visitors pick what they feel and get a notebook page explaining how it is worked on, follow a one-minute breathing spiral, flip myth notes, and book on a notebook sheet that previews the WhatsApp message. Includes the national crisis line. Doodles are generated in code with a fixed seed.",
+    technologies: ["Angular", "TypeScript", "GSAP", "MorphSVG", "SVG", "View Transitions", "Vercel"],
+    cover: "",
+    logo: "/projects/logos/demo-claro.png",
+    gallery: [
+      "projects/mockups/demo-claro/ss1.webp",
+      "projects/mockups/demo-claro/ss2.webp",
+      "projects/mockups/demo-claro/ss3.webp",
+      "projects/mockups/demo-claro/ss4.webp",
+      "projects/mockups/demo-claro/ss5.webp",
+      "projects/mockups/demo-claro/ss6.webp",
+      "projects/mockups/demo-claro/ss7.webp",
+      "projects/mockups/demo-claro/ss8.webp"
+    ],
+    brand: {
+      primary: "#e3a07a",
+      secondary: "#7f9a83",
+      light: "#f6f0e6",
+      accent: "#c8d6e8",
+      dark: "#1c2a44"
+    },
+    website: "https://demo-salud-claro.vercel.app",
+    github: "https://github.com/BrunoDunay/Demos-de-servicios-web"
   }
 ];
