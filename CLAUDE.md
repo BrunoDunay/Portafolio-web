@@ -9,4 +9,7 @@
   - `design-projects.ts`, `tech.ts`.
 - Al publicar una demo nueva: agregarla a `demo-projects.ts` con sus capturas (como se hizo con Astor el 1 nov 2026, color principal azul).
 - Las capturas de `public/projects/mockups` también las usan los videos de `3-Negocio/Videos`.
-- `referencia/`: un video de referencia, fuera de git.
+- Inicio: la pila de proyectos sale de `FEATURED` en `src/app/pages/home/home.component.ts` (4 nov 2026: Armando Ovalle, FBE, Forja, Astor y Alero). Si se agregan más de 5, sumar su `data-pos` en `home.component.css`.
+- Enlace a la tarjeta digital (tarjeta-bruno-dunay.vercel.app): botón "Business card" en el inicio y fila en Contacto.
+- El correo del portafolio es brunodunay@outlook.com (la tarjeta usa cesardunah@gmail.com: pendiente que Bruno elija uno).
+- `referencia/`: videos de referencia de terceros, fuera de git.
