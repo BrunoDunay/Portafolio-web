@@ -82,8 +82,9 @@
     filter:brightness(.55);
 }
 
-/* The card that just left goes behind everything before it comes round again */
-.sheet[data-pos="3"]{
+/* The cards further back (and the one that just left) wait hidden behind everything */
+.sheet[data-pos="3"],
+.sheet[data-pos="4"]{
     z-index:1;
     transform:translate3d(0, -58%, -180px) scale(.77);
     filter:brightness(.25);

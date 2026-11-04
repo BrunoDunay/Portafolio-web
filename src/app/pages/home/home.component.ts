@@ -18,8 +18,9 @@ import { DevelopmentProject } from '../../core/interfaces/development-project';
 const FEATURED = [
   'armando-ovalle-wedding-studio',
   'fitness-by-evidence-platform',
-  'umbral-boutique-club-demo',
-  'pokedex',
+  'forja-functional-box-demo',
+  'astor-wedding-photography-demo',
+  'alero-real-estate-demo',
 ];
 
 @Component({

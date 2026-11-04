@@ -68,6 +68,14 @@ export class ContactComponent {
       icon: 'M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.3 1.3.4 2.7.6 4.1.6.7 0 1.3.6 1.3 1.3V20c0 .7-.6 1.3-1.3 1.3C10.5 21.3 2.7 13.5 2.7 3.3 2.7 2.6 3.3 2 4 2h3.2c.7 0 1.3.6 1.3 1.3 0 1.4.2 2.8.6 4.1.1.4 0 .9-.3 1.2l-2.2 2.2z',
     },
     {
+      label: 'Business card',
+      value: 'tarjeta-bruno-dunay.vercel.app',
+      href: 'https://tarjeta-bruno-dunay.vercel.app',
+      external: true,
+      color: '#60a5fa',
+      icon: 'M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm2 4v2h6V9H5zm0 4v2h9v-2H5zm12-4a2 2 0 1 0 0 4 2 2 0 0 0 0-4z',
+    },
+    {
       label: 'Location',
       value: 'Aguascalientes, México',
       color: '#3b82f6',
