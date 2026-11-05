@@ -3,22 +3,22 @@
     <div class="contact-content">
         <div class="left">
             <span class="eyebrow rise">
-                CONTACT
+                {{ i18n.t().contact.eyebrow }}
             </span>
 
             <h1 class="page-title rise" style="--i:1">
-                Let's Build
-                <span>Something Amazing</span>
-                Together.
+                {{ i18n.t().contact.title1 }}
+                <span>{{ i18n.t().contact.title2 }}</span>
+                {{ i18n.t().contact.title3 }}
             </h1>
 
             <p class="lede rise" style="--i:2">
-                I'm always interested in discussing new opportunities, collaborating on innovative projects or joining teams that build meaningful digital experiences.
+                {{ i18n.t().contact.lede }}
             </p>
 
             <div class="buttons rise" style="--i:3">
                 <a class="btn btn-primary" href="mailto:brunodunay@outlook.com">
-                    Send mail
+                    {{ i18n.t().contact.sendMail }}
                 </a>
 
                 <a class="btn btn-ghost" href="https://www.linkedin.com/in/brunodunay/" target="_blank" rel="noopener">
@@ -28,7 +28,7 @@
 
             <div class="availability rise" style="--i:4">
                 <span class="status"></span>
-                Available for Full-Time • Freelance • Remote • Hybrid
+                {{ i18n.t().contact.availability }}
             </div>
         </div>
 
@@ -36,16 +36,16 @@
             <div class="contact-card surface">
                 <div class="card-header">
                     <h2>
-                        Contact Information
+                        {{ i18n.t().contact.info }}
                     </h2>
-                    <span class="clock" [attr.aria-label]="'Local time in Aguascalientes: ' + time()">
+                    <span class="clock" [attr.aria-label]="i18n.t().contact.localTime + ' ' + time()">
                         <span class="clock-dot" aria-hidden="true"></span>
-                        {{ time() }} in Aguascalientes
+                        {{ time() }} {{ i18n.t().contact.inAgs }}
                     </span>
                 </div>
 
                 <ul class="contact-list">
-                    @for (item of channels; track item.label) {
+                    @for (item of channels(); track item.value) {
                         <li class="contact-item" [style.--c]="item.color">
                             @if (item.href) {
                                 <a class="row" [href]="item.href" [attr.target]="item.external ? '_blank' : null" [attr.rel]="item.external ? 'noopener' : null">
@@ -75,7 +75,7 @@
                                     class="copy"
                                     [class.done]="copied() === item.copy"
                                     (click)="copy(item.copy)"
-                                    [attr.aria-label]="'Copy ' + item.label">
+                                    [attr.aria-label]="i18n.t().contact.copy + ' ' + item.label">
                                     <span class="material-icons" aria-hidden="true">{{ copied() === item.copy ? 'check' : 'content_copy' }}</span>
                                 </button>
                             }
@@ -90,16 +90,16 @@
     <div class="cta surface rise" style="--i:5">
         <div class="cta-text">
             <h2>
-                Interested in working together?
+                {{ i18n.t().contact.ctaTitle }}
             </h2>
 
             <p>
-                Let's create products that are fast, modern and enjoyable to use.
+                {{ i18n.t().contact.ctaText }}
             </p>
         </div>
 
         <a class="btn btn-ghost" href="/documents/Bruno Dunay Acevedo Rivas CVtec English.pdf" download>
-            <span class="button-content">Download CV</span>
+            <span class="button-content">{{ i18n.t().contact.downloadCv }}</span>
         </a>
     </div>
 

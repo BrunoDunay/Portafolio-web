@@ -4,8 +4,10 @@ import {
   DestroyRef,
   ElementRef,
   afterNextRender,
+  computed,
   inject,
 } from '@angular/core';
+import { LangService } from '../../core/i18n/lang.service';
 import gsap from 'gsap';
 
 interface Skill {
@@ -29,9 +31,11 @@ export class SkillsComponent {
   private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
   private readonly destroyRef = inject(DestroyRef);
 
-  readonly groups: { title: string; icon: string; skills: Skill[] }[] = [
+  readonly i18n = inject(LangService);
+
+  private readonly data: { key: 'dev' | 'design'; icon: string; skills: Skill[] }[] = [
     {
-      title: 'Software Development',
+      key: 'dev',
       icon: 'terminal',
       skills: [
         { name: 'Angular', icon: '/angular.webp', color: '#ff2d55' },
@@ -48,7 +52,7 @@ export class SkillsComponent {
       ],
     },
     {
-      title: 'Design & Multimedia',
+      key: 'design',
       icon: 'palette',
       skills: [
         { name: 'Photoshop', icon: '/photoshop.webp', color: '#31a8ff' },
@@ -62,6 +66,11 @@ export class SkillsComponent {
       ],
     },
   ];
+
+  /** Group titles follow the language; the tools keep their own names */
+  readonly groups = computed(() =>
+    this.data.map((g) => ({ ...g, title: this.i18n.t().skills[g.key] })),
+  );
 
   constructor() {
     afterNextRender(() => {

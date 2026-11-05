@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, DestroyRef, afterNextRender, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, afterNextRender, computed, inject, signal } from '@angular/core';
+import { LangService } from '../../core/i18n/lang.service';
 
 interface Channel {
   label: string;
@@ -12,11 +13,8 @@ interface Channel {
   icon: string;
 }
 
-const clockFormat = new Intl.DateTimeFormat('en-US', {
-  hour: 'numeric',
-  minute: '2-digit',
-  timeZone: 'America/Mexico_City',
-});
+const clock = (locale: string) =>
+  new Intl.DateTimeFormat(locale, { hour: 'numeric', minute: '2-digit', timeZone: 'America/Mexico_City' }).format(new Date());
 
 @Component({
   selector: 'app-contact',
@@ -29,13 +27,17 @@ export class ContactComponent {
 
   private readonly destroyRef = inject(DestroyRef);
 
-  /** What time it is for me right now (Aguascalientes uses Mexico City time) */
-  readonly time = signal(clockFormat.format(new Date()));
+  readonly i18n = inject(LangService);
+
+  /** What time it is for me right now (Aguascalientes uses Mexico City time), in the visitor's language */
+  private readonly now = signal(Date.now());
+  readonly time = computed(() => (this.now(), clock(this.i18n.t().contact.locale)));
   readonly copied = signal<string | null>(null);
 
-  readonly channels: Channel[] = [
+  private readonly channelData: (Channel & { key?: 'email' | 'phone' | 'card' | 'location' })[] = [
     {
       label: 'Email',
+      key: 'email',
       value: 'brunodunay@outlook.com',
       href: 'mailto:brunodunay@outlook.com',
       copy: 'brunodunay@outlook.com',
@@ -60,6 +62,7 @@ export class ContactComponent {
     },
     {
       label: 'Phone · WhatsApp',
+      key: 'phone',
       value: '+52 449 396 5327',
       href: 'https://wa.me/524493965327',
       external: true,
@@ -69,6 +72,7 @@ export class ContactComponent {
     },
     {
       label: 'Business card',
+      key: 'card',
       value: 'tarjeta-bruno-dunay.vercel.app',
       href: 'https://tarjeta-bruno-dunay.vercel.app',
       external: true,
@@ -77,15 +81,21 @@ export class ContactComponent {
     },
     {
       label: 'Location',
+      key: 'location',
       value: 'Aguascalientes, México',
       color: '#3b82f6',
       icon: 'M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z',
     },
   ];
 
+  readonly channels = computed(() => {
+    const labels = this.i18n.t().contact.labels;
+    return this.channelData.map((c) => ({ ...c, label: c.key ? labels[c.key] : c.label }));
+  });
+
   constructor() {
     afterNextRender(() => {
-      const timer = setInterval(() => this.time.set(clockFormat.format(new Date())), 15000);
+      const timer = setInterval(() => this.now.set(Date.now()), 15000);
       this.destroyRef.onDestroy(() => clearInterval(timer));
     });
   }

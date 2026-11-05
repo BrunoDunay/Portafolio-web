@@ -21,10 +21,10 @@ import { techFor } from '../../../core/data/tech';
 
 import { DevelopmentProject } from '../../../core/interfaces/development-project';
 import { DesignProject } from '../../../core/interfaces/design-project';
+import { LangService } from '../../../core/i18n/lang.service';
+import { localize } from '../../../core/i18n/projects-es';
 
 type Project = DevelopmentProject | DesignProject;
-
-const SWATCH_NAMES = ['Primary', 'Secondary', 'Light', 'Accent', 'Dark'];
 
 @Component({
   selector: 'app-project',
@@ -41,7 +41,10 @@ export class ProjectComponent {
   private readonly destroyRef = inject(DestroyRef);
   private readonly thumbs = viewChild<ElementRef<HTMLElement>>('thumbs');
 
-  readonly project: Project | null;
+  readonly i18n = inject(LangService);
+  private readonly base: Project | null;
+  /** The project in the current language (texts switch instantly with the ES/EN button) */
+  readonly project = computed<Project | null>(() => (this.base ? localize(this.base, this.i18n.lang()) : null));
 
   /** Image on screen, the one it replaces (kept underneath while the new one arrives) and the direction of travel */
   readonly selected = signal(0);
@@ -52,10 +55,10 @@ export class ProjectComponent {
 
   constructor() {
     const slug = this.route.snapshot.paramMap.get('slug');
-    this.project =
+    this.base =
       [...DEVELOPMENT_PROJECTS, ...DEMO_PROJECTS, ...DESIGN_PROJECTS].find((p) => p.slug === slug) ?? null;
 
-    if (!this.project) {
+    if (!this.base) {
       this.router.navigate(['/projects']);
       return;
     }
@@ -64,15 +67,15 @@ export class ProjectComponent {
   }
 
   private get p(): Project {
-    return this.project as Project;
+    return this.project() as Project;
   }
 
   readonly dev = computed<DevelopmentProject | null>(() =>
-    this.project && 'type' in this.project ? this.project : null,
+    this.project() && 'type' in this.project()! ? (this.project() as DevelopmentProject) : null,
   );
 
   readonly design = computed<DesignProject | null>(() =>
-    this.project && 'category' in this.project ? this.project : null,
+    this.project() && 'category' in this.project()! ? (this.project() as DesignProject) : null,
   );
 
   readonly kind = computed(() => this.dev()?.type ?? this.design()?.category ?? '');
@@ -110,7 +113,7 @@ export class ProjectComponent {
   });
 
   readonly swatches = computed(() =>
-    Object.values(this.p.brand).map((hex, i) => ({ hex, name: SWATCH_NAMES[i] ?? '' })),
+    Object.values(this.p.brand).map((hex, i) => ({ hex, name: this.i18n.t().detail.swatches[i] ?? '' })),
   );
 
   readonly gallery = computed(() => this.p.gallery);

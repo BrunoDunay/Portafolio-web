@@ -14,6 +14,8 @@ import { RouterLink } from '@angular/router';
 import { DEVELOPMENT_PROJECTS } from '../../core/data/development-projects';
 import { DEMO_PROJECTS } from '../../core/data/demo-projects';
 import { DevelopmentProject } from '../../core/interfaces/development-project';
+import { LangService } from '../../core/i18n/lang.service';
+import { localize } from '../../core/i18n/projects-es';
 
 const FEATURED = [
   'armando-ovalle-wedding-studio',
@@ -35,10 +37,14 @@ export class HomeComponent {
   private readonly destroyRef = inject(DestroyRef);
   private readonly stage = viewChild<ElementRef<HTMLElement>>('stage');
 
-  readonly deck = FEATURED
+  readonly i18n = inject(LangService);
+
+  private readonly featured = FEATURED
     .map((slug) => [...DEVELOPMENT_PROJECTS, ...DEMO_PROJECTS].find((p) => p.slug === slug))
-    .filter((p): p is DevelopmentProject => !!p)
-    .map((p) => ({
+    .filter((p): p is DevelopmentProject => !!p);
+
+  /** Same cards in both languages; only the caption texts change */
+  readonly deck = this.featured.map((p) => ({
       slug: p.slug,
       title: p.title,
       kind: p.type,
@@ -47,9 +53,14 @@ export class HomeComponent {
       host: p.website ? new URL(p.website).host.replace(/^www\./, '') : p.slug,
     }));
 
+  private readonly captions = computed(() => this.featured.map((p) => localize(p, this.i18n.lang())));
+
   readonly front = signal(0);
   readonly paused = signal(false);
-  readonly current = computed(() => this.deck[this.front()]);
+  readonly current = computed(() => {
+    const p = this.captions()[this.front()];
+    return { ...this.deck[this.front()], title: p.title, kind: p.type };
+  });
 
   constructor() {
     afterNextRender(() => {

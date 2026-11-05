@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, HostListener, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, computed, inject, signal } from '@angular/core';
+import { LangService } from '../../core/i18n/lang.service';
 
 interface Certificate {
   title: string;
@@ -25,33 +26,37 @@ export class EducationComponent {
 
   readonly active = signal<Certificate | null>(null);
 
-  /** Each school with its own logo and color */
-  readonly schools = [
+  readonly i18n = inject(LangService);
+
+  /** Each school with its own logo and color (degree names follow the language) */
+  private readonly schoolData = [
     {
-      degree: 'Bachelor\'s Degree in Design and Content Production',
+      key: 'bachelor',
       name: 'Universidad Cuauhtémoc Aguascalientes',
-      level: 'Bachelor\'s',
       years: '2021 – 2024',
       logo: '/education/universidad-cuauhtemoc.svg',
       color: '#2f6fd6',
     },
     {
-      degree: 'Full Stack Developer (MEAN)',
+      key: 'bootcamp',
       name: 'Inadaptados',
-      level: 'Bootcamp',
       years: '2024 – 2026',
       logo: '/education/inadaptados.webp',
       color: '#2fb2ea',
     },
     {
-      degree: 'Master\'s Degree in Teaching Skills Development for Digital Transformation',
+      key: 'master',
       name: 'Universidad Internacional de Aguascalientes',
-      level: 'Master\'s',
       years: '2024 – 2026',
       logo: '/education/universidad-internacional.webp',
       color: '#c9a84a',
     },
-  ];
+  ] as const;
+
+  readonly schools = computed(() => {
+    const t = this.i18n.t().education;
+    return this.schoolData.map((s) => ({ ...s, degree: t.degrees[s.key], level: t.levels[s.key] }));
+  });
 
   readonly certs: Certificate[] = [
     {

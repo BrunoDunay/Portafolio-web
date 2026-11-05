@@ -1,4 +1,4 @@
-@if (project; as p) {
+@if (project(); as p) {
 <article
     class="project scroller"
     [style.--brand]="accent()"
@@ -7,13 +7,13 @@
 
     <div class="glow" aria-hidden="true"></div>
 
-    <nav class="crumbs" aria-label="Breadcrumb">
+    <nav class="crumbs" [attr.aria-label]="i18n.t().detail.breadcrumb">
         <button type="button" class="back" (click)="goBack()">
             <span class="material-icons" aria-hidden="true">arrow_back</span>
-            Back
+            {{ i18n.t().detail.back }}
         </button>
         <ol>
-            <li><a routerLink="/projects">Projects</a></li>
+            <li><a routerLink="/projects">{{ i18n.t().detail.projects }}</a></li>
             <li class="sep material-icons" aria-hidden="true">chevron_right</li>
             <li aria-current="page">{{ p.title }}</li>
         </ol>
@@ -37,14 +37,14 @@
                     @if (website()) {
                         <a class="btn btn-brand" [href]="website()" target="_blank" rel="noopener">
                             <span class="material-icons" aria-hidden="true">language</span>
-                            {{ dev()?.demo ? 'Open live demo' : 'Visit website' }}
+                            {{ dev()?.demo ? i18n.t().detail.openDemo : i18n.t().detail.visit }}
                             <span class="material-icons arrow" aria-hidden="true">north_east</span>
                         </a>
                     }
                     @if (github()) {
                         <a class="btn btn-ghost" [href]="github()" target="_blank" rel="noopener">
                             <img src="/github.png" alt="" width="18" height="18" class="gh">
-                            Source code
+                            {{ i18n.t().detail.source }}
                         </a>
                     }
                 </div>
@@ -54,7 +54,7 @@
         <section class="stack" aria-labelledby="stack-title">
             <h2 id="stack-title" data-rise>
                 <span class="material-icons" aria-hidden="true">code</span>
-                {{ dev() ? 'Technologies used' : 'Tools used' }}
+                {{ dev() ? i18n.t().detail.technologies : i18n.t().detail.tools }}
             </h2>
             <ul class="chips">
                 @for (tech of stack(); track tech.name) {
@@ -86,7 +86,7 @@
                     class="screen"
                     [class.contain]="!dev()"
                     (click)="zoomed.set(true)"
-                    aria-label="Open image full size">
+                    [attr.aria-label]="i18n.t().detail.openFull">
                     @if (previous() !== null) {
                         <img class="under" [src]="gallery()[previous()!]" alt="">
                     }
@@ -95,16 +95,16 @@
                             class="current"
                             [class.from-left]="direction() === -1"
                             [src]="gallery()[i]"
-                            [alt]="p.title + ', image ' + (i + 1)">
+                            [alt]="p.title + ', ' + i18n.t().detail.image + ' ' + (i + 1)">
                     }
                     <span class="zoom material-icons" aria-hidden="true">zoom_in</span>
                 </button>
 
                 @if (gallery().length > 1) {
-                    <button type="button" class="nav prev" (click)="prev()" aria-label="Previous image">
+                    <button type="button" class="nav prev" (click)="prev()" [attr.aria-label]="i18n.t().detail.prev">
                         <span class="material-icons" aria-hidden="true">chevron_left</span>
                     </button>
-                    <button type="button" class="nav next" (click)="next()" aria-label="Next image">
+                    <button type="button" class="nav next" (click)="next()" [attr.aria-label]="i18n.t().detail.next">
                         <span class="material-icons" aria-hidden="true">chevron_right</span>
                     </button>
                 }
@@ -119,7 +119,7 @@
                                 type="button"
                                 class="thumb"
                                 [class.active]="i === selected()"
-                                [attr.aria-label]="'Show image ' + (i + 1)"
+                                [attr.aria-label]="i18n.t().detail.showImage + ' ' + (i + 1)"
                                 [attr.aria-current]="i === selected()"
                                 (click)="select(i)">
                                 <img [src]="image" alt="" loading="lazy">
@@ -136,24 +136,24 @@
         @if (dev(); as d) {
             <article class="panel">
                 <span class="num">01</span>
-                <h2>{{ d.demo ? 'Concept' : 'The challenge' }}</h2>
+                <h2>{{ d.demo ? i18n.t().detail.concept : i18n.t().detail.challenge }}</h2>
                 <p>{{ d.problem }}</p>
             </article>
             <article class="panel">
                 <span class="num">02</span>
-                <h2>{{ d.demo ? 'What it shows' : 'What I built' }}</h2>
+                <h2>{{ d.demo ? i18n.t().detail.shows : i18n.t().detail.built }}</h2>
                 <p>{{ d.solution }}</p>
             </article>
         }
         @if (design(); as d) {
             <article class="panel">
                 <span class="num">01</span>
-                <h2>Objective</h2>
+                <h2>{{ i18n.t().detail.objective }}</h2>
                 <p>{{ d.objective }}</p>
             </article>
             <article class="panel">
                 <span class="num">02</span>
-                <h2>Deliverables</h2>
+                <h2>{{ i18n.t().detail.deliverables }}</h2>
                 <ul class="deliverables">
                     @for (item of d.deliverables; track item) {
                         <li>{{ item }}</li>
@@ -163,7 +163,7 @@
         }
         <article class="panel palette">
             <span class="num">03</span>
-            <h2>Brand palette</h2>
+            <h2>{{ i18n.t().detail.palette }}</h2>
             <ul class="swatches">
                 @for (swatch of swatches(); track $index) {
                     <li>
@@ -172,10 +172,10 @@
                             class="swatch"
                             [style.--sw]="swatch.hex"
                             (click)="copy(swatch.hex)"
-                            [attr.aria-label]="'Copy ' + swatch.hex">
+                            [attr.aria-label]="i18n.t().detail.copy + ' ' + swatch.hex">
                             <span class="chip-color"></span>
                             <span class="meta">
-                                <b>{{ copied() === swatch.hex ? 'Copied' : swatch.hex }}</b>
+                                <b>{{ copied() === swatch.hex ? i18n.t().detail.copied : swatch.hex }}</b>
                                 <small>{{ swatch.name }}</small>
                             </span>
                         </button>
@@ -191,7 +191,7 @@
 @if (zoomed()) {
     <div class="lightbox" (click)="zoomed.set(false)" role="dialog" aria-modal="true" [attr.aria-label]="p.title">
         <img [src]="gallery()[selected()]" [alt]="p.title" (click)="$event.stopPropagation()">
-        <button type="button" class="close" (click)="zoomed.set(false)" aria-label="Close">
+        <button type="button" class="close" (click)="zoomed.set(false)" [attr.aria-label]="i18n.t().detail.close">
             <span class="material-icons" aria-hidden="true">close</span>
         </button>
     </div>

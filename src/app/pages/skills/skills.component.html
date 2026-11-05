@@ -3,20 +3,18 @@
     <div class="header">
 
         <h1 class="page-title rise">
-            My <span>Skills</span>
+            {{ i18n.t().skills.my }} <span>{{ i18n.t().skills.title }}</span>
         </h1>
 
         <p class="lede rise" style="--i:1">
-            I build complete web applications from frontend to backend,
-            while also creating visual identities and multimedia content
-            that complement modern digital products.
+            {{ i18n.t().skills.lede }}
         </p>
 
     </div>
 
     <div class="skills-container scroller">
 
-        @for (group of groups; track group.title) {
+        @for (group of groups(); track group.key) {
             <section class="group">
 
                 <h2 class="group-title">

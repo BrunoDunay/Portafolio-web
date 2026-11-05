@@ -1,20 +1,20 @@
 <section class="education">
     <div class="header">
         <h1 class="page-title rise">
-            My <span>Education</span>
+            {{ i18n.t().education.my }} <span>{{ i18n.t().education.title }}</span>
         </h1>
         <p class="lede rise" style="--i:1">
-            My academic background, professional training and certifications that support my experience as a Full Stack Developer.
+            {{ i18n.t().education.lede }}
         </p>
     </div>
     <div class="education-container scroller">
         <section class="column rise" style="--i:2">
             <h2>
                 <span class="material-icons" aria-hidden="true">school</span>
-                Education
+                {{ i18n.t().education.schools }}
             </h2>
             <ol class="schools scroller">
-                @for (school of schools; track school.degree) {
+                @for (school of schools(); track school.key) {
                     <li class="school" [style.--c]="school.color">
                         <span class="plate">
                             <img [src]="school.logo" [alt]="school.name" loading="lazy">
@@ -34,7 +34,7 @@
         <section class="column rise" style="--i:3">
             <h2>
                 <span class="material-icons" aria-hidden="true">workspace_premium</span>
-                Certifications
+                {{ i18n.t().education.certs }}
             </h2>
             <div class="certs scroller">
                 @for (cert of certs; track cert.title) {
@@ -45,7 +45,7 @@
                         (click)="active.set(cert)"
                         (pointermove)="tilt($event)"
                         (pointerleave)="untilt($event)"
-                        [attr.aria-label]="'View ' + cert.title">
+                        [attr.aria-label]="i18n.t().education.view + ' ' + cert.title">
                         <span class="print">
                             @if (cert.image) {
                                 <img [src]="cert.image" alt="" loading="lazy">
@@ -75,7 +75,7 @@
         <div class="sheet" [style.--c]="cert.color" (click)="$event.stopPropagation()">
             <div class="sheet-print">
                 @if (cert.image) {
-                    <img [src]="cert.image" [alt]="cert.title + ' certificate'">
+                    <img [src]="cert.image" [alt]="cert.title + ' · ' + i18n.t().education.certificate">
                 } @else {
                     <span class="face large">
                         <span class="material-icons seal" aria-hidden="true">{{ cert.glyph }}</span>
@@ -96,11 +96,11 @@
                 @if (cert.url) {
                     <a class="btn btn-primary" [href]="cert.url" target="_blank" rel="noopener">
                         <span class="material-icons" aria-hidden="true">verified</span>
-                        Verify credential
+                        {{ i18n.t().education.verify }}
                     </a>
                 }
             </div>
-            <button type="button" class="close" (click)="active.set(null)" aria-label="Close">
+            <button type="button" class="close" (click)="active.set(null)" [attr.aria-label]="i18n.t().education.close">
                 <span class="material-icons" aria-hidden="true">close</span>
             </button>
         </div>

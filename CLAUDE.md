@@ -1,7 +1,12 @@
 # Portafolio de Bruno
 
 - Sitio: https://portafolio-web-chi-ten.vercel.app (Vercel `portafolio-web`). Repo `BrunoDunay/Portafolio-web`: push a `main` publica.
-- Angular 19 (no 22 como los demás). **Interfaz y commits en inglés** (la única excepción a "todo en español").
+- Angular 19 (no 22 como los demás). Commits en inglés.
+- **Bilingüe (5 nov 2026):** botón ES/EN al final de la barra de navegación; cambia al instante, se recuerda en
+  localStorage y la primera vez sigue al navegador (español si está en español). `?lang=es` o `?lang=en` en la URL lo fuerza
+  (útil para el enlace del Perfil de Empresa de Google). Textos de la interfaz en `src/app/core/i18n/ui.ts`; textos de
+  proyectos en español en `src/app/core/i18n/projects-es.ts` (por id; el inglés sigue en `core/data/*.ts`).
+  **Al agregar un proyecto, agregar también su texto en español ahí.** El CV descargable sigue solo en inglés.
 - Páginas en `src/app/pages/` (home, projects, skills, education, contact).
 - Datos de los proyectos en `src/app/core/data/`:
   - `development-projects.ts`: proyectos reales.

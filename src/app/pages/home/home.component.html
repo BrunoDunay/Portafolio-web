@@ -6,20 +6,20 @@
 
             <p class="status rise">
                 <span class="status-dot" aria-hidden="true"></span>
-                Available for new opportunities
+                {{ i18n.t().home.status }}
             </p>
 
             <!-- Link to the digital business card, shaped like a small business card that flips on hover -->
-            <a class="biz rise" style="--i:1" href="https://tarjeta-bruno-dunay.vercel.app" target="_blank" rel="noopener" aria-label="Open my digital business card">
+            <a class="biz rise" style="--i:1" href="https://tarjeta-bruno-dunay.vercel.app" target="_blank" rel="noopener" [attr.aria-label]="i18n.t().home.cardAria">
                 <span class="biz-inner">
                     <span class="biz-face biz-front">
                         <svg class="biz-gear" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm8.4 4.9-.1-1.4 2-1.6-2-3.4-2.4.9a8 8 0 0 0-1.2-.7L16.3 4h-4l-.4 2.5c-.4.2-.8.4-1.2.7l-2.4-.9-2 3.4 2 1.6-.1 1.4.1 1.4-2 1.6 2 3.4 2.4-.9c.4.3.8.5 1.2.7l.4 2.5h4l.4-2.5c.4-.2.8-.4 1.2-.7l2.4.9 2-3.4-2-1.6z"/></svg>
                         <span class="biz-name">Bruno Dunay</span>
-                        <span class="biz-role">Full Stack Developer</span>
-                        <span class="biz-label">Business card</span>
+                        <span class="biz-role">{{ i18n.t().home.subtitle }}</span>
+                        <span class="biz-label">{{ i18n.t().home.cardLabel }}</span>
                     </span>
                     <span class="biz-face biz-back" aria-hidden="true">
-                        <span>Open card</span>
+                        <span>{{ i18n.t().home.cardOpen }}</span>
                         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
                     </span>
                 </span>
@@ -33,24 +33,21 @@
         </h1>
 
         <h2 class="subtitle rise" style="--i:2">
-            Full Stack Developer
+            {{ i18n.t().home.subtitle }}
         </h2>
 
         <p class="description rise" style="--i:3">
-            I’m a Software Developer passionate about building modern web
-            applications, combining frontend engineering, backend
-            development and digital design to create complete digital
-            solutions.
+            {{ i18n.t().home.description }}
         </p>
 
         <div class="buttons rise" style="--i:4">
 
             <a class="btn btn-primary" routerLink="/projects">
-                View Projects
+                {{ i18n.t().home.viewProjects }}
             </a>
 
             <a class="btn btn-ghost" href="/documents/Bruno Dunay Acevedo Rivas CVtec English.pdf" download>
-                <span class="button-content">Download CV</span>
+                <span class="button-content">{{ i18n.t().home.downloadCv }}</span>
             </a>
 
         </div>
@@ -75,7 +72,7 @@
                     [style.--tint]="item.tint"
                     [attr.tabindex]="position(i) === 0 ? 0 : -1"
                     [attr.aria-hidden]="position(i) !== 0"
-                    [attr.aria-label]="'Open ' + item.title">
+                    [attr.aria-label]="i18n.t().home.open + ' ' + item.title">
                     <span class="bar" aria-hidden="true">
                         <span class="dots"><i></i><i></i><i></i></span>
                         <span class="url">{{ item.host }}</span>
@@ -88,12 +85,12 @@
         <div class="deck-caption">
             <span class="deck-kind">{{ current().kind }}</span>
             <b>{{ current().title }}</b>
-            <div class="deck-dots" role="group" aria-label="Featured projects">
+            <div class="deck-dots" role="group" [attr.aria-label]="i18n.t().home.featured">
                 @for (item of deck; track item.slug; let i = $index) {
                     <button
                         type="button"
                         [class.active]="i === front()"
-                        [attr.aria-label]="'Show ' + item.title"
+                        [attr.aria-label]="i18n.t().home.show + ' ' + item.title"
                         (click)="show(i)">
                     </button>
                 }

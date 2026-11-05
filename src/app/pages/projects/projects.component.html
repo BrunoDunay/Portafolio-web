@@ -1,13 +1,13 @@
 <section class="projects">
     <div class="header">
         <h1 class="page-title rise">
-            My <span>Projects</span>
+            {{ i18n.t().projects.my }} <span>{{ i18n.t().projects.title }}</span>
         </h1>
         <div
             class="filter rise"
             style="--i:1"
             role="group"
-            aria-label="Project category"
+            [attr.aria-label]="i18n.t().projects.category"
             [attr.data-active]="selectedCategory()">
             <span class="thumb" aria-hidden="true"></span>
             <button
@@ -15,28 +15,27 @@
                 [class.active]="selectedCategory()==='development'"
                 [attr.aria-pressed]="selectedCategory()==='development'"
                 (click)="showDevelopment()">
-                Development
+                {{ i18n.t().projects.development }}
             </button>
             <button
                 type="button"
                 [class.active]="selectedCategory()==='design'"
                 [attr.aria-pressed]="selectedCategory()==='design'"
                 (click)="showDesign()">
-                Design
+                {{ i18n.t().projects.design }}
             </button>
             <button
                 type="button"
                 [class.active]="selectedCategory()==='demos'"
                 [attr.aria-pressed]="selectedCategory()==='demos'"
                 (click)="showDemos()">
-                Demo Sites
+                {{ i18n.t().projects.demos }}
             </button>
         </div>
     </div>
     @if(selectedCategory()==='demos'){
         <p class="demos-note rise" style="--i:1">
-            Fictional brands I design and build as templates, one for each of my web packages
-            (Basic, Professional and Premium). Every site is live: open it and scroll.
+            {{ i18n.t().projects.demosNote }}
         </p>
     }
     <div class="projects-grid scroller">

@@ -1,8 +1,8 @@
-<nav class="sidebar" aria-label="Main" [style.--active]="activeIndex()">
+<nav class="sidebar" [attr.aria-label]="i18n.t().nav.main" [style.--active]="activeIndex()">
 
     <span class="indicator" aria-hidden="true"></span>
 
-    @for (item of items; track item.path) {
+    @for (item of items(); track item.path) {
         <a
             class="link"
             [routerLink]="item.path"
@@ -12,5 +12,21 @@
             <span class="tooltip" aria-hidden="true">{{ item.label }}</span>
         </a>
     }
+
+    <span class="sep" aria-hidden="true"></span>
+
+    <!-- Language switch: the active language is the bright one -->
+    <button
+        type="button"
+        class="link lang"
+        [attr.data-lang]="i18n.lang()"
+        (click)="i18n.toggle()"
+        [attr.aria-label]="i18n.t().nav.switchTo">
+        <span class="codes" aria-hidden="true">
+            <span [class.on]="i18n.lang() === 'es'">ES</span>
+            <span [class.on]="i18n.lang() === 'en'">EN</span>
+        </span>
+        <span class="tooltip" aria-hidden="true">{{ i18n.t().nav.switchTo }}</span>
+    </button>
 
 </nav>
