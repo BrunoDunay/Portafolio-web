@@ -28,10 +28,10 @@ export const DEMO_PROJECTS: DevelopmentProject[] = [
       "projects/mockups/demo-brio/ss7.webp"
     ],
     brand: {
-      primary: "#2f4bff",
-      secondary: "#d4ff3a",
+      primary: "#d4ff3a",
+      secondary: "#2f4bff",
       light: "#f7f5f0",
-      accent: "#e6e9ff",
+      accent: "#f2ffd1",
       dark: "#14151a"
     },
     website: "https://demo-gym-brio.vercel.app",
