@@ -253,11 +253,11 @@ export const DEMO_PROJECTS: DevelopmentProject[] = [
     type: "Demo Site · Professional Package",
     demo: true,
     shortDescription:
-      "Dental clinic site with a real-time 3D tooth that travels down the page, a treatment arc, a whitening brightness simulator and an app-style booking flow.",
+      "Dental clinic site with a real-time 3D tooth at the center of a treatment arc, 3D enamel icons, a whitening brightness simulator, a tap-through review deck and a full-month booking calendar.",
     problem:
       "Dental clinics compete on trust: patients want to know what a treatment involves and what it costs before they sit in the chair. Most local clinics have no site, or a template that looks like every other one. Fictional brand built as the template for the health vertical, Professional package.",
     solution:
-      "A clinical-blue design with glass cards and giant cut-off words. A tooth modeled in code with Three.js lands in the hero and then becomes the center of an arc of treatments, each with a glass detail card and a fold-out dental chart. A brightness slider lightens only the teeth in a photo (mask generated from the image), chevron steps explain the first visit, and an app-style calendar writes the WhatsApp message. Micro-interactions adapted from transitions.dev (tilt with glare, sliding tabs, toggles, success check) and route transitions with the View Transitions API.",
+      "A clinical-blue design with glass cards. A tooth modeled in code with Three.js sits at the center of an arc of treatments, each with a glass detail card and a fold-out dental chart; the proof cards carry extruded 3D icons in enamel. A brightness slider lightens only the teeth in a photo (mask generated from the image), chevron steps explain the first visit, reviews come as a card deck you tap through, and a full-month calendar writes the WhatsApp message. Clicking anywhere drops a few tiny teeth. Micro-interactions adapted from transitions.dev (tilt with glare, sliding tabs, toggles, success check) and route transitions with the View Transitions API.",
     technologies: ["Angular", "TypeScript", "Three.js", "GSAP", "Lenis", "View Transitions", "Vercel"],
     cover: "",
     logo: "/projects/logos/demo-marfil.png",
@@ -292,7 +292,7 @@ export const DEMO_PROJECTS: DevelopmentProject[] = [
     problem:
       "People looking for therapy arrive anxious and unsure where to start; a cold clinical page makes that worse. A therapist needs a site that feels human, explains how sessions work and lowers the barrier to the first message. Fictional brand built as the template for the health vertical, Professional package.",
     solution:
-      "A paper collage: blue-toned photos with torn edges and tape, huge condensed type and handwritten notes. The intro draws a tangled line that morphs into a calm spiral (GSAP MorphSVG), and the same tangle over the hero photo unravels on scroll. Visitors pick what they feel and get a notebook page explaining how it is worked on, follow a one-minute breathing spiral, flip myth notes, and book on a notebook sheet that previews the WhatsApp message. Includes the national crisis line. Doodles are generated in code with a fixed seed.",
+      "A paper collage: blue-toned photos with torn edges and tape, huge condensed type and handwritten notes. The intro draws a tangled line that morphs into a calm spiral (GSAP MorphSVG), and the same tangle over the hero photo unravels on scroll. Visitors pick what they feel and get a notebook page explaining how it is worked on, follow a one-minute breathing spiral, flip myth notes, and book on a notebook-style month calendar that previews the WhatsApp message. A pencil follows the cursor and lets you scribble on the page (the marks fade in a second), links get circled by hand on hover, and the business card flips to write your next appointment. Includes the national crisis line. Doodles are generated in code with a fixed seed.",
     technologies: ["Angular", "TypeScript", "GSAP", "MorphSVG", "SVG", "View Transitions", "Vercel"],
     cover: "",
     logo: "/projects/logos/demo-claro.png",

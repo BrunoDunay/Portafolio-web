@@ -11,6 +11,6 @@
 - 4 nov 2026: agregadas Marfil (dentista) y Claro (psicóloga); todas las demos apuntan al repo único `Demos-de-servicios-web`. Capturas y logos se generan del sitio publicado con `2-Demos/Salud/frontend/.tmp/port.mjs` (copia local, fuera del repo).
 - Las capturas de `public/projects/mockups` también las usan los videos de `3-Negocio/Videos`.
 - Inicio: la pila de proyectos sale de `FEATURED` en `src/app/pages/home/home.component.ts` (4 nov 2026: Armando Ovalle, FBE, Forja, Astor y Alero). Si se agregan más de 5, sumar su `data-pos` en `home.component.css`.
-- Enlace a la tarjeta digital (tarjeta-bruno-dunay.vercel.app): botón "Business card" en el inicio y fila en Contacto.
+- Enlace a la tarjeta digital (tarjeta-bruno-dunay.vercel.app): en el inicio es una tarjetita de presentación (carbón con engrane y línea azul) junto a la píldora "Available", que al pasar el cursor se endereza y voltea a "Open card" (5 nov 2026; antes era un tercer botón que hacía dos filas). También hay fila en Contacto.
 - El correo del portafolio es brunodunay@outlook.com (la tarjeta usa cesardunah@gmail.com: pendiente que Bruno elija uno).
 - `referencia/`: videos de referencia de terceros, fuera de git.

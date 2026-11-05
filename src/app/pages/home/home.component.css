@@ -217,11 +217,157 @@
 
 }
 
+/* Status pill and the business card share the first row */
+.top-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    width:100%;
+    max-width:520px;
+    margin-bottom:28px;
+}
+
+/* ========================= */
+/* BUSINESS CARD LINK */
+/* ========================= */
+
+.biz{
+    --biz-w:168px;
+    flex:none;
+    font-size:calc(var(--biz-w) / 10.5);
+    width:var(--biz-w);
+    aspect-ratio:1.75;
+    perspective:900px;
+    rotate:6deg;
+    transition:rotate .5s var(--ease-out), translate .5s var(--ease-out);
+}
+
+.biz-inner{
+    position:relative;
+    display:block;
+    width:100%;
+    height:100%;
+    transform-style:preserve-3d;
+    transition:transform .7s cubic-bezier(.34, 1.3, .64, 1);
+}
+
+.biz-face{
+    position:absolute;
+    inset:0;
+    border-radius:9px;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+    box-shadow:0 18px 30px -14px rgba(0,0,0,.85);
+}
+
+.biz-front{
+    display:grid;
+    align-content:end;
+    gap:.06em;
+    padding:.75em .8em;
+    overflow:hidden;
+    background:linear-gradient(140deg, #23262d, #121418 70%);
+    border:1px solid rgba(255,255,255,.1);
+    color:#e9ecf2;
+}
+
+.biz-front::before{
+    content:'';
+    position:absolute;
+    left:.8em;
+    right:.8em;
+    top:2.1em;
+    height:1.5px;
+    background:linear-gradient(90deg, #3b82f6, transparent);
+}
+
+.biz-gear{
+    position:absolute;
+    right:-.9em;
+    top:-.9em;
+    width:3.9em;
+    fill:none;
+    stroke:rgba(255,255,255,.18);
+    stroke-width:.9;
+    transition:rotate 1.2s var(--ease-out);
+}
+
+.biz-name{
+    font-size:.8em;
+    font-weight:800;
+    letter-spacing:-.01em;
+}
+
+.biz-role{
+    font-size:.56em;
+    color:#9aa3b2;
+}
+
+.biz-label{
+    position:absolute;
+    left:1.43em;
+    top:1.1em;
+    font-size:.56em;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:#60a5fa;
+}
+
+.biz-back{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    transform:rotateY(180deg);
+    background:linear-gradient(140deg, #3b82f6, #1d4ed8);
+    color:#fff;
+    font-size:.86em;
+    font-weight:700;
+}
+
+.biz-back svg{
+    width:16px;
+    height:16px;
+    fill:none;
+    stroke:currentColor;
+    stroke-width:2.2;
+    stroke-linecap:round;
+}
+
+.biz:active{
+    scale:.96;
+}
+
+.biz:focus-visible .biz-inner{
+    outline:2px solid #60a5fa;
+    outline-offset:4px;
+    border-radius:9px;
+}
+
+@media (hover:hover) and (pointer:fine){
+
+    /* It lifts, straightens and flips to "Open card" */
+    .biz:hover{
+        rotate:0deg;
+        translate:0 -6px;
+    }
+
+    .biz:hover .biz-inner{
+        transform:rotateY(180deg);
+    }
+
+    .biz:hover .biz-gear{
+        rotate:120deg;
+    }
+
+}
+
 .status{
     display:inline-flex;
     align-items:center;
     gap:10px;
-    margin-bottom:28px;
     padding:7px 14px 7px 12px;
     border-radius:999px;
     background:var(--card);
@@ -394,6 +540,26 @@
 
     .buttons .btn{
         flex:1 1 180px;
+    }
+
+    .top-row{
+        gap:12px;
+    }
+
+    .biz{
+        --biz-w:108px;
+    }
+
+    .status{
+        font-size:.75rem;
+    }
+
+}
+
+@media (max-width:350px){
+
+    .top-row{
+        flex-wrap:wrap;
     }
 
 }
