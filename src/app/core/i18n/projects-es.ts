@@ -174,6 +174,30 @@ const ES: Record<string, DevText & DesignText> = {
     objective: 'Construir una marca de esports con presencia.',
     deliverables: ['Logo', 'Mockups de jersey', 'Colores de marca'],
   },
+  osteria: {
+    category: 'Identidad de marca · Proyecto académico',
+    shortDescription: 'Identidad completa para un restaurante italiano: logo, empaques, menú y uniformes. Desarrollado como proyecto universitario.',
+    objective: 'Darle a un restaurante italiano de barrio una marca cálida y reconocible, que funcione desde la bolsa para llevar hasta el delantal del personal.',
+    deliverables: ['Logo', 'Logo animado', 'Bolsa para llevar', 'Caja de pizza', 'Menú', 'Delantales', 'Menú digital'],
+  },
+  'uno-marvel': {
+    category: 'Ilustración y empaque · Proyecto académico',
+    shortDescription: 'Un UNO con temática de Marvel: cada carta ilustrada en vector, más la caja. Fan art hecho como proyecto universitario.',
+    objective: 'Rediseñar un juego de cartas clásico alrededor de un tema, cuidando que cada carta se lea al instante y que cada héroe tenga su propia ilustración.',
+    deliverables: ['56 cartas ilustradas', 'Comodines', 'Reverso', 'Caja y troquel', 'Pliegos listos para imprimir'],
+  },
+  multiverse: {
+    category: 'Diseño de póster · Proyecto académico',
+    shortDescription: 'Póster de película hecho por fan en el que Doctor Strange se cruza con cinco doctores famosos de la televisión; fotomontaje en Photoshop para una materia de la universidad.',
+    objective: 'Contar toda la idea en una sola imagen: cinco rostros que se funden entre sí, como si saltaran de un universo a otro.',
+    deliverables: ['Póster de película', 'Fotomontaje', 'Efecto glitch', 'Composición del título'],
+  },
+  garrison: {
+    category: 'Diseño de etiqueta · Proyecto académico',
+    shortDescription: 'Etiqueta de vino inspirada en Peaky Blinders: etiqueta frontal, contraetiqueta y sello del cuello con estilo de grabado de 1919. Concepto de fan hecho como proyecto universitario.',
+    objective: 'Diseñar una etiqueta que parezca salida del Birmingham de 1919, con detalles tipo grabado que se impriman bien al tamaño de la botella.',
+    deliverables: ['Etiqueta frontal', 'Contraetiqueta', 'Sello del cuello', 'Mockups de botella'],
+  },
   reyes: {
     title: 'Transportes Reyes',
     category: 'Diseño publicitario',

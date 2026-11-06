@@ -32,6 +32,7 @@ const TECH: Record<string, Omit<Tech, 'name'>> = {
   'Photoshop': { icon: '/photoshop.webp', color: '#31a8ff' },
   'Illustrator': { icon: '/illustrator.webp', color: '#ff9a00' },
   'Canva': { icon: '/canva.png', color: '#00c4cc' },
+  'After Effects': { glyph: 'movie_filter', color: '#9999ff' },
 };
 
 export function techFor(name: string): Tech {
