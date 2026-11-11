@@ -60,7 +60,10 @@
     max-height:58%;
     object-fit:contain;
     filter:drop-shadow(0 8px 14px rgba(0,0,0,.16));
-    transition:transform .6s var(--ease-out);
+    transition:
+        transform .6s var(--ease-out),
+        opacity .35s ease,
+        filter .45s ease;
 }
 
 /* Covers that already carry their own background fill the whole space */
@@ -110,11 +113,91 @@
     max-height:64%;
 }
 
+/* ========================= */
+/* PREVIEW: THE SITE ITSELF, IN A SMALL BROWSER WINDOW */
+/* ========================= */
+
+/* Hidden below the cover and tilted back; on hover it rises and straightens */
+.preview{
+    position:absolute;
+    top:18px;
+    left:16px;
+    right:16px;
+    bottom:-1px;
+    z-index:3;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+    border-radius:10px 10px 0 0;
+    background:#0d1320;
+    box-shadow:
+        0 0 0 1px rgba(255,255,255,.08),
+        0 22px 40px -14px rgba(0,0,0,.6),
+        0 0 0 6px color-mix(in srgb, var(--tint) 14%, transparent);
+    opacity:0;
+    transform:perspective(900px) translateY(46%) rotateX(22deg) scale(.94);
+    transform-origin:50% 100%;
+    pointer-events:none;
+    transition:
+        opacity .3s ease,
+        transform .6s var(--ease-out);
+}
+
+.preview .bar{
+    position:relative;
+    display:flex;
+    flex-shrink:0;
+    align-items:center;
+    gap:5px;
+    height:20px;
+    padding:0 9px;
+    background:#182133;
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.preview .bar i{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:rgba(255,255,255,.2);
+}
+
+.preview .bar i:first-child{
+    background:color-mix(in srgb, var(--tint) 80%, white);
+}
+
+.preview .bar span{
+    position:absolute;
+    left:50%;
+    max-width:62%;
+    overflow:hidden;
+    transform:translateX(-50%);
+    padding:2px 10px;
+    border-radius:999px;
+    background:rgba(255,255,255,.06);
+    color:rgba(255,255,255,.62);
+    font-size:.5625rem;
+    letter-spacing:.02em;
+    line-height:1.3;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+
+/* The capture starts at the top of the page and drifts down a little while the cursor stays */
+.preview img{
+    flex:1;
+    min-height:0;
+    width:100%;
+    object-fit:cover;
+    object-position:50% 0%;
+    transition:object-position 3.2s cubic-bezier(.45, 0, .25, 1);
+}
+
 /* Light that sweeps across the cover on hover */
 .sheen{
     position:absolute;
     inset:0;
-    z-index:3;
+    z-index:4;
     background:linear-gradient(105deg, transparent 35%, rgba(255,255,255,.22) 50%, transparent 65%);
     transform:translateX(-120%);
     pointer-events:none;
@@ -124,7 +207,7 @@
     position:absolute;
     top:12px;
     right:12px;
-    z-index:4;
+    z-index:5;
     display:grid;
     place-items:center;
     width:34px;
@@ -241,4 +324,40 @@
         transform:none;
     }
 
+    /* With a preview, the logo steps back and the site takes the cover */
+    .card:hover .has-preview .mark{
+        opacity:0;
+        transform:translateY(-18px) scale(.9);
+    }
+
+    /* Covers that are a full image stay as the backdrop, dimmed */
+    .card:hover .has-preview.fill .mark{
+        opacity:1;
+        filter:brightness(.42) saturate(.85);
+        transform:scale(1.06);
+    }
+
+    .card:hover .preview{
+        opacity:1;
+        transform:perspective(900px) translateY(0) rotateX(0deg) scale(1);
+        transition:
+            opacity .25s ease,
+            transform .7s var(--ease-out);
+    }
+
+    .card:hover .preview img{
+        object-position:50% 28%;
+        transition-delay:.45s;
+    }
+
+}
+
+/* Keyboard users get the same reveal */
+.card:focus-visible .preview{
+    opacity:1;
+    transform:none;
+}
+
+.card:focus-visible .has-preview:not(.fill) .mark{
+    opacity:0;
 }

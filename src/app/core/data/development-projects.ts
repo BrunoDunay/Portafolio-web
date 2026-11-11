@@ -21,6 +21,7 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
     ],
     cover: "assets/projects/uia/cover.webp",
     logo: "/projects/logos/Logo UI.jpg",
+    preview: "/projects/previews/uia.webp",
     gallery: [
       "projects/mockups/uinternacional/ss1.png",
       "projects/mockups/uinternacional/ss2.png",
@@ -67,6 +68,7 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
     ],
     cover: "assets/projects/fitness-platform/cover.webp",
     logo: "/projects/logos/Fitness.png",
+    preview: "/projects/previews/fitness-platform.webp",
     gallery: [
       "projects/mockups/fbe-platform/ss1.png",
       "projects/mockups/fbe-platform/ss2.png",
@@ -116,6 +118,7 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
     ],
     cover: "assets/projects/armando-ovalle/cover.webp",
     logo: "/projects/cards/armando-ovalle.webp",
+    preview: "/projects/previews/armando-ovalle.webp",
     gallery: [
       "projects/mockups/armando-ovalle/ss1.webp",
       "projects/mockups/armando-ovalle/ss2.webp",
@@ -162,6 +165,7 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
     ],
     cover: "assets/projects/pokedex/cover.webp",
     logo: "/projects/logos/Pokedex.png",
+    preview: "/projects/previews/pokedex.webp",
     gallery: [
       "projects/mockups/pokedex/ss1.png",
       "projects/mockups/pokedex/ss2.png",
@@ -204,6 +208,7 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
     ],
     cover: "assets/projects/cafecito/cover.webp",
     logo: "/projects/logos/cafeteriaPOS.png",
+    preview: "/projects/previews/cafecito.webp",
     gallery: [
       "projects/mockups/cafecito/ss1.png",
       "projects/mockups/cafecito/ss2.png",
@@ -247,6 +252,7 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
     ],
     cover: "assets/projects/funko/cover.webp",
     logo: "/projects/logos/FUNKOTEKA.png",
+    preview: "/projects/previews/funko.webp",
     gallery: [
       "projects/mockups/ecomerce/ss1.png",
       "projects/mockups/ecomerce/ss2.png",

@@ -18,6 +18,7 @@ export const DEMO_PROJECTS: DevelopmentProject[] = [
     technologies: ["Angular", "TypeScript", "CSS", "SEO", "Vercel"],
     cover: "",
     logo: "/projects/logos/demo-brio.png",
+    preview: "/projects/previews/demo-brio.webp",
     gallery: [
       "projects/mockups/demo-brio/ss1.webp",
       "projects/mockups/demo-brio/ss2.webp",
@@ -52,6 +53,7 @@ export const DEMO_PROJECTS: DevelopmentProject[] = [
     technologies: ["Angular", "TypeScript", "GSAP", "Lenis", "SVG animation", "Vercel"],
     cover: "",
     logo: "/projects/logos/demo-forja.png",
+    preview: "/projects/previews/demo-forja.webp",
     gallery: [
       "projects/mockups/demo-forja/ss1.webp",
       "projects/mockups/demo-forja/ss2.webp",
@@ -87,6 +89,7 @@ export const DEMO_PROJECTS: DevelopmentProject[] = [
     technologies: ["Angular", "TypeScript", "GSAP", "ScrollTrigger", "Lenis", "SEO", "Vercel"],
     cover: "",
     logo: "/projects/logos/demo-umbral.png",
+    preview: "/projects/previews/demo-umbral.webp",
     gallery: [
       "projects/mockups/demo-umbral/ss1.webp",
       "projects/mockups/demo-umbral/ss2.webp",
@@ -122,6 +125,7 @@ export const DEMO_PROJECTS: DevelopmentProject[] = [
     technologies: ["Angular", "TypeScript", "GSAP", "ScrollTrigger", "Lenis", "SEO", "Vercel"],
     cover: "",
     logo: "/projects/logos/demo-nido.png",
+    preview: "/projects/previews/demo-nido.webp",
     gallery: [
       "projects/mockups/demo-nido/ss1.webp",
       "projects/mockups/demo-nido/ss2.webp",
@@ -157,6 +161,7 @@ export const DEMO_PROJECTS: DevelopmentProject[] = [
     technologies: ["Angular", "TypeScript", "Three.js", "WebGL", "GSAP", "Lenis", "SEO", "Vercel"],
     cover: "",
     logo: "/projects/logos/demo-astor.png",
+    preview: "/projects/previews/demo-astor.webp",
     gallery: [
       "projects/mockups/demo-astor/ss1.webp",
       "projects/mockups/demo-astor/ss2.webp",
@@ -192,6 +197,7 @@ export const DEMO_PROJECTS: DevelopmentProject[] = [
     technologies: ["Angular", "TypeScript", "CSS", "SEO", "Vercel"],
     cover: "",
     logo: "/projects/logos/demo-alero.png",
+    preview: "/projects/previews/demo-alero.webp",
     gallery: [
       "projects/mockups/demo-alero/ss1.webp",
       "projects/mockups/demo-alero/ss2.webp",
@@ -227,6 +233,7 @@ export const DEMO_PROJECTS: DevelopmentProject[] = [
     technologies: ["Angular", "TypeScript", "CSS", "SEO", "Vercel"],
     cover: "",
     logo: "/projects/logos/demo-tilde.png",
+    preview: "/projects/previews/demo-tilde.webp",
     gallery: [
       "projects/mockups/demo-tilde/ss1.webp",
       "projects/mockups/demo-tilde/ss2.webp",
@@ -261,6 +268,7 @@ export const DEMO_PROJECTS: DevelopmentProject[] = [
     technologies: ["Angular", "TypeScript", "Three.js", "GSAP", "Lenis", "View Transitions", "Vercel"],
     cover: "",
     logo: "/projects/logos/demo-marfil.png",
+    preview: "/projects/previews/demo-marfil.webp",
     gallery: [
       "projects/mockups/demo-marfil/ss1.webp",
       "projects/mockups/demo-marfil/ss2.webp",
@@ -296,6 +304,7 @@ export const DEMO_PROJECTS: DevelopmentProject[] = [
     technologies: ["Angular", "TypeScript", "GSAP", "MorphSVG", "SVG", "View Transitions", "Vercel"],
     cover: "",
     logo: "/projects/logos/demo-claro.png",
+    preview: "/projects/previews/demo-claro.webp",
     gallery: [
       "projects/mockups/demo-claro/ss1.webp",
       "projects/mockups/demo-claro/ss2.webp",

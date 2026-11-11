@@ -15,6 +15,10 @@
 - Al publicar una demo nueva: agregarla a `demo-projects.ts` con sus capturas (como se hizo con Astor el 1 nov 2026, color principal azul).
 - 4 nov 2026: agregadas Marfil (dentista) y Claro (psicóloga); todas las demos apuntan al repo único `Demos-de-servicios-web`. Capturas y logos se generan del sitio publicado con `2-Demos/Salud/frontend/.tmp/port.mjs` (copia local, fuera del repo).
 - Las capturas de `public/projects/mockups` también las usan los videos de `3-Negocio/Videos`.
+- **Hover de las tarjetas (11 nov 2026):** en reposo se ve el logo; al pasar el cursor sube una ventanita de navegador con el
+  dominio del sitio y la portada (`preview` en cada proyecto de `development-projects.ts` y `demo-projects.ts`). Las imágenes
+  están en `public/projects/previews/<id>.webp`: es el `ss1` del proyecto a 800 px de ancho, WebP calidad 82 (10–36 KB),
+  hecho con `sharp`. **Al agregar un proyecto, sacar también su preview.** Los de diseño no llevan. En celular no cambia nada.
 - Inicio: la pila de proyectos sale de `FEATURED` en `src/app/pages/home/home.component.ts` (4 nov 2026: Armando Ovalle, FBE, Forja, Astor y Alero). Si se agregan más de 5, sumar su `data-pos` en `home.component.css`.
 - Enlace a la tarjeta digital (tarjeta-bruno-dunay.vercel.app): en el inicio es una tarjetita de presentación (carbón con engrane y línea azul) junto a la píldora "Available", que al pasar el cursor se endereza y voltea a "Open card" (5 nov 2026; antes era un tercer botón que hacía dos filas). También hay fila en Contacto.
 - El correo del portafolio es brunodunay@outlook.com (la tarjeta usa cesardunah@gmail.com: pendiente que Bruno elija uno).

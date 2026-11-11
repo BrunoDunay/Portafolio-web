@@ -11,6 +11,8 @@ export interface DevelopmentProject {
   technologies: string[];
   cover: string;
   logo: string;
+  /** Small capture of the site's first screen, shown on the card when the cursor is over it */
+  preview?: string;
   gallery: string[];
   /** Card cover in the project's own colors (demos fall back to their logo image) */
   card?: CardTheme;

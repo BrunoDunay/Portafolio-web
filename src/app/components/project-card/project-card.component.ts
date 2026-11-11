@@ -34,6 +34,29 @@ export class ProjectCardComponent {
       : project.category;
   });
 
+  /** First screen of the site, revealed on hover so the logo is not the only clue to what the project is */
+  preview=computed(()=>{
+    const project=this.project();
+
+    return 'preview' in project ? project.preview : undefined;
+  });
+
+  /** Address shown in the preview's browser bar */
+  host=computed(()=>{
+    const project=this.project();
+    const website='website' in project ? project.website : '';
+
+    if(!website){
+      return '';
+    }
+
+    try{
+      return new URL(website).hostname.replace(/^www\./,'');
+    }catch{
+      return '';
+    }
+  });
+
   /** Each card wears its own brand. Demos already ship a full cover image in their colors. */
   theme=computed<CardTheme>(()=>{
     const project=this.project();

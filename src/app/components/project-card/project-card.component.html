@@ -7,6 +7,7 @@
         [class.fill]="theme().fit === 'cover'"
         [class.bottom]="theme().fit === 'bottom'"
         [class.has-photo]="!!theme().photo"
+        [class.has-preview]="!!preview()"
         [style.background]="theme().background">
         @if (theme().photo) {
             <img class="photo" [src]="theme().photo" alt="" loading="lazy">
@@ -16,6 +17,17 @@
             [src]="theme().image"
             alt=""
             loading="lazy">
+        @if (preview()) {
+            <div class="preview" aria-hidden="true">
+                <div class="bar">
+                    <i></i><i></i><i></i>
+                    @if (host()) {
+                        <span>{{host()}}</span>
+                    }
+                </div>
+                <img [src]="preview()" alt="" loading="lazy" decoding="async">
+            </div>
+        }
         <span class="sheen" aria-hidden="true"></span>
         <span class="open material-icons" aria-hidden="true">north_east</span>
     </div>
