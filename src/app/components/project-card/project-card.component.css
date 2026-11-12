@@ -183,14 +183,26 @@
     text-overflow:ellipsis;
 }
 
-/* The capture starts at the top of the page and drifts down a little while the cursor stays */
-.preview img{
+/* The capture starts at the top of the page and drifts down a little while the cursor stays.
+   The image is a bit taller than its window and moves with transform (smooth, on the GPU);
+   animating object-position instead redraws it and snaps to whole pixels, which reads as ticks. */
+.preview .shot{
+    --drift:28px;
+    position:relative;
     flex:1;
     min-height:0;
+    overflow:hidden;
+}
+
+.preview img{
+    display:block;
     width:100%;
+    height:calc(100% + var(--drift));
     object-fit:cover;
     object-position:50% 0%;
-    transition:object-position 3.2s cubic-bezier(.45, 0, .25, 1);
+    transform:translate3d(0, 0, 0);
+    backface-visibility:hidden;
+    transition:transform .5s var(--ease-out);
 }
 
 /* Light that sweeps across the cover on hover */
@@ -346,8 +358,8 @@
     }
 
     .card:hover .preview img{
-        object-position:50% 28%;
-        transition-delay:.45s;
+        transform:translate3d(0, calc(var(--drift) * -1), 0);
+        transition:transform 3.2s cubic-bezier(.45, 0, .25, 1) .45s;
     }
 
 }
