@@ -31,6 +31,21 @@ export class EducationComponent {
   /** Each school with its own logo and color (degree names follow the language) */
   private readonly schoolData = [
     {
+      key: 'engineering',
+      name: 'Inadaptados',
+      // In progress: shown as "In progress · 2028" in the page's language
+      ends: '2028',
+      logo: '/education/inadaptados.webp',
+      color: '#2fb2ea',
+    },
+    {
+      key: 'tsu',
+      name: 'Inadaptados',
+      ends: '2027',
+      logo: '/education/inadaptados.webp',
+      color: '#2fb2ea',
+    },
+    {
       key: 'bachelor',
       name: 'Universidad Cuauhtémoc Aguascalientes',
       years: '2021 – 2024',
@@ -55,7 +70,12 @@ export class EducationComponent {
 
   readonly schools = computed(() => {
     const t = this.i18n.t().education;
-    return this.schoolData.map((s) => ({ ...s, degree: t.degrees[s.key], level: t.levels[s.key] }));
+    return this.schoolData.map((s) => ({
+      ...s,
+      years: 'years' in s ? s.years : `${t.inProgress} · ${s.ends}`,
+      degree: t.degrees[s.key],
+      level: t.levels[s.key],
+    }));
   });
 
   readonly certs: Certificate[] = [

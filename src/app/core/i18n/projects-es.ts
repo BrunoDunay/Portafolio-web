@@ -4,7 +4,7 @@ import { DesignProject } from '../interfaces/design-project';
 import { DevelopmentProject } from '../interfaces/development-project';
 import { Lang } from './lang.service';
 
-type DevText = Partial<Pick<DevelopmentProject, 'title' | 'type' | 'shortDescription' | 'problem' | 'solution'>>;
+type DevText = Partial<Pick<DevelopmentProject, 'title' | 'type' | 'shortDescription' | 'problem' | 'solution' | 'quality'>>;
 type DesignText = Partial<Pick<DesignProject, 'title' | 'category' | 'shortDescription' | 'objective' | 'deliverables'>>;
 
 const DEMO = {
@@ -31,6 +31,11 @@ const ES: Record<string, DevText & DesignText> = {
       'Un coach de fitness en línea armaba a mano, en hojas de cálculo, el plan de entrenamiento y de nutrición de cada cliente, y sus clientes no tenían un lugar donde ver su plan o reportar su avance.',
     solution:
       'Construí el sitio con render en servidor, el panel del coach y el portal del cliente en Angular, sobre una API REST en Express y PostgreSQL. Calcula calorías, macros y volumen de entrenamiento, agenda sesiones por videollamada a las que el cliente entra desde su portal y explica cada ejercicio con una figura animada en código. El logo está dibujado en SVG y se arma solo al cargar.',
+    quality: [
+      'Revisión de seguridad basada en OWASP: control de acceso en cada ruta, bcrypt con límite de intentos de inicio de sesión, validación con zod, encabezados con helmet y CORS limitado a sus propios dominios.',
+      '54 pruebas automatizadas (Vitest + Supertest), incluido el motor de cálculo comparado contra las hojas de cálculo originales del coach.',
+      'Cada cambio corre las pruebas y una auditoría de dependencias en GitHub Actions; se corrigieron las dependencias con fallas conocidas (quedan 0).',
+    ],
   },
   'armando-ovalle': {
     type: 'Sitio web full stack',
@@ -40,6 +45,11 @@ const ES: Record<string, DevText & DesignText> = {
       'Jorge Armando Ovalle cubre bodas, XV años, pedidas de mano y sesiones en estudio en Aguascalientes y en todo México. Necesitaba un sitio que vendiera con sus fotos, respondiera las preguntas de siempre y mostrara qué fechas tiene libres, con contenido que pudiera cambiar sin depender de un programador.',
     solution:
       'Un sitio con render en servidor y panel de administración en Angular, sobre una API REST en Express y PostgreSQL. Desde el panel edita servicios, galerías, paquetes, preguntas frecuentes, páginas legales y el calendario, sube fotos y videos directo a Cloudinary y administra reservas con contratos y correos de confirmación. Los temas de temporada (Día de Muertos, Navidad, Fiestas Patrias y más) cambian el estilo del sitio solos según la fecha.',
+    quality: [
+      'Revisión de seguridad basada en OWASP: JWT en cada ruta del panel, inicio de sesión con límite de intentos, validación con zod y encabezados con helmet.',
+      'Las fotos que se suben se revisan por tipo, tamaño y firma binaria real del archivo, no solo por la extensión.',
+      '76 pruebas automatizadas (Vitest + Supertest), incluida una suite de seguridad de la API; cada cambio las corre junto con una auditoría de dependencias en GitHub Actions.',
+    ],
   },
   pokedex: {
     type: 'Aplicación frontend',
@@ -54,6 +64,11 @@ const ES: Record<string, DevText & DesignText> = {
     shortDescription: 'Sistema de punto de venta para administrar productos, clientes y ventas del día.',
     problem: 'Los negocios pequeños necesitan una forma sencilla de controlar su inventario y sus ventas.',
     solution: 'Desarrollé una aplicación de punto de venta con inicio de sesión, inventario y registro de ventas.',
+    quality: [
+      'Auditoría de seguridad con una prueba que reproduce cada falla antes de corregirla: las contraseñas quedaban en el log de errores, el inicio de sesión aceptaba operadores de NoSQL y dos ventas al mismo tiempo podían vender la última pieza dos veces.',
+      'El inventario ahora se descuenta de forma atómica y se revierte si un producto no alcanza, así una venta fallida nunca deja el stock a medias.',
+      '31 pruebas automatizadas (Jest + Supertest sobre MongoDB en memoria) y auditoría de dependencias en cada cambio; 0 vulnerabilidades conocidas en producción.',
+    ],
   },
   funko: {
     title: 'Tienda en línea Funko',
@@ -61,6 +76,11 @@ const ES: Record<string, DevText & DesignText> = {
     shortDescription: 'Tienda en línea con inicio de sesión y administración de productos.',
     problem: 'Construir una tienda en línea completa, con los procesos reales de un negocio.',
     solution: 'Creé una aplicación full stack con inicio de sesión, administración de productos y carrito de compras.',
+    quality: [
+      'Auditoría de seguridad con una prueba que reproduce cada falla antes de corregirla: el precio lo mandaba el navegador, una búsqueda pública exponía los hashes de contraseña y otros clientes podían ver órdenes, carritos y métodos de pago ajenos (IDOR).',
+      'Ahora el precio y las ofertas salen de la base de datos, cada recurso revisa a su dueño y las tarjetas se guardan enmascaradas (solo los últimos 4 dígitos).',
+      '20 pruebas automatizadas (Jest + Supertest sobre MongoDB en memoria) y auditoría de dependencias en cada cambio; 0 vulnerabilidades conocidas en la API.',
+    ],
   },
 
   // ---------------------------------------------------------------- demos

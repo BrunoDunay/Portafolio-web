@@ -27,4 +27,6 @@ export interface DevelopmentProject {
   /** Fictional brand built as a template (shown under "Demo Sites"). */
   demo?: boolean;
   website?: string;
+  /** Security audit and automated testing, one point per line. Shows the "Security audited" badge. */
+  quality?: string[];
 }

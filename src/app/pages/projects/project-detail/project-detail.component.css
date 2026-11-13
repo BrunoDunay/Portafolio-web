@@ -510,6 +510,27 @@
     transform:scale(.94);
 }
 
+/* Security audited badge, next to the eyebrow */
+.audited{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    margin-left:10px;
+    padding:4px 10px 4px 8px;
+    border-radius:999px;
+    border:1px solid color-mix(in srgb, #4fd6a4 45%, transparent);
+    background:color-mix(in srgb, #4fd6a4 12%, transparent);
+    color:#7ee8c0;
+    font-size:.72rem;
+    font-weight:700;
+    letter-spacing:.04em;
+    vertical-align:middle;
+}
+
+.audited .material-icons{
+    font-size:15px;
+}
+
 /* ========================= */
 /* STORY */
 /* ========================= */
@@ -556,6 +577,26 @@
     font-size:.92rem;
     line-height:1.65;
     text-wrap:pretty;
+}
+
+.panel.quality{
+    grid-column:1 / -1;
+}
+
+.panel.quality h2{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.panel.quality h2 .material-icons{
+    font-size:20px;
+    color:#7ee8c0;
+}
+
+.panel.quality .deliverables{
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    column-gap:24px;
 }
 
 .deliverables{

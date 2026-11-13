@@ -23,6 +23,12 @@
 
         <div class="text">
             <span class="eyebrow">{{ kind() }}</span>
+            @if (dev()?.quality?.length) {
+                <span class="audited" data-rise>
+                    <span class="material-icons" aria-hidden="true">verified_user</span>
+                    {{ i18n.t().detail.audited }}
+                </span>
+            }
 
             <h1 class="title" [attr.aria-label]="p.title">
                 @for (word of titleWords(); track $index) {
@@ -183,6 +189,20 @@
                 }
             </ul>
         </article>
+        @if (dev()?.quality; as points) {
+            <article class="panel quality">
+                <span class="num">04</span>
+                <h2>
+                    <span class="material-icons" aria-hidden="true">verified_user</span>
+                    {{ i18n.t().detail.quality }}
+                </h2>
+                <ul class="deliverables">
+                    @for (point of points; track point) {
+                        <li>{{ point }}</li>
+                    }
+                </ul>
+            </article>
+        }
     </section>
 
 </article>

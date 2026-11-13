@@ -93,7 +93,12 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
       dark: "#1f6f94"
     },
     website: "https://fitnessbyevidence.netlify.app/",
-    github: "https://github.com/BrunoDunay/Panel-administrativo-web-Fitness.git"
+    github: "https://github.com/BrunoDunay/Panel-administrativo-web-Fitness.git",
+    quality: [
+      "Security review based on OWASP: access control on every route, bcrypt with login rate limiting, input validation with zod, helmet headers and CORS limited to its own domains.",
+      "54 automated tests (Vitest + Supertest), including the calculation engine checked against the coach's original spreadsheets.",
+      "Every push runs the tests and a dependency audit in GitHub Actions; known vulnerable dependencies were patched (0 left)."
+    ]
   },
   {
     id: "armando-ovalle",
@@ -143,7 +148,12 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
       dark: "#2a2421"
     },
     website: "https://armandoovalle.netlify.app/",
-    github: "https://github.com/BrunoDunay/Fotografia-pagina-web.git"
+    github: "https://github.com/BrunoDunay/Fotografia-pagina-web.git",
+    quality: [
+      "Security review based on OWASP: JWT on every admin route, rate-limited login, zod validation and helmet headers.",
+      "Photo uploads are checked by type, size and the file's real binary signature, not just its extension.",
+      "76 automated tests (Vitest + Supertest), including an API security suite; every push runs them with a dependency audit in GitHub Actions."
+    ]
   },
   {
     id: "pokedex",
@@ -230,7 +240,12 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
       dark: "#354044"
     },
     website: "",
-    github: "https://github.com/BrunoDunay/cafecito-pos.git"
+    github: "https://github.com/BrunoDunay/cafecito-pos.git",
+    quality: [
+      "Security audit with a failing test written first for each issue: passwords were being written to the error log, the login accepted NoSQL operators, and two simultaneous sales could sell the last item twice.",
+      "Stock now drops atomically and rolls back if any product runs out, so a failed sale never leaves inventory half-discounted.",
+      "31 automated tests (Jest + Supertest on an in-memory MongoDB) and a dependency audit on every push; 0 known vulnerabilities in production dependencies."
+    ]
   },
   {
     id: "funko",
@@ -284,6 +299,11 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
       dark: "#2b2b2b"
     },
     website: "",
-    github: "https://github.com/BrunoDunay/Ecommerce-Proyecto-Final.git"
+    github: "https://github.com/BrunoDunay/Ecommerce-Proyecto-Final.git",
+    quality: [
+      "Security audit with a failing test written first for each issue: prices came from the browser, a public user search exposed password hashes, and orders, carts and payment methods could be read by other customers (IDOR).",
+      "Prices and offers are now taken from the database, every resource checks its owner, and card numbers are stored masked (last 4 digits only).",
+      "20 automated tests (Jest + Supertest on an in-memory MongoDB) and a dependency audit on every push; 0 known vulnerabilities in the API."
+    ]
   }
 ];
