@@ -239,7 +239,7 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
       accent: "#5e7c8a",
       dark: "#354044"
     },
-    website: "",
+    website: "https://cafecito-pos-ecru.vercel.app/",
     github: "https://github.com/BrunoDunay/cafecito-pos.git",
     quality: [
       "Security audit with a failing test written first for each issue: passwords were being written to the error log, the login accepted NoSQL operators, and two simultaneous sales could sell the last item twice.",
@@ -298,7 +298,7 @@ export const DEVELOPMENT_PROJECTS: DevelopmentProject[] = [
       accent: "#111111",
       dark: "#2b2b2b"
     },
-    website: "",
+    website: "https://funko-ecommerce-sable.vercel.app/",
     github: "https://github.com/BrunoDunay/Ecommerce-Proyecto-Final.git",
     quality: [
       "Security audit with a failing test written first for each issue: prices came from the browser, a public user search exposed password hashes, and orders, carts and payment methods could be read by other customers (IDOR).",

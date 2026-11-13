@@ -85,7 +85,7 @@ const en = {
     close: 'Close',
     inProgress: 'In progress',
     degrees: {
-      engineering: 'Software Development Engineering',
+      engineering: 'B.Eng. in Software Development',
       tsu: 'Associate Degree (TSU) in Web Development · intermediate degree of the engineering program',
       bachelor: 'Bachelor\'s Degree in Design and Content Production',
       bootcamp: 'Full Stack Developer (MEAN)',
