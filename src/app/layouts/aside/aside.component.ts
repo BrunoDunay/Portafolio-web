@@ -1,4 +1,4 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, ChangeDetectionStrategy } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from "@angular/router";
 import { filter, map } from 'rxjs';
@@ -8,6 +8,7 @@ import { LangService } from '../../core/i18n/lang.service';
   selector: 'app-aside',
   imports: [RouterLink, RouterLinkActive],
   templateUrl: './aside.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './aside.component.css'
 })
 export class AsideComponent {

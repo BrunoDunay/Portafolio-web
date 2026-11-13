@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { LangService } from '../../core/i18n/lang.service';
 import { localize } from '../../core/i18n/projects-es';
 import { ProjectCardComponent } from '../../components/project-card/project-card.component';
@@ -18,6 +18,7 @@ const DESIGN_REAL_FIRST=[...DESIGN_PROJECTS].sort((a,b)=>
   selector: 'app-projects',
   imports: [ProjectCardComponent],
   templateUrl: './projects.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './projects.component.css'
 })
 export class ProjectsComponent {
