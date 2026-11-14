@@ -90,8 +90,9 @@ const en = {
       bachelor: 'Bachelor\'s Degree in Design and Content Production',
       bootcamp: 'Full Stack Developer (MEAN)',
       master: 'Master\'s Degree in Teaching Skills Development for Digital Transformation',
+      doctorate: 'Doctorate in Teaching Competencies for Digital Transformation',
     },
-    levels: { engineering: 'Engineering', tsu: 'TSU', bachelor: 'Bachelor\'s', bootcamp: 'Bootcamp', master: 'Master\'s' },
+    levels: { engineering: 'Engineering', tsu: 'TSU', doctorate: 'Doctorate', bachelor: 'Bachelor\'s', bootcamp: 'Bootcamp', master: 'Master\'s' },
   },
   contact: {
     eyebrow: 'CONTACT',
@@ -210,8 +211,9 @@ const es: UiText = {
       bachelor: 'Licenciatura en Diseño y Producción de Contenidos',
       bootcamp: 'Desarrollador Full Stack (MEAN)',
       master: 'Maestría en Desarrollo de Competencias Docentes para la Transformación Digital',
+      doctorate: 'Doctorado en Competencias Docentes para la Transformación Digital',
     },
-    levels: { engineering: 'Ingeniería', tsu: 'TSU', bachelor: 'Licenciatura', bootcamp: 'Bootcamp', master: 'Maestría' },
+    levels: { engineering: 'Ingeniería', tsu: 'TSU', doctorate: 'Doctorado', bachelor: 'Licenciatura', bootcamp: 'Bootcamp', master: 'Maestría' },
   },
   contact: {
     eyebrow: 'CONTACTO',

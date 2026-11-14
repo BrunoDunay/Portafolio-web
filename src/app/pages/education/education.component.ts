@@ -30,11 +30,33 @@ export class EducationComponent {
 
   /** Each school with its own logo and color (degree names follow the language) */
   private readonly schoolData = [
+    // Finished first, then in progress; schools with the same logo stay together
     {
-      key: 'engineering',
-      name: 'Inadaptados',
+      key: 'bachelor',
+      name: 'Universidad Cuauhtémoc Aguascalientes',
+      years: '2021 – 2024',
+      logo: '/education/universidad-cuauhtemoc.svg',
+      color: '#2f6fd6',
+    },
+    {
+      key: 'master',
+      name: 'Universidad Internacional de Aguascalientes',
+      years: '2024 – 2026',
+      logo: '/education/universidad-internacional.webp',
+      color: '#c9a84a',
+    },
+    {
+      key: 'doctorate',
+      name: 'Universidad Internacional de Aguascalientes',
       // In progress: shown as "In progress · 2028" in the page's language
       ends: '2028',
+      logo: '/education/universidad-internacional.webp',
+      color: '#c9a84a',
+    },
+    {
+      key: 'bootcamp',
+      name: 'Inadaptados',
+      years: '2024 – 2026',
       logo: '/education/inadaptados.webp',
       color: '#2fb2ea',
     },
@@ -46,25 +68,11 @@ export class EducationComponent {
       color: '#2fb2ea',
     },
     {
-      key: 'bachelor',
-      name: 'Universidad Cuauhtémoc Aguascalientes',
-      years: '2021 – 2024',
-      logo: '/education/universidad-cuauhtemoc.svg',
-      color: '#2f6fd6',
-    },
-    {
-      key: 'bootcamp',
+      key: 'engineering',
       name: 'Inadaptados',
-      years: '2024 – 2026',
+      ends: '2028',
       logo: '/education/inadaptados.webp',
       color: '#2fb2ea',
-    },
-    {
-      key: 'master',
-      name: 'Universidad Internacional de Aguascalientes',
-      years: '2024 – 2026',
-      logo: '/education/universidad-internacional.webp',
-      color: '#c9a84a',
     },
   ] as const;
 

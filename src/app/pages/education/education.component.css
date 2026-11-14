@@ -217,13 +217,17 @@
     display:grid;
     gap:14px;
     align-content:start;
+    /* Each card keeps its full height and the list scrolls; without this the grid squeezes the
+       cards (overflow:hidden lets them shrink) and their text gets cut */
+    grid-auto-rows:max-content;
     list-style:none;
 }
 
 .school{
     position:relative;
     display:grid;
-    grid-template-columns:150px minmax(0, 1fr);
+    grid-template-columns:168px minmax(0, 1fr);
+    min-height:118px;
     align-items:stretch;
     overflow:hidden;
     border-radius:18px;
@@ -261,7 +265,7 @@
 
 .plate img{
     width:100%;
-    max-height:56px;
+    max-height:62px;
     object-fit:contain;
     transition:transform .5s var(--ease-out);
 }
@@ -269,8 +273,8 @@
 .school-body{
     display:grid;
     align-content:center;
-    gap:6px;
-    padding:16px 18px;
+    gap:7px;
+    padding:18px 22px;
     min-width:0;
 }
 
@@ -299,7 +303,7 @@
 }
 
 .school-body b{
-    font-size:.98rem;
+    font-size:1.02rem;
     font-weight:700;
     line-height:1.35;
     text-wrap:balance;
