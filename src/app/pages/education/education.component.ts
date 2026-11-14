@@ -41,7 +41,7 @@ export class EducationComponent {
     {
       key: 'master',
       name: 'Universidad Internacional de Aguascalientes',
-      years: '2024 – 2026',
+      years: '2025 – 2026',
       logo: '/education/universidad-internacional.webp',
       color: '#c9a84a',
     },
