@@ -1,7 +1,9 @@
 # Portafolio de Bruno
 
 - Sitio: https://portafolio-web-chi-ten.vercel.app (Vercel `portafolio-web`). Repo `BrunoDunay/Portafolio-web`: push a `main` publica.
-- Angular 19 (no 22 como los demás). Commits en inglés.
+- Angular 22 (subido de 19 el 14 nov 2026). Commits en inglés.
+- Formación: Ingeniería en Desarrollo de Software (2028) y TSU en Desarrollo Web (2027), en `pages/education` + `ui.ts`.
+- Proyectos con `quality` en `development-projects.ts` muestran la insignia "Seguridad auditada" y el panel 04 "Calidad y seguridad" (texto en español en `projects-es.ts`).
 - **Bilingüe (5 nov 2026):** botón ES/EN al final de la barra de navegación; cambia al instante, se recuerda en
   localStorage y la primera vez sigue al navegador (español si está en español). `?lang=es` o `?lang=en` en la URL lo fuerza
   (útil para el enlace del Perfil de Empresa de Google). Textos de la interfaz en `src/app/core/i18n/ui.ts`; textos de

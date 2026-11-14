@@ -86,7 +86,7 @@ const en = {
     inProgress: 'In progress',
     degrees: {
       engineering: 'B.Eng. in Software Development',
-      tsu: 'Associate Degree (TSU) in Web Development · intermediate degree of the engineering program',
+      tsu: 'Associate Degree (TSU) in Web Development',
       bachelor: 'Bachelor\'s Degree in Design and Content Production',
       bootcamp: 'Full Stack Developer (MEAN)',
       master: 'Master\'s Degree in Teaching Skills Development for Digital Transformation',
@@ -206,7 +206,7 @@ const es: UiText = {
     inProgress: 'En curso',
     degrees: {
       engineering: 'Ingeniería en Desarrollo de Software',
-      tsu: 'Técnico Superior Universitario en Desarrollo Web · título intermedio de la ingeniería',
+      tsu: 'TSU en Desarrollo Web (título intermedio)',
       bachelor: 'Licenciatura en Diseño y Producción de Contenidos',
       bootcamp: 'Desarrollador Full Stack (MEAN)',
       master: 'Maestría en Desarrollo de Competencias Docentes para la Transformación Digital',
